@@ -14,6 +14,13 @@ public class ClienteEmpresa extends Cliente{
     String nit;
     String nombreEmpresa;
     String sectorComercial;
+
+    public ClienteEmpresa(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String nit, String nombreEmpresa, String sectorComercial) {
+        super(id, nombre, telefono, direccion, ocupacion, estaSuscrito);
+        this.nit = nit;
+        this.nombreEmpresa = nombreEmpresa;
+        this.sectorComercial = sectorComercial;
+    }
     
     @Override
     public void iniciarSesion(String id, String contraseña) {

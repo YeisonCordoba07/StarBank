@@ -12,12 +12,23 @@ package starbank;
 public class Cajero {
     
     
-    public void crearCliente()
+    public void crearCliente(String tipoCliente, String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito)
     {
-        
+        switch (tipoCliente)
+        {
+            case "Persona":
+                ClientePersona nuevoCliente = new ClientePersona(id, nombre, telefono, direccion, ocupacion, estaSuscrito);
+                break;
+            case "Empresa":
+                break;
+            default:
+                System.out.println("No se ingreso un cliente correcto");
+                break;
+        }
+
     }
     
-    public void agregarCuenta()
+    public void crearCuenta()
     {
         
     }

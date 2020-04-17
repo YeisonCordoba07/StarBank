@@ -20,4 +20,13 @@ abstract class Cliente {
 
     abstract public void iniciarSesion(String id, String contraseña);
 
+    public Cliente(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito) {
+        this.id = id;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.ocupacion = ocupacion;
+        this.estaSuscrito = estaSuscrito;
+    }
+
 }
