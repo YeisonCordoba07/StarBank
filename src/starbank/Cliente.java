@@ -16,7 +16,7 @@ abstract class Cliente {
     String telefono;
     String direccion;
     String ocupacion;
-    boolean estaSuscrito;
+    boolean estaSuscrito;//Se perderá la suscripcion a la sucursal si no tiene por lo menos una cuenta activa
 
     abstract public void iniciarSesion(String id, String contraseña);
 

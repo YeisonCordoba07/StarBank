@@ -12,7 +12,7 @@ package starbank;
 public class Cajero {
     
     
-    public void agregarCliente()
+    public void crearCliente()
     {
         
     }

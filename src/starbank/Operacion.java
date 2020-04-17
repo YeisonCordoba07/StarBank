@@ -5,14 +5,16 @@
  */
 package starbank;
 
+import java.sql.Time;
+import java.util.Date;
+
 /**
  *
  * @author YEISON
  */
-public class Sucursal {
-    String id;
-    String direccionSucursal;
-    String nombreSucursal;
-    String ciudadSucursal;
-    double saldoSucursal;
+public class Operacion {
+    String nombreOperacion;
+    Date fechaOperacion;
+    Time hora;
+    
 }

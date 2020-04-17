@@ -9,10 +9,6 @@ package starbank;
  *
  * @author YEISON
  */
-public class Sucursal {
-    String id;
-    String direccionSucursal;
-    String nombreSucursal;
-    String ciudadSucursal;
-    double saldoSucursal;
+public class OperacionDesactivarCuenta extends Operacion{
+    
 }
