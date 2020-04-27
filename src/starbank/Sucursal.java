@@ -10,9 +10,14 @@ package starbank;
  * @author YEISON
  */
 public class Sucursal {
-    String id;
+    String idSucursal;
     String direccionSucursal;
     String nombreSucursal;
     String ciudadSucursal;
-    double saldoSucursal;
+    static double saldoSucursal;
+    
+    
+    public void consignarSucursal(double precioRetiro){
+        this.saldoSucursal += precioRetiro;//Se le añade el precio de retiro a el saldo de la sucursal
+    }
 }

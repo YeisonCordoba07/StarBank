@@ -5,6 +5,8 @@
  */
 package starbank;
 
+import java.util.List;
+
 /**
  *
  * @author YEISON
@@ -12,8 +14,10 @@ package starbank;
 public abstract class Cuenta {
     //Si se desactiva la cuenta podrá retirar todo el saldo 
     String id;
+    String contraseñaCuenta;
     double saldo;//Una cuenta nunca puede tener un saldo menor a 10000
-    boolean estaActivada;//Está activada cuando se crea y reliza una conignacion de 20000
+    boolean estaActivada;//Está activada cuando se crea y reliza una consignacion de 20000
+    List <Operacion> listaOperaciones;    
 
     
     
@@ -31,8 +35,10 @@ public abstract class Cuenta {
             double costoDeRetiro;
     }
     
-    public void agregarOperacion(double valor, String nombreOperacion)
+    
+    public void agregarOperacion(Operacion operacion)
     {
+        //Agrega la operacion a listaOperaciones
         
     }
 }

@@ -5,6 +5,9 @@
  */
 package starbank;
 
+import java.sql.Time;
+import java.util.Date;
+
 /**
  *
  * @author YEISON
@@ -12,4 +15,13 @@ package starbank;
 public class OperacionConsignar extends Operacion{
     
     double valorAConsignar;
+
+    public OperacionConsignar(String nombreOperacion, Date fechaOperacion, Time hora, String otros) {
+        super(nombreOperacion, fechaOperacion, hora, otros);
+        this.valorAConsignar = Double.parseDouble(otros);//Revisar
+    }
+    
+    public void buscarValor(){
+        //busca dentro de otros el valor y lo guarda en valorAConsignar
+    }
 }

@@ -12,12 +12,12 @@ package starbank;
 public class Cajero {
     
     
-    public void crearCliente(String tipoCliente, String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito)
+    public void crearCliente(String tipoCliente, String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña)
     {
         switch (tipoCliente)
         {
             case "Persona":
-                ClientePersona nuevoCliente = new ClientePersona(id, nombre, telefono, direccion, ocupacion, estaSuscrito);
+                ClientePersona nuevoCliente = new ClientePersona(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña);
                 break;
             case "Empresa":
                 break;

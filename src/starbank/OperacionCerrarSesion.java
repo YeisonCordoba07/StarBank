@@ -12,9 +12,9 @@ import java.util.Date;
  *
  * @author YEISON
  */
-public class OperacionDesactivarCuenta extends Operacion{
+public class OperacionCerrarSesion extends Operacion{
 
-    public OperacionDesactivarCuenta(String nombreOperacion, Date fechaOperacion, Time hora, String otros) {
+    public OperacionCerrarSesion(String nombreOperacion, Date fechaOperacion, Time hora, String otros) {
         super(nombreOperacion, fechaOperacion, hora, otros);
     }
     

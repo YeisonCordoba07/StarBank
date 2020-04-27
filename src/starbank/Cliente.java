@@ -17,16 +17,18 @@ abstract class Cliente {
     String direccion;
     String ocupacion;
     boolean estaSuscrito;//Se perderá la suscripcion a la sucursal si no tiene por lo menos una cuenta activa
+    String contraseña;
 
-    abstract public void iniciarSesion(String id, String contraseña);
+    abstract public void iniciarSesion(String id, String contraseña);//Ir a la base de datos y comprobar que el id y la contraseña esten bien, luego trae toda la informacion del Cliente
 
-    public Cliente(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito) {
+    public Cliente(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
         this.ocupacion = ocupacion;
         this.estaSuscrito = estaSuscrito;
+        this.contraseña = contraseña;
     }
 
 }
