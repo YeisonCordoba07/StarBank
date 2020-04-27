@@ -13,10 +13,10 @@ import java.util.Date;
  * @author YEISON
  */
 public class Operacion {
-    String nombreOperacion;
-    Date fechaOperacion;
-    Time hora;
-    String otros;
+    protected String nombreOperacion;
+    protected Date fechaOperacion;
+    protected Time hora;
+    protected String otros;
 
     
     //Contructor----------------------------------------------------------------

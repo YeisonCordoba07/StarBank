@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class OperacionRetirar extends Operacion {
 
-    double valorARetirar;
+    private double valorARetirar;
 
     public OperacionRetirar(String nombreOperacion, Date fechaOperacion, Time hora, String otros) {
         super(nombreOperacion, fechaOperacion, hora, otros);

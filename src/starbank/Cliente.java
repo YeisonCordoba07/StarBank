@@ -11,13 +11,13 @@ package starbank;
  */
 abstract class Cliente {
 
-    String id;
-    String nombre;
-    String telefono;
-    String direccion;
-    String ocupacion;
-    boolean estaSuscrito;//Se perderá la suscripcion a la sucursal si no tiene por lo menos una cuenta activa
-    String contraseña;
+    protected String id;
+    protected String nombre;
+    protected String telefono;
+    protected String direccion;
+    protected String ocupacion;
+    protected boolean estaSuscrito;//Se perderá la suscripcion a la sucursal si no tiene por lo menos una cuenta activa
+    protected String contraseña;
 
     abstract public void iniciarSesion(String id, String contraseña);//Ir a la base de datos y comprobar que el id y la contraseña esten bien, luego trae toda la informacion del Cliente
 

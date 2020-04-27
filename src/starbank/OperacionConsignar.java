@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class OperacionConsignar extends Operacion{
     
-    double valorAConsignar;
+    private double valorAConsignar;
 
     public OperacionConsignar(String nombreOperacion, Date fechaOperacion, Time hora, String otros) {
         super(nombreOperacion, fechaOperacion, hora, otros);

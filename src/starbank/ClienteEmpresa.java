@@ -11,9 +11,9 @@ package starbank;
  */
 public class ClienteEmpresa extends Cliente{
 
-    String nit;
-    String nombreEmpresa;
-    String sectorComercial;
+    private String nit;
+    private String nombreEmpresa;
+    private String sectorComercial;
 
     public ClienteEmpresa(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito,String contraseña, String nit, String nombreEmpresa, String sectorComercial) {
         super(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña);

@@ -13,11 +13,11 @@ import java.util.List;
  */
 public abstract class Cuenta {
     //Si se desactiva la cuenta podrá retirar todo el saldo 
-    String id;
-    String contraseñaCuenta;
-    double saldo;//Una cuenta nunca puede tener un saldo menor a 10000
-    boolean estaActivada;//Está activada cuando se crea y reliza una consignacion de 20000
-    List <Operacion> listaOperaciones;    
+    protected String id;
+    protected String contraseñaCuenta;
+    protected double saldo;//Una cuenta nunca puede tener un saldo menor a 10000
+    protected boolean estaActivada;//Está activada cuando se crea y reliza una consignacion de 20000
+    protected List <Operacion> listaOperaciones;    
 
     
     
