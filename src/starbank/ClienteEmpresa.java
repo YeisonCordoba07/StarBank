@@ -26,5 +26,31 @@ public class ClienteEmpresa extends Cliente{
     public void iniciarSesion(String id, String contraseña) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+//------------------------------------------------------------------------------
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+    //-----------------------------------
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
+    }
+
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
+    }
+    //-----------------------------------
+    public String getSectorComercial() {
+        return sectorComercial;
+    }
+
+    public void setSectorComercial(String sectorComercial) {
+        this.sectorComercial = sectorComercial;
+    }
+ //------------------------------------------------------------------------------   
+    
     
 }
