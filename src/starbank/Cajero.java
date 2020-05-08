@@ -11,7 +11,7 @@ package starbank;
  */
 public class Cajero {
 
-    Json json = new Json();//Objeto con el cual se implementara la API Gson
+
 
     public void crearCliente(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña, String tipoCliente,
             String nit, String nombreEmpresa, String sectorComercial) {
@@ -22,11 +22,13 @@ public class Cajero {
             //Agregar a la base de datos de json los datos
             case "Persona":
                 ClientePersona nuevoCliente = new ClientePersona(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña);
-                json.agregarCliente(nuevoCliente);
+                //Aplicando el patron de singleton, haciendo referencia a un objeto de la clase Json 
+                //que me va a dar acceso a todos lo que necesite de el, sin necesidad de crear uno deferente 
+                Json.objetoJson.agregarCliente(nuevoCliente);
                 break;
             case "Empresa":
                 ClienteEmpresa nuevoClienteEmpresa = new ClienteEmpresa(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña, nit, nombreEmpresa, sectorComercial);
-                json.agregarCliente(nuevoClienteEmpresa);
+                Json.objetoJson.agregarCliente(nuevoClienteEmpresa);
                 break;
             default:
                 System.out.println("No se ingreso un cliente correcto");

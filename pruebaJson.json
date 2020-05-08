@@ -1,1 +1,3 @@
-[{"id":"123456789","nombre":"YeisonCordoba07","telefono":"555555","direccion":"Carrera 55","ocupacion":"Estudiante","estaSuscrito":false,"contraseña":"contraseña.segura"}]
+[{"id":"123456789","nombre":"YeisonCordoba07","telefono":"55555","direccion":"Git Hub","ocupacion":"Estudiante","estaSuscrito":false,"contraseña":"contraseña.segura"},
+{"nit":"687196","nombreEmpresa":"Life-Animation","sectorComercial":"Cine","id":"1111111","nombre":"Yeison","telefono":"0000000","direccion":"Carrera 55","ocupacion":"Animador","estaSuscrito":false,"contraseña":"pasword"},
+{"nit":"687196","nombreEmpresa":"Life-Animation","sectorComercial":"Cine","id":"22222","nombre":"Alexander","telefono":"2222222","direccion":"Carrera 55","ocupacion":"Animador","estaSuscrito":false,"contraseña":"pasword2"}]

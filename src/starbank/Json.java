@@ -17,14 +17,25 @@ import java.io.IOException;
  */
 public class Json {
 
-    String stringJson = "";
+    String stringJson = "[";
     Gson gson = new Gson();
+    public static Json objetoJson = new Json();
 
+    //Agrega al nuevo cliente al string que tiene toda la informacion, lo agrega en notacion Json
+    //Si no está vacio, elimina el ultimo corchete y pone una coma y un salto de linea
     public void agregarCliente(Cliente nuevoCliente) {
-        stringJson = "[" + gson.toJson(nuevoCliente) + "]";
+        if (stringJson != "[") {
+            stringJson = stringJson.replace("]", "");
+            stringJson += ",";
+
+            stringJson += "\n";
+        }
+        stringJson += gson.toJson(nuevoCliente) + "]";
+        System.out.println(stringJson);
         buscarYAgregar();
     }
 
+    //Busca el archivo en la carpeta del proyecto y lo sobreescribe
     public void buscarYAgregar() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("pruebaJson.json"))) {
             bw.write(stringJson);
