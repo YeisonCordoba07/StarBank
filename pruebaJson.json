@@ -1,3 +1,2 @@
-[{"id":"123456789","nombre":"YeisonCordoba07","telefono":"55555","direccion":"Git Hub","ocupacion":"Estudiante","estaSuscrito":false,"contraseña":"contraseña.segura"},
-{"nit":"687196","nombreEmpresa":"Life-Animation","sectorComercial":"Cine","id":"1111111","nombre":"Yeison","telefono":"0000000","direccion":"Carrera 55","ocupacion":"Animador","estaSuscrito":false,"contraseña":"pasword"},
-{"nit":"687196","nombreEmpresa":"Life-Animation","sectorComercial":"Cine","id":"22222","nombre":"Alexander","telefono":"2222222","direccion":"Carrera 55","ocupacion":"Animador","estaSuscrito":false,"contraseña":"pasword2"}]
+[{"id":"asdf","nombre":"asdf","telefono":"asdf","direccion":"asdf","ocupacion":"asdf","estaSuscrito":false,"contraseña":"asdf"},
+{"nit":"asdf","nombreEmpresa":"asdf","sectorComercial":"asdf","id":"asdf","nombre":"asdf","telefono":"asdf","direccion":"asdf","ocupacion":"asdf","estaSuscrito":false,"contraseña":"asdf"}]
