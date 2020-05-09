@@ -12,6 +12,9 @@ package starbank;
 public class ClientePersona extends Cliente {
     public static ClientePersona clientePersona;
 
+    public ClientePersona() {
+    }
+
     public ClientePersona(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña) {
         super(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña);
     }
@@ -21,10 +24,10 @@ public class ClientePersona extends Cliente {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+   // @Override
     public String toString() {
         return "ClientePersona{"+ "\n"+ "Nombre: " + nombre + "\n" + "ID: " + id + "\n" + "Telefono: " + telefono + "\n" + "Direccion: " + direccion + "\n" + "Ocupacion: " + ocupacion + "\n"
-                + "Contraseña: " + contraseña + "}"+ "\n" +"\n";
+                + "Contraseña: " + contraseña +"\n"+ "}"+ "\n" +"\n";
     }
 
 }

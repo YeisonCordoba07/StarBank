@@ -15,6 +15,9 @@ public class ClienteEmpresa extends Cliente {
     private String nombreEmpresa;
     private String sectorComercial;
 
+    public ClienteEmpresa() {
+    }
+
     public ClienteEmpresa(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña, String nit, String nombreEmpresa, String sectorComercial) {
         super(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña);
         this.nit = nit;
@@ -55,7 +58,7 @@ public class ClienteEmpresa extends Cliente {
     }
     //------------------------------------------------------------------------------   
 
-    @Override
+    //@Override
     public String toString() {
         return "Cliente{"+"\n" + "Nombre: " + nombre + "\n" + "ID: " + id + "\n" + "Telefono: " + telefono + "\n" + "Direccion: " + direccion + "\n"
                 + "Ocupacion: " + ocupacion + "\n" + "Contraseña: " + contraseña + "Nit: " + nit + "\n" + "Nombre Empresa: " + nombreEmpresa + "\n"
