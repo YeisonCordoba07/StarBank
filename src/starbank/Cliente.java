@@ -9,7 +9,7 @@ package starbank;
  *
  * @author YEISON
  */
-class Cliente {
+abstract class Cliente {
 
     protected String id;
     protected String nombre;
