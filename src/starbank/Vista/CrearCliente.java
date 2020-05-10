@@ -22,8 +22,6 @@ public class CrearCliente extends javax.swing.JFrame {
     public CrearCliente() {
         initComponents();
     }
-    Cajero cajero = new Cajero();
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -222,7 +220,7 @@ public class CrearCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +247,7 @@ public class CrearCliente extends javax.swing.JFrame {
 
                 } else {
                     
-                    cajero.crearClientePersona(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
+                    Cajero.cajero.crearClientePersona(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
                             TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem());
 
                     LabelError.setForeground(Color.green);
@@ -265,7 +263,7 @@ public class CrearCliente extends javax.swing.JFrame {
                     LabelError.setText("Llene todos los campos");
                 } else {
                     
-                    cajero.crearClienteEmpresa(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
+                    Cajero.cajero.crearClienteEmpresa(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
                             TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem(),
                             TextFieldNit.getText(), TextFieldNombreEmpresa.getText(), TextFieldSectorComercial.getText());
 
