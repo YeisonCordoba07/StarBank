@@ -60,8 +60,8 @@ public class ClienteEmpresa extends Cliente {
 
     //@Override
     public String toString() {
-        return "Cliente{"+"\n" + "Nombre: " + nombre + "\n" + "ID: " + id + "\n" + "Telefono: " + telefono + "\n" + "Direccion: " + direccion + "\n"
-                + "Ocupacion: " + ocupacion + "\n" + "Contraseña: " + contraseña + "Nit: " + nit + "\n" + "Nombre Empresa: " + nombreEmpresa + "\n"
+        return "ClienteEmpresa{"+"\n" + "Nombre: " + nombre + "\n" + "ID: " + id + "\n" + "Telefono: " + telefono + "\n" + "Direccion: " + direccion + "\n"
+                + "Ocupacion: " + ocupacion + "\n" + "Contraseña: " + contraseña + "\n"+"Nit: " + nit + "\n" + "Nombre Empresa: " + nombreEmpresa + "\n"
                 + "Sector comercial: " + sectorComercial + "\n" + "}"+"\n"+"\n";
     }
 
