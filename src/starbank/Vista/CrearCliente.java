@@ -38,7 +38,6 @@ public class CrearCliente extends javax.swing.JFrame {
         TextFieldNombre = new javax.swing.JTextField();
         TextFieldDireccion = new javax.swing.JTextField();
         TextFieldOcupacion = new javax.swing.JTextField();
-        TextFieldTipoCliente = new javax.swing.JTextField();
         TextFieldId = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -103,6 +102,7 @@ public class CrearCliente extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         jLabel11.setText("CREAR CLIENTE");
 
+        ComboBoxTipoCliente.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         ComboBoxTipoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Persona", "Empresa" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -115,8 +115,7 @@ public class CrearCliente extends javax.swing.JFrame {
                         .addGap(188, 188, 188)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)
-                            .addComponent(ComboBoxTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel11)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -124,10 +123,14 @@ public class CrearCliente extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(181, 181, 181)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TextFieldTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(181, 181, 181)
+                                        .addComponent(TextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ComboBoxTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(31, 31, 31))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,11 +191,12 @@ public class CrearCliente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(TextFieldTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ComboBoxTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComboBoxTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextFieldNit, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -201,14 +205,14 @@ public class CrearCliente extends javax.swing.JFrame {
                     .addComponent(TextFieldNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextFieldSectorComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextFieldSectorComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
                 .addComponent(LabelError)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,53 +237,48 @@ public class CrearCliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        //Comprueba que los campos no estén vacios
-        if (TextFieldId.getText().length() == 0 || TextFieldNombre.getText().length() == 0 || TextFieldTelefono.getText().length() == 0 || TextFieldDireccion.getText().length() == 0
-                || TextFieldOcupacion.getText().length() == 0) {
-            LabelError.setForeground(Color.red);
-            LabelError.setText("Llene todos los campos");
+        switch ((String) ComboBoxTipoCliente.getSelectedItem()) 
+        {
+            case "Persona":
+                //Comprueba que los campos no estén vacios
+                if (TextFieldId.getText().length() == 0 || TextFieldNombre.getText().length() == 0 || TextFieldTelefono.getText().length() == 0 || TextFieldDireccion.getText().length() == 0
+                        || TextFieldOcupacion.getText().length() == 0 || TextFieldContraseña.getText().length() == 0) {
 
-        } else {
-            switch ((String) ComboBoxTipoCliente.getSelectedItem()) {
-                case "Persona":
-                    cajero.crearCliente(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
-                            TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem(),
-                            "", "", "");
+                    LabelError.setForeground(Color.red);
+                    LabelError.setText("Llene todos los campos");
+
+                } else {
+                    
+                    cajero.crearClientePersona(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
+                            TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem());
+
                     LabelError.setForeground(Color.green);
                     LabelError.setText("Exito");
-                    break;
-                case "Empresa":
-                    cajero.crearCliente(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
+                }
+
+
+                break;
+            case "Empresa":
+                //Comprueba que si el cliente es una empresa, llene todos los espacios para empresa
+                if (TextFieldNit.getText().length() == 0 || TextFieldNombreEmpresa.getText().length() == 0 || TextFieldSectorComercial.getText().length() == 0) {
+                    LabelError.setForeground(Color.red);
+                    LabelError.setText("Llene todos los campos");
+                } else {
+                    
+                    cajero.crearClienteEmpresa(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
                             TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem(),
                             TextFieldNit.getText(), TextFieldNombreEmpresa.getText(), TextFieldSectorComercial.getText());
+
                     LabelError.setForeground(Color.green);
                     LabelError.setText("Exito");
-                    break;
-                default:
-                    System.out.println("Error digitando el tipo de cliente en Clase Crear Cliente");
-                    break;
-            }
-        }
+                }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    public void crearCliente() {
-        switch (TextFieldTipoCliente.getText()) {
-            case "Persona":
-                ClientePersona nuevoCliente = new ClientePersona(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(),
-                        TextFieldDireccion.getText(), TextFieldOcupacion.getText(), false, TextFieldContraseña.getText());
-                break;
-
-            case "Empresa":
-
-                ClienteEmpresa nuevoClienteEmpresa = new ClienteEmpresa(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(),
-                        TextFieldDireccion.getText(), TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), TextFieldNit.getText(), TextFieldNombreEmpresa.getText(), TextFieldSectorComercial.getText());
                 break;
             default:
                 System.out.println("Error digitando el tipo de cliente en Clase Crear Cliente");
                 break;
         }
-    }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,7 +327,6 @@ public class CrearCliente extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldOcupacion;
     private javax.swing.JTextField TextFieldSectorComercial;
     private javax.swing.JTextField TextFieldTelefono;
-    private javax.swing.JTextField TextFieldTipoCliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

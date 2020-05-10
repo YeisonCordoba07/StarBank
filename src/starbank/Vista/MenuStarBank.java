@@ -65,7 +65,7 @@ public class MenuStarBank extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 36)); // NOI18N
         jLabel1.setText("INICIAR SESION");
 
-        jButton1.setText("Leer Json");
+        jButton1.setText("Leer e imprimir archivo Json");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -89,7 +89,7 @@ public class MenuStarBank extends javax.swing.JFrame {
                                 .addComponent(PasswordFieldContraseña, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(TextFieldId, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
+                        .addGap(143, 143, 143)
                         .addComponent(jButton1)))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
@@ -108,9 +108,9 @@ public class MenuStarBank extends javax.swing.JFrame {
                 .addComponent(PasswordFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
                 .addComponent(BotonIniciarSesionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(60, 60, 60))
+                .addGap(62, 62, 62))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
