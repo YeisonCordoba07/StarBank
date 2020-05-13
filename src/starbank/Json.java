@@ -24,7 +24,7 @@ import sun.net.www.content.text.plain;
  */
 public class Json {
 
-    String stringJson = "[";//String con toda la informacion de los clientes
+    String stringJson = "[";//String con toda la informacion de los clientesJsonArray
     String stringLista = "[";//String con los todos los tipos de cliente
     Gson gson = new Gson();
     public static Json objetoJson = new Json();//Singleton
@@ -42,7 +42,7 @@ public class Json {
     }
 
 //--------------------------------------------------------------------------------------------------------------------------------   
-    //Agrega al nuevo cliente al string que tiene toda la informacion, lo agrega en notacion Json
+    //Agrega al nuevo cliente al string que tiene toda la informacion, lo agrega en notacion Json al archivo Json
     //Si no está vacio, elimina el ultimo corchete y pone una coma y un salto de linea
     public void agregarCliente(Cliente nuevoCliente) {
         if (stringJson != "[") {
@@ -56,8 +56,8 @@ public class Json {
         sobreescribirJson();
     }
 
-//----------------------------------------------------------------------------------------  
-    //Busca el archivo en la carpeta del proyecto y lo sobreescribe
+    //--------------------------------------------------------------------------
+    //Busca el archivo Json en la carpeta del proyecto y lo sobreescribe
     public void sobreescribirJson() {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("pruebaJson.json"))) {
@@ -70,7 +70,8 @@ public class Json {
         }
     }
 
-//--------------------------------------------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    //Trae lo que está en el archivo Json
     public void leerJson() {
         String newStringJson = "";
 
@@ -89,7 +90,7 @@ public class Json {
 
         //Guarda todos los objetos del archivo Json
         stringJson = newStringJson;
-        JsonArray clientes = gson.fromJson(newStringJson, JsonArray.class);
+        JsonArray clientesJsonArray = gson.fromJson(newStringJson, JsonArray.class);
         imprimirListaObjetos();
 
         //Aquí hay que guardar los datos en un tipo de archivo que debe ser Cliente Persona, o Cliente Empresa
@@ -99,12 +100,12 @@ public class Json {
         //con otro atrubuto diferentes, ya no funcionaria y estariamos en el mismos problema
         //Lo mismo pasa con operacion y sus hijos
         //Va a listaObjetos y mira que tipo es el objeto para saber en donde guardarlo
-        for (int i = 0; i < listaObjetos.size(); i++) {
+        for (int i = 0; i < listaObjetos.size(); i++) {         
             if (listaObjetos.get(i).getTipoObjeto().equalsIgnoreCase("Persona")) {
 
-                JsonObject jsonObject1 = (JsonObject) clientes.get(i);
+                JsonObject jsonObject1 = (JsonObject) clientesJsonArray.get(i);
                 ClientePersona persona = new ClientePersona();
-
+//jsonObject1.get("TipoCliente");
                 persona.setId("" + jsonObject1.get("id"));
                 persona.setNombre("" + jsonObject1.get("nombre"));
                 persona.setTelefono("" + jsonObject1.get("telefono"));
@@ -112,12 +113,14 @@ public class Json {
                 persona.setOcupacion("" + jsonObject1.get("ocupacion"));
                 persona.setEstaSuscrito(Boolean.parseBoolean("" + jsonObject1.get("estaSuscrito")));
                 persona.setContraseña("" + jsonObject1.get("contraseña"));
+                //Agregar cuentas una por una
+                //persona.setCuentasCorrientes((ArrayList)jsonObject1.get("cuentasCorrientes"));
                 clientePersona.add(persona);
 
                 //Añade un cliente empresa a la lista, para agregarlo va a la listaObjetos y mira cuales objetos coinciden con su tipo
             } else if (listaObjetos.get(i).getTipoObjeto().equalsIgnoreCase("Empresa")) {
 
-                JsonObject jsonObject1 = (JsonObject) clientes.get(i);
+                JsonObject jsonObject1 = (JsonObject) clientesJsonArray.get(i);
                 ClienteEmpresa empresa = new ClienteEmpresa();
 
                 empresa.setId("" + jsonObject1.get("id"));
@@ -143,7 +146,34 @@ public class Json {
 
     }
 
-//----------------------------------------------------------------------------------------  
+//--------------------------------------------------------------------------------------------------------------------------------  
+    //Agrega un nuevo cliente a la listaObjetos, que tiene todos los tipos de cliente
+    public void agregarALista(String tipo) {
+
+        //Posicion, es index en donde está en la listaObjetos y en el Json
+        PosicionObjetos a = new PosicionObjetos(listaObjetos.size() + 1, tipo);
+        listaObjetos.add(a);
+        agregarAListaJson(a);
+
+    }
+
+    //--------------------------------------------------------------------------
+    //Agrega el tipo de cliente al string que tiene todos los tipos, lo agrega en notacion Json
+    //Si no está vacio, elimina el ultimo corchete y pone una coma y un salto de linea
+    public void agregarAListaJson(PosicionObjetos a) {
+        //PosicionObjetos a = new PosicionObjetos(listaObjetos.size(), tipo);
+        if (stringLista != "[") {
+            stringLista = stringLista.replace("]", "");
+            stringLista += ",";
+
+            stringLista += "\n";
+        }
+        stringLista += gson.toJson(a) + "]";
+        System.out.println(stringLista);
+        sobreescribirLista();
+    }
+
+    //--------------------------------------------------------------------------
     //Busca el archivo en la carpeta del proyecto y lo sobreescribe
     public void sobreescribirLista() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("listaJson.json"))) {
@@ -156,7 +186,7 @@ public class Json {
         }
     }
 
-//----------------------------------------------------------------------------------------  
+    //--------------------------------------------------------------------------
     public void leerLista() {
         //Trae la lista de la base de datos
         String newStringLista = "";
@@ -184,34 +214,10 @@ public class Json {
         }
     }
 
-//-------------------------------------------------------------------------------------------------------------------------------- 
-    //Agrega un nuevo cliente a la listaObjetos, que tiene todos los tipos de cliente
-    public void agregarALista(String tipo) {
-
-        //Posicion, es index en donde está en la listaObjetos y en el Json
-        PosicionObjetos a = new PosicionObjetos(listaObjetos.size() + 1, tipo);
-        listaObjetos.add(a);
-        //agregarAListaJson(a);
-
-    }
-
-    //--------------------------------------------------------------------------------------------------------------------------------    
-    //Agrega el tipo de cliente al string que tiene todos los tipos, lo agrega en notacion Json
-    //Si no está vacio, elimina el ultimo corchete y pone una coma y un salto de linea
-    public void agregarAListaJson(String tipo) {
-        PosicionObjetos a = new PosicionObjetos(listaObjetos.size(), tipo);
-        if (stringLista != "[") {
-            stringLista = stringLista.replace("]", "");
-            stringLista += ",";
-
-            stringLista += "\n";
-        }
-        stringLista += gson.toJson(a) + "]";
-        System.out.println(stringLista);
-        sobreescribirLista();
-    }
-//
-
+    
+    
+    
+//--------------------------------------------------------------------------------------------------------------------------------  
     public void imprimirListaObjetos() {
         System.out.println("IMPRIMIR LISTA OBJETOS");
         for (int i = 0; i < listaObjetos.size(); i++) {
@@ -227,14 +233,17 @@ public class Json {
             System.out.println(lista.get(i).toString());
         }
     }
-
-//--------------------------------------------------------------------------------------------------------------------------------   
+  
 }
+
+
+//NUEVA CLASE--------------------------------------------------------------------------------------------------------------------------------  
 
 class PosicionObjetos {
 
     private int posicionObjeto;
     private String tipoObjeto;
+    private String id;
 
     public PosicionObjetos(int posicionObjeto, String tipoObjeto) {
         this.posicionObjeto = posicionObjeto;

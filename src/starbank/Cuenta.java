@@ -14,7 +14,7 @@ import java.util.List;
 public abstract class Cuenta {
 
     //Si se desactiva la cuenta podrá retirar todo el saldo 
-    protected String id;
+    protected String idCuenta;
     protected String contraseñaCuenta;
     protected double saldo;//Una cuenta nunca puede tener un saldo menor a 10000
     protected boolean estaActivada;//Está activada cuando se crea y reliza una consignacion de 20000
@@ -36,10 +36,58 @@ public abstract class Cuenta {
         listaOperaciones.add(operacion);
 
     }
-    
-    public void verificarValorARetirar(double valorARetirar, double interes){
-        if(saldo - (interes*valorARetirar) < 10000){
+
+    public void verificarValorARetirar(double valorARetirar, double interes) {
+        if (saldo - (interes * valorARetirar) < 10000) {
             //No se puede retirar
         }
     }
+
+    
+    
+//------------------------------------------------------------------------------
+    public String getIdCuenta() {
+        return idCuenta;
+    }
+
+    public void setIdCuenta(String idCuenta) {
+        this.idCuenta = idCuenta;
+    }
+
+    //--------------------------------------
+    public String getContraseñaCuenta() {
+        return contraseñaCuenta;
+    }
+
+    public void setContraseñaCuenta(String contraseñaCuenta) {
+        this.contraseñaCuenta = contraseñaCuenta;
+    }
+    //--------------------------------------
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+    //--------------------------------------
+
+    public boolean isEstaActivada() {
+        return estaActivada;
+    }
+
+    public void setEstaActivada(boolean estaActivada) {
+        this.estaActivada = estaActivada;
+    }
+    //--------------------------------------
+
+    public List<Operacion> getListaOperaciones() {
+        return listaOperaciones;
+    }
+
+    public void setListaOperaciones(List<Operacion> listaOperaciones) {
+        this.listaOperaciones = listaOperaciones;
+    }
+//------------------------------------------------------------------------------
 }
