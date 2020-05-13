@@ -18,8 +18,8 @@ public class ClienteEmpresa extends Cliente {
     public ClienteEmpresa() {
     }
 
-    public ClienteEmpresa(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña, String nit, String nombreEmpresa, String sectorComercial) {
-        super(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña);
+    public ClienteEmpresa(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña, String tipoCliente, String nit, String nombreEmpresa, String sectorComercial) {
+        super(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña, tipoCliente);
         this.nit = nit;
         this.nombreEmpresa = nombreEmpresa;
         this.sectorComercial = sectorComercial;

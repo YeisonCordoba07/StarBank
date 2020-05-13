@@ -1,2 +1,9 @@
-[{"posicionObjeto":1,"tipoObjeto":"Persona"},{"posicionObjeto":2,"tipoObjeto":"Persona"},{"posicionObjeto":3,"tipoObjeto":"Empresa"},
-{"posicionObjeto":4,"tipoObjeto":"Persona"}]
+[{"posicionObjeto":1,"tipoObjeto":"Persona"},{"posicionObjeto":2,"tipoObjeto":"Persona"},{"posicionObjeto":3,"tipoObjeto":"Empresa"},{"posicionObjeto":4,"tipoObjeto":"Persona"},{"posicionObjeto":1,"tipoObjeto":"Persona"},{"posicionObjeto":2,"tipoObjeto":"Persona"},{"posicionObjeto":3,"tipoObjeto":"Empresa"},{"posicionObjeto":4,"tipoObjeto":"Persona"},
+{"posicionObjeto":1,"tipoObjeto":"Persona"},
+{"posicionObjeto":2,"tipoObjeto":"Persona"},
+{"posicionObjeto":3,"tipoObjeto":"Empresa"},
+{"posicionObjeto":4,"tipoObjeto":"Persona"},
+{"posicionObjeto":5,"tipoObjeto":"Persona"},
+{"posicionObjeto":6,"tipoObjeto":"Persona"},
+{"posicionObjeto":7,"tipoObjeto":"Empresa"},
+{"posicionObjeto":8,"tipoObjeto":"Persona"}]

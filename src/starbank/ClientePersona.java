@@ -15,8 +15,8 @@ public class ClientePersona extends Cliente {
     public ClientePersona() {
     }
 
-    public ClientePersona(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña) {
-        super(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña);
+    public ClientePersona(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña, String tipoCliente) {
+        super(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña, tipoCliente);
     }
 
   

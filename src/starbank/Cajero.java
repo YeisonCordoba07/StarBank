@@ -14,7 +14,7 @@ public class Cajero {
     public static Cajero cajero = new Cajero();//Singleton
 
     public void crearClientePersona(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña, String tipoCliente) {
-        ClientePersona nuevoCliente = new ClientePersona(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña);
+        ClientePersona nuevoCliente = new ClientePersona(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña, tipoCliente);
         //Aplicando el patron de singleton, haciendo referencia a un objeto de la clase Json 
         //que me va a dar acceso a todos lo que necesite de el, sin necesidad de crear uno deferente 
         Json.objetoJson.agregarCliente(nuevoCliente);//Agrega el cliente al archivo Json
@@ -24,7 +24,7 @@ public class Cajero {
 
     public void crearClienteEmpresa(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña, String tipoCliente,
             String nit, String nombreEmpresa, String sectorComercial) {
-        ClienteEmpresa nuevoClienteEmpresa = new ClienteEmpresa(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña, nit, nombreEmpresa, sectorComercial);
+        ClienteEmpresa nuevoClienteEmpresa = new ClienteEmpresa(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña, tipoCliente, nit, nombreEmpresa, sectorComercial);
         Json.objetoJson.agregarCliente(nuevoClienteEmpresa);
         Json.objetoJson.agregarALista(tipoCliente);
         //Json.objetoJson.agregarAListaJson(tipoCliente);
@@ -43,7 +43,7 @@ public class Cajero {
     }
 
     public void traerJson() {
-        Json.objetoJson.leerLista();
+        //Json.objetoJson.leerLista();
         Json.objetoJson.leerJson();
     }
 
