@@ -10,6 +10,17 @@ package starbank;
  * @author YEISON
  */
 public class CuentaDeAhorros extends Cuenta{
-    private double interes;
+    private final double INTERES = 0.1;
+
+
+    public CuentaDeAhorros(String idCuenta, String contraseñaCuenta, double saldo, boolean estaActivada, String tipoCuenta) {
+        super(idCuenta, contraseñaCuenta, saldo, estaActivada, tipoCuenta);
+    }
+
+
+    
+    
+    
+    
     
 }

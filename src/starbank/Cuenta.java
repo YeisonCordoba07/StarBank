@@ -18,8 +18,24 @@ public abstract class Cuenta {
     protected String contraseñaCuenta;
     protected double saldo;//Una cuenta nunca puede tener un saldo menor a 10000
     protected boolean estaActivada;//Está activada cuando se crea y reliza una consignacion de 20000
+    protected String tipoCuenta;
     protected List<Operacion> listaOperaciones;
 
+    
+//---------------------------------------------------------------------------------------------------------------------
+    public Cuenta(String idCuenta, String contraseñaCuenta, double saldo, boolean estaActivada, String tipoCuenta) {
+        this.idCuenta = idCuenta;
+        this.contraseñaCuenta = contraseñaCuenta;
+        this.saldo = saldo;
+        this.estaActivada = estaActivada;
+        this.tipoCuenta = tipoCuenta;
+    }
+
+  
+//---------------------------------------------------------------------------------------------------------------------
+    
+    
+    
     public void consignar(double valorAConsignar) {
 
     }
@@ -89,5 +105,14 @@ public abstract class Cuenta {
     public void setListaOperaciones(List<Operacion> listaOperaciones) {
         this.listaOperaciones = listaOperaciones;
     }
-//------------------------------------------------------------------------------
+    //--------------------------------------
+    public String getTipoCuenta() {
+        return tipoCuenta;
+    }
+
+    public void setTipoCuenta(String tipoCuenta) {
+        this.tipoCuenta = tipoCuenta;
+    }
+
+    //------------------------------------------------------------------------------
 }

@@ -276,6 +276,10 @@ public class CrearCliente extends javax.swing.JFrame {
                 System.out.println("Error digitando el tipo de cliente en Clase Crear Cliente");
                 break;
         }
+        
+        this.dispose();
+        MenuCliente menuCliente = new MenuCliente();
+        menuCliente.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

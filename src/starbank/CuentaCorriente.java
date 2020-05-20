@@ -10,6 +10,11 @@ package starbank;
  * @author YEISON
  */
 public class CuentaCorriente extends Cuenta{
+
+
+    public CuentaCorriente(String idCuenta, String contraseñaCuenta, double saldo, boolean estaActivada, String tipoCuenta) {
+        super(idCuenta, contraseñaCuenta, saldo, estaActivada, tipoCuenta);
+    }
     
     
 }
