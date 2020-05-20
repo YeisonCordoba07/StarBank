@@ -36,7 +36,6 @@ public class Json {
     ArrayList<CuentaCorriente> cuentaCorriente = new ArrayList<CuentaCorriente>();
     ArrayList<CuentaDeAhorros> cuentaDeAhorros = new ArrayList<CuentaDeAhorros>();
 
-
     private Json() {
     }
 
@@ -105,12 +104,11 @@ public class Json {
                 persona.setOcupacion(jsonObject1.get("ocupacion").getAsString());
                 persona.setEstaSuscrito(jsonObject1.get("estaSuscrito").getAsBoolean());
                 persona.setContraseña(jsonObject1.get("contraseña").getAsString());
-                
+
                 //Agregar cuentas una por una
                 //persona.setCuentasCorrientes((ArrayList)jsonObject1.get("cuentasCorrientes"));
                 clientePersona.add(persona);
-            }
-            else if (jsonObject1.get("tipoCliente").getAsString().equalsIgnoreCase("Empresa")) {
+            } else if (jsonObject1.get("tipoCliente").getAsString().equalsIgnoreCase("Empresa")) {
                 ClienteEmpresa empresa = new ClienteEmpresa();
 
                 empresa.setId(jsonObject1.get("id").getAsString());
@@ -137,7 +135,6 @@ public class Json {
     }
 
 //--------------------------------------------------------------------------------------------------------------------------------  
-
     //Imprime los objetos de la lista que se le pasa como parametro
     public void imprimirLista(ArrayList lista) {
         System.out.println("");
@@ -159,6 +156,7 @@ public class Json {
         sobreescribirCuenta();
     }
 
+    //--------------------------------------------------------------------------
     public void sobreescribirCuenta() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("cuentaJson.json"))) {
             bw.write(stringCuenta);
@@ -170,6 +168,7 @@ public class Json {
         }
     }
 
+    //--------------------------------------------------------------------------
     public void leerCuenta() {
         //Trae la lista de la base de datos
         String newStringCuenta = "";
@@ -195,6 +194,7 @@ public class Json {
 
                     CuentaCorriente cuentaCorriente = new CuentaCorriente(
                             jsonObject1.get("idCuenta").getAsString(),
+                            jsonObject1.get("idCliente").getAsString(),
                             jsonObject1.get("contraseñaCuenta").getAsString(),
                             jsonObject1.get("saldo").getAsDouble(),
                             jsonObject1.get("estaActiva").getAsBoolean(),
@@ -205,6 +205,7 @@ public class Json {
                 } else if (jsonObject1.get("tipoCuenta").getAsString().equalsIgnoreCase("DeAhorros")) {
                     CuentaDeAhorros cuentaDeAhorros = new CuentaDeAhorros(
                             jsonObject1.get("idCuenta").getAsString(),
+                            jsonObject1.get("idCliente").getAsString(),
                             jsonObject1.get("contraseñaCuenta").getAsString(),
                             jsonObject1.get("saldo").getAsDouble(),
                             jsonObject1.get("estaActiva").getAsBoolean(),
@@ -217,5 +218,48 @@ public class Json {
         }
 
     }
-}
 
+//--------------------------------------------------------------------------------------------------------------------------------  
+    public void agregarCuentasCorrientesACliente() {
+        for (int i = 0; i < clientePersona.size(); i++) {
+            for (int j = 0; j < cuentaCorriente.size(); j++) {
+                if (cuentaCorriente.get(j).getIdCliente().equalsIgnoreCase(clientePersona.get(i).getId())) {
+                    clientePersona.get(i).agregarCuentaCorriente(cuentaCorriente.get(j));
+                }
+            }
+        }
+    }
+
+    //--------------------------------------------------------------------------
+    public void agregarCuentasDeAhorrosACliente() {
+        for (int i = 0; i < clientePersona.size(); i++) {
+            for (int j = 0; j < cuentaDeAhorros.size(); j++) {
+                if (cuentaDeAhorros.get(j).getIdCliente().equalsIgnoreCase(clientePersona.get(i).getId())) {
+                    clientePersona.get(i).agregarCuentaDeAhorros(cuentaDeAhorros.get(j));
+                }
+            }
+        }
+    }
+
+//-------------------------------------------------------------------------------------------------------------------------------- 
+    //Busca en la lista de clientes al cliente con la id que se le pasa como parametro, y lo retorna y lo encuentra
+    //También sirve para saber si el cliente existe
+    public ClientePersona retornaClientePersona(String idCliente) {
+        for (ClientePersona persona : this.clientePersona) {
+            if (persona.getId().equalsIgnoreCase(idCliente)) {
+                return persona;
+            }
+        }
+        return null;
+    }
+    
+    //--------------------------------------------------------------------------
+    public ClienteEmpresa retornaClienteEmpresa(String idCliente) {
+        for (ClienteEmpresa empresa : this.clienteEmpresa) {
+            if (empresa.getId().equalsIgnoreCase(idCliente)) {
+                return empresa;
+            }
+        }
+        return null;
+    }
+}

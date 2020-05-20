@@ -13,8 +13,8 @@ public class CuentaDeAhorros extends Cuenta{
     private final double INTERES = 0.1;
 
 
-    public CuentaDeAhorros(String idCuenta, String contraseñaCuenta, double saldo, boolean estaActivada, String tipoCuenta) {
-        super(idCuenta, contraseñaCuenta, saldo, estaActivada, tipoCuenta);
+    public CuentaDeAhorros(String idCuenta,String idCliente, String contraseñaCuenta, double saldo, boolean estaActivada, String tipoCuenta) {
+        super(idCuenta, idCliente, contraseñaCuenta, saldo, estaActivada, tipoCuenta);
     }
 
 

@@ -15,27 +15,24 @@ public abstract class Cuenta {
 
     //Si se desactiva la cuenta podrá retirar todo el saldo 
     protected String idCuenta;
+    protected String idCliente;
     protected String contraseñaCuenta;
     protected double saldo;//Una cuenta nunca puede tener un saldo menor a 10000
     protected boolean estaActivada;//Está activada cuando se crea y reliza una consignacion de 20000
     protected String tipoCuenta;
     protected List<Operacion> listaOperaciones;
 
-    
 //---------------------------------------------------------------------------------------------------------------------
-    public Cuenta(String idCuenta, String contraseñaCuenta, double saldo, boolean estaActivada, String tipoCuenta) {
+    public Cuenta(String idCuenta, String idCliente, String contraseñaCuenta, double saldo, boolean estaActivada, String tipoCuenta) {
         this.idCuenta = idCuenta;
+        this.idCliente = idCliente;
         this.contraseñaCuenta = contraseñaCuenta;
         this.saldo = saldo;
         this.estaActivada = estaActivada;
         this.tipoCuenta = tipoCuenta;
     }
 
-  
 //---------------------------------------------------------------------------------------------------------------------
-    
-    
-    
     public void consignar(double valorAConsignar) {
 
     }
@@ -59,8 +56,6 @@ public abstract class Cuenta {
         }
     }
 
-    
-    
 //------------------------------------------------------------------------------
     public String getIdCuenta() {
         return idCuenta;
@@ -68,6 +63,15 @@ public abstract class Cuenta {
 
     public void setIdCuenta(String idCuenta) {
         this.idCuenta = idCuenta;
+    }
+    //--------------------------------------
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
     //--------------------------------------
@@ -105,6 +109,7 @@ public abstract class Cuenta {
     public void setListaOperaciones(List<Operacion> listaOperaciones) {
         this.listaOperaciones = listaOperaciones;
     }
+
     //--------------------------------------
     public String getTipoCuenta() {
         return tipoCuenta;

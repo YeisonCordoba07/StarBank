@@ -23,6 +23,7 @@ abstract class Cliente {
     protected String tipoCliente;
     protected ArrayList<CuentaCorriente> cuentasCorrientes = new ArrayList<CuentaCorriente>();
     protected ArrayList<CuentaDeAhorros> cuentasDeAhorros = new ArrayList<CuentaDeAhorros>();
+    //protected ArrayList<Cuenta> cuentasBorradas = new ArrayList<Cuenta>();
 
     //public void iniciarSesion(String id, String contraseña);//Ir a la base de datos y comprobar que el id y la contraseña esten bien, luego trae toda la informacion del Cliente
     public Cliente() {
