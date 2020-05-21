@@ -26,9 +26,14 @@ public class MenuCliente extends javax.swing.JFrame {
     public MenuCliente() {
         initComponents();
 
-//        idCliente = MenuStarBank.idCliente;
-//        tipoCliente = MenuStarBank.tipoCliente;
-//        iniciar();
+        if (MenuStarBank.iniciarSesion) {
+            this.idCliente = MenuStarBank.idCliente;
+            this.tipoCliente = MenuStarBank.tipoCliente;
+        } else {
+            this.idCliente = CrearCliente.idCliente;
+            this.tipoCliente = CrearCliente.tipoCliente;
+        }
+        iniciar();
 
     }
 

@@ -21,6 +21,7 @@ public class MenuStarBank extends javax.swing.JFrame {
      */
     public static String idCliente;
     public static String tipoCliente;
+    public static boolean iniciarSesion = false;
 
     public MenuStarBank() {
         initComponents();
@@ -181,6 +182,7 @@ public class MenuStarBank extends javax.swing.JFrame {
 
                     this.idCliente = TextFieldId.getText();
                     this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
+                    this.iniciarSesion = true;
                     System.out.println("tipoCliente: " + tipoCliente);
                     MenuCliente menuCliente = new MenuCliente();
                     menuCliente.setVisible(true);
@@ -202,6 +204,7 @@ public class MenuStarBank extends javax.swing.JFrame {
 
                     this.idCliente = TextFieldId.getText();
                     this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
+                    this.iniciarSesion = true;
                     System.out.println("tipoCliente: " + tipoCliente);
                     MenuCliente menuCliente = new MenuCliente();
                     menuCliente.setVisible(true);

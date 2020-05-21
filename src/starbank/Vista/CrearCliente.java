@@ -20,6 +20,9 @@ public class CrearCliente extends javax.swing.JFrame {
     /**
      * Creates new form CrearCliente
      */
+    public static String idCliente;
+    public static String tipoCliente;
+    
     public CrearCliente() {
         initComponents();
     }
@@ -256,8 +259,11 @@ public class CrearCliente extends javax.swing.JFrame {
                         LabelError.setText("Exito");
 
                         MenuCliente menuCliente = new MenuCliente();
-                        menuCliente.setIdCliente(TextFieldId.getText());
-                        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
+                        this.idCliente = TextFieldId.getText();
+                        this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
+                        
+//                        menuCliente.setIdCliente(TextFieldId.getText());
+//                        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
                         menuCliente.setVisible(true);
                         
                         this.dispose();
@@ -288,8 +294,10 @@ public class CrearCliente extends javax.swing.JFrame {
                         LabelError.setText("Exito");
 
                         MenuCliente menuCliente = new MenuCliente();
-                        menuCliente.setIdCliente(TextFieldId.getText());
-                        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
+                                                this.idCliente = TextFieldId.getText();
+                        this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
+//                        menuCliente.setIdCliente(TextFieldId.getText());
+//                        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
                         menuCliente.setVisible(true);
                         this.dispose();
                     } else {
