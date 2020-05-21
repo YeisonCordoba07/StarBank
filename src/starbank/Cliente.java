@@ -21,8 +21,8 @@ abstract class Cliente {
     protected boolean estaSuscrito;//Se perderá la suscripcion a la sucursal si no tiene por lo menos una cuenta activa
     protected String contraseña;
     protected String tipoCliente;
-    protected ArrayList<CuentaCorriente> cuentasCorrientes = new ArrayList<CuentaCorriente>();
-    protected ArrayList<CuentaDeAhorros> cuentasDeAhorros = new ArrayList<CuentaDeAhorros>();
+//    protected ArrayList<CuentaCorriente> cuentasCorrientes = new ArrayList<CuentaCorriente>();
+//    protected ArrayList<CuentaDeAhorros> cuentasDeAhorros = new ArrayList<CuentaDeAhorros>();
     //protected ArrayList<Cuenta> cuentasBorradas = new ArrayList<Cuenta>();
 
     //public void iniciarSesion(String id, String contraseña);//Ir a la base de datos y comprobar que el id y la contraseña esten bien, luego trae toda la informacion del Cliente
@@ -41,13 +41,13 @@ abstract class Cliente {
     }
 
 //------------------------------------------------------------------------------   
-    public void agregarCuentaCorriente(CuentaCorriente cuenta) {
-        cuentasCorrientes.add(cuenta);
-    }
-
-    public void agregarCuentaDeAhorros(CuentaDeAhorros cuenta) {
-        cuentasDeAhorros.add(cuenta);
-    }
+//    public void agregarCuentaCorriente(CuentaCorriente cuenta) {
+//        cuentasCorrientes.add(cuenta);
+//    }
+//
+//    public void agregarCuentaDeAhorros(CuentaDeAhorros cuenta) {
+//        cuentasDeAhorros.add(cuenta);
+//    }
 
 //------------------------------------------------------------------------------ 
     public String getId() {
@@ -122,20 +122,20 @@ abstract class Cliente {
     }
     //-----------------------------------------     
 
-    public ArrayList<CuentaCorriente> getCuentasCorrientes() {
-        return cuentasCorrientes;
-    }
-
-    public void setCuentasCorrientes(ArrayList<CuentaCorriente> cuentasCorrientes) {
-        this.cuentasCorrientes = cuentasCorrientes;
-    }
-
-    public ArrayList<CuentaDeAhorros> getCuentasDeAhorros() {
-        return cuentasDeAhorros;
-    }
-
-    public void setCuentasDeAhorros(ArrayList<CuentaDeAhorros> cuentasDeAhorros) {
-        this.cuentasDeAhorros = cuentasDeAhorros;
-    }
+//    public ArrayList<CuentaCorriente> getCuentasCorrientes() {
+//        return cuentasCorrientes;
+//    }
+//
+//    public void setCuentasCorrientes(ArrayList<CuentaCorriente> cuentasCorrientes) {
+//        this.cuentasCorrientes = cuentasCorrientes;
+//    }
+//
+//    public ArrayList<CuentaDeAhorros> getCuentasDeAhorros() {
+//        return cuentasDeAhorros;
+//    }
+//
+//    public void setCuentasDeAhorros(ArrayList<CuentaDeAhorros> cuentasDeAhorros) {
+//        this.cuentasDeAhorros = cuentasDeAhorros;
+//    }
 
 }

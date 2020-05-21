@@ -51,15 +51,24 @@ public class MenuCliente extends javax.swing.JFrame {
     }
 
     public void iniciar() {
-        if (tipoCliente.equalsIgnoreCase("Persona")) {
+        if (this.tipoCliente.equalsIgnoreCase("Persona")) {
 
-            clientePersona = Json.objetoJson.retornaClientePersona(idCliente);
+            clientePersona = Json.objetoJson.retornaClientePersona(this.idCliente);
+            if (clientePersona == null) {
+                System.out.println("Menu cliente persona, es nullo");
+            }else{
+                System.out.println("no nullo");
+                System.out.println(clientePersona.getNombre());
+            }
             LabelNombreCliente.setText(clientePersona.getNombre());
             LabelIdCliente.setText(clientePersona.getId());
 
         } else if (tipoCliente.equalsIgnoreCase("Empresa")) {
 
             clienteEmpresa = Json.objetoJson.retornaClienteEmpresa(idCliente);
+            if (clienteEmpresa == null) {
+                System.out.println("Menu cliente empresa, es nullo");
+            }
             LabelNombreCliente.setText(clienteEmpresa.getNombre());
             LabelIdCliente.setText(clienteEmpresa.getId());
 

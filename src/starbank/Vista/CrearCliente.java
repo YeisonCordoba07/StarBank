@@ -22,7 +22,7 @@ public class CrearCliente extends javax.swing.JFrame {
      */
     public static String idCliente;
     public static String tipoCliente;
-    
+
     public CrearCliente() {
         initComponents();
     }
@@ -255,17 +255,17 @@ public class CrearCliente extends javax.swing.JFrame {
                         Cajero.cajero.crearClientePersona(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
                                 TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem());
 
+
+                        this.idCliente = TextFieldId.getText();
+                        this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
                         LabelError.setForeground(Color.green);
                         LabelError.setText("Exito");
 
                         MenuCliente menuCliente = new MenuCliente();
-                        this.idCliente = TextFieldId.getText();
-                        this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
-                        
 //                        menuCliente.setIdCliente(TextFieldId.getText());
 //                        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
                         menuCliente.setVisible(true);
-                        
+
                         this.dispose();
                     } else {
                         LabelError.setForeground(Color.red);
@@ -293,9 +293,10 @@ public class CrearCliente extends javax.swing.JFrame {
                         LabelError.setForeground(Color.green);
                         LabelError.setText("Exito");
 
-                        MenuCliente menuCliente = new MenuCliente();
-                                                this.idCliente = TextFieldId.getText();
+
+                        this.idCliente = TextFieldId.getText();
                         this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
+                                                MenuCliente menuCliente = new MenuCliente();
 //                        menuCliente.setIdCliente(TextFieldId.getText());
 //                        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
                         menuCliente.setVisible(true);

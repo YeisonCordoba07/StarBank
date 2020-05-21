@@ -66,6 +66,7 @@ public class Json {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+        leerJson();
     }
 
     //--------------------------------------------------------------------------
@@ -91,7 +92,11 @@ public class Json {
         JsonArray clientesJsonArray = gson.fromJson(newStringJson, JsonArray.class);
         //imprimirListaObjetos();
 
-//Pregunta el tipo de cliente y dependiendo de eso lo guarda en la lista de clientePersona o clienteEmpresa
+        //Vacia las listas
+        clientePersona = new ArrayList<ClientePersona>();
+        clienteEmpresa = new ArrayList<ClienteEmpresa>();
+
+        //Pregunta el tipo de cliente y dependiendo de eso lo guarda en la lista de clientePersona o clienteEmpresa
         for (int i = 0; i < clientesJsonArray.size(); i++) {
             JsonObject jsonObject1 = (JsonObject) clientesJsonArray.get(i);
             if (jsonObject1.get("tipoCliente").getAsString().equalsIgnoreCase("Persona")) {
@@ -127,10 +132,9 @@ public class Json {
                 System.out.println("Error al ver el tipo de objeto en Clase Json");
             }
         }
-        
-        agregarCuentasCorrientesACliente();
-        agregarCuentasDeAhorrosACliente();
-        
+
+//        agregarCuentasCorrientesACliente();
+//        agregarCuentasDeAhorrosACliente();
         System.out.println("IMPRIMIR LISTA");
         imprimirLista(clientePersona);
         imprimirLista(clienteEmpresa);
@@ -223,27 +227,26 @@ public class Json {
     }
 
 //--------------------------------------------------------------------------------------------------------------------------------  
-    public void agregarCuentasCorrientesACliente() {
-        for (int i = 0; i < clientePersona.size(); i++) {
-            for (int j = 0; j < cuentaCorriente.size(); j++) {
-                if (cuentaCorriente.get(j).getIdCliente().equalsIgnoreCase(clientePersona.get(i).getId())) {
-                    clientePersona.get(i).agregarCuentaCorriente(cuentaCorriente.get(j));
-                }
-            }
-        }
-    }
-
-    //--------------------------------------------------------------------------
-    public void agregarCuentasDeAhorrosACliente() {
-        for (int i = 0; i < clientePersona.size(); i++) {
-            for (int j = 0; j < cuentaDeAhorros.size(); j++) {
-                if (cuentaDeAhorros.get(j).getIdCliente().equalsIgnoreCase(clientePersona.get(i).getId())) {
-                    clientePersona.get(i).agregarCuentaDeAhorros(cuentaDeAhorros.get(j));
-                }
-            }
-        }
-    }
-
+//    public void agregarCuentasCorrientesACliente() {
+//        for (int i = 0; i < clientePersona.size(); i++) {
+//            for (int j = 0; j < cuentaCorriente.size(); j++) {
+//                if (cuentaCorriente.get(j).getIdCliente().equalsIgnoreCase(clientePersona.get(i).getId())) {
+//                    clientePersona.get(i).agregarCuentaCorriente(cuentaCorriente.get(j));
+//                }
+//            }
+//        }
+//    }
+//
+//    //--------------------------------------------------------------------------
+//    public void agregarCuentasDeAhorrosACliente() {
+//        for (int i = 0; i < clientePersona.size(); i++) {
+//            for (int j = 0; j < cuentaDeAhorros.size(); j++) {
+//                if (cuentaDeAhorros.get(j).getIdCliente().equalsIgnoreCase(clientePersona.get(i).getId())) {
+//                    clientePersona.get(i).agregarCuentaDeAhorros(cuentaDeAhorros.get(j));
+//                }
+//            }
+//        }
+//    }
 //-------------------------------------------------------------------------------------------------------------------------------- 
     //Busca en la lista de clientes al cliente con la id que se le pasa como parametro, y lo retorna y lo encuentra
     //También sirve para saber si el cliente existe
@@ -255,7 +258,7 @@ public class Json {
         }
         return null;
     }
-    
+
     //--------------------------------------------------------------------------
     public ClienteEmpresa retornaClienteEmpresa(String idCliente) {
         for (ClienteEmpresa empresa : this.clienteEmpresa) {
