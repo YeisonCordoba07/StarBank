@@ -16,7 +16,7 @@ public class Cajero {
     public void crearClientePersona(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña, String tipoCliente) {
         ClientePersona nuevoCliente = new ClientePersona(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña, tipoCliente);
         Json.objetoJson.agregarCliente(nuevoCliente);//Agrega el cliente al archivo Json
-        
+
     }
 
     public void crearClienteEmpresa(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña, String tipoCliente,
@@ -34,8 +34,12 @@ public class Cajero {
 
     }
 
-    public void verCliente(String id, String contraseña) {
+    public ClientePersona traerClientePersona(String id) {
+        return Json.objetoJson.retornaClientePersona(id);
+    }
 
+    public ClienteEmpresa traerClienteEmpresa(String id) {
+        return Json.objetoJson.retornaClienteEmpresa(id);
     }
 
     //Lee lo que está en la base de datos Json

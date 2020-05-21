@@ -8,7 +8,6 @@ package starbank.Vista;
 import starbank.Cajero;
 import starbank.ClienteEmpresa;
 import starbank.ClientePersona;
-import starbank.Json;
 
 /**
  *
@@ -178,7 +177,7 @@ public class MenuStarBank extends javax.swing.JFrame {
         if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Persona")) {
             
             //Busca el id dentro de la lista de clientes
-            ClientePersona persona = Json.objetoJson.retornaClientePersona(TextFieldId.getText());
+            ClientePersona persona = Cajero.cajero.traerClientePersona(TextFieldId.getText());
 
             //Si persona es nulo significa que el cliente no está registrado y manda un mensaje para que se registre
             if (persona == null) {
@@ -203,7 +202,7 @@ public class MenuStarBank extends javax.swing.JFrame {
             }
 
         } else if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Empresa")) {
-            ClienteEmpresa empresa = Json.objetoJson.retornaClienteEmpresa(TextFieldId.getText());
+            ClienteEmpresa empresa = Cajero.cajero.traerClienteEmpresa(TextFieldId.getText());
 
             if (empresa == null) {
                 LabelError.setText("Cliente no registrado");

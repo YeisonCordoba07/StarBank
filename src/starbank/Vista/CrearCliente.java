@@ -9,7 +9,6 @@ import java.awt.Color;
 import starbank.Cajero;
 import starbank.ClienteEmpresa;
 import starbank.ClientePersona;
-import starbank.Json;
 
 /**
  *
@@ -252,7 +251,7 @@ public class CrearCliente extends javax.swing.JFrame {
 
                 } else {
                     //Comprueba que el cliente no este registrado
-                    if (Json.objetoJson.retornaClientePersona(TextFieldId.getText()) == null) {
+                    if (Cajero.cajero.traerClientePersona(TextFieldId.getText()) == null) {
                         Cajero.cajero.crearClientePersona(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
                                 TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem());
 
@@ -284,7 +283,7 @@ public class CrearCliente extends javax.swing.JFrame {
                     LabelError.setText("Llene todos los campos");
                 } else {
                     //Comprueba que el cliente no este registrado
-                    if (Json.objetoJson.retornaClienteEmpresa(TextFieldId.getText()) == null) {
+                    if (Cajero.cajero.traerClienteEmpresa(TextFieldId.getText()) == null) {
                         Cajero.cajero.crearClienteEmpresa(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
                                 TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem(),
                                 TextFieldNit.getText(), TextFieldNombreEmpresa.getText(), TextFieldSectorComercial.getText());

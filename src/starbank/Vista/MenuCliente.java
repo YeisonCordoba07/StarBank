@@ -5,9 +5,9 @@
  */
 package starbank.Vista;
 
+import starbank.Cajero;
 import starbank.ClienteEmpresa;
 import starbank.ClientePersona;
-import starbank.Json;
 
 /**
  *
@@ -43,14 +43,14 @@ public class MenuCliente extends javax.swing.JFrame {
             if (this.tipoCliente.equalsIgnoreCase("Persona")) {
 
                 //Busca el cliente en las listas de clientes y trae sus datos
-                clientePersona = Json.objetoJson.retornaClientePersona(this.idCliente);
+                clientePersona = Cajero.cajero.traerClientePersona(this.idCliente);
 
                 LabelNombreCliente.setText(clientePersona.getNombre());
                 LabelIdCliente.setText(clientePersona.getId());
 
             } else if (tipoCliente.equalsIgnoreCase("Empresa")) {
 
-                clienteEmpresa = Json.objetoJson.retornaClienteEmpresa(idCliente);
+                clienteEmpresa = Cajero.cajero.traerClienteEmpresa(idCliente);
 
                 LabelNombreCliente.setText(clienteEmpresa.getNombre());
                 LabelIdCliente.setText(clienteEmpresa.getId());
