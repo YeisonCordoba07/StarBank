@@ -240,35 +240,63 @@ public class CrearCliente extends javax.swing.JFrame {
         switch ((String) ComboBoxTipoCliente.getSelectedItem()) {
             case "Persona":
                 //Comprueba que los campos no estén vacios
-                if (TextFieldId.getText().length() == 0 || TextFieldNombre.getText().length() == 0 || TextFieldTelefono.getText().length() == 0 || TextFieldDireccion.getText().length() == 0
-                        || TextFieldOcupacion.getText().length() == 0 || TextFieldContraseña.getText().length() == 0) {
+                if (TextFieldId.getText().length() == 0 || TextFieldNombre.getText().length() == 0 || TextFieldTelefono.getText().length() == 0
+                        || TextFieldDireccion.getText().length() == 0 || TextFieldOcupacion.getText().length() == 0 || TextFieldContraseña.getText().length() == 0) {
 
                     LabelError.setForeground(Color.red);
                     LabelError.setText("Llene todos los campos");
 
                 } else {
+                    //Comprueba que el cliente no este registrado
+                    if (Json.objetoJson.retornaClientePersona(TextFieldId.getText()) == null) {
+                        Cajero.cajero.crearClientePersona(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
+                                TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem());
 
-                    Cajero.cajero.crearClientePersona(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
-                            TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem());
+                        LabelError.setForeground(Color.green);
+                        LabelError.setText("Exito");
 
-                    LabelError.setForeground(Color.green);
-                    LabelError.setText("Exito");
+                        MenuCliente menuCliente = new MenuCliente();
+                        menuCliente.setIdCliente(TextFieldId.getText());
+                        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
+                        menuCliente.setVisible(true);
+                        
+                        this.dispose();
+                    } else {
+                        LabelError.setForeground(Color.red);
+                        LabelError.setText("Usuario Persona ya registrado");
+                    }
+
                 }
 
                 break;
             case "Empresa":
                 //Comprueba que si el cliente es una empresa, llene todos los espacios para empresa
-                if (TextFieldNit.getText().length() == 0 || TextFieldNombreEmpresa.getText().length() == 0 || TextFieldSectorComercial.getText().length() == 0) {
+                if (TextFieldId.getText().length() == 0 || TextFieldNombre.getText().length() == 0 || TextFieldTelefono.getText().length() == 0
+                        || TextFieldDireccion.getText().length() == 0 || TextFieldOcupacion.getText().length() == 0 || TextFieldContraseña.getText().length() == 0
+                        || TextFieldNit.getText().length() == 0 || TextFieldNombreEmpresa.getText().length() == 0 || TextFieldSectorComercial.getText().length() == 0) {
+
                     LabelError.setForeground(Color.red);
                     LabelError.setText("Llene todos los campos");
                 } else {
+                    //Comprueba que el cliente no este registrado
+                    if (Json.objetoJson.retornaClienteEmpresa(TextFieldId.getText()) == null) {
+                        Cajero.cajero.crearClienteEmpresa(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
+                                TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem(),
+                                TextFieldNit.getText(), TextFieldNombreEmpresa.getText(), TextFieldSectorComercial.getText());
 
-                    Cajero.cajero.crearClienteEmpresa(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
-                            TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem(),
-                            TextFieldNit.getText(), TextFieldNombreEmpresa.getText(), TextFieldSectorComercial.getText());
+                        LabelError.setForeground(Color.green);
+                        LabelError.setText("Exito");
 
-                    LabelError.setForeground(Color.green);
-                    LabelError.setText("Exito");
+                        MenuCliente menuCliente = new MenuCliente();
+                        menuCliente.setIdCliente(TextFieldId.getText());
+                        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
+                        menuCliente.setVisible(true);
+                        this.dispose();
+                    } else {
+                        LabelError.setForeground(Color.red);
+                        LabelError.setText("Usuario Empresa ya registrado");
+                    }
+
                 }
 
                 break;
@@ -277,13 +305,7 @@ public class CrearCliente extends javax.swing.JFrame {
                 break;
         }
 
-        this.dispose();
 
-        //MenuCliente menuCliente = new MenuCliente(TextFieldId.getText(), ComboBoxTipoCliente.getSelectedItem().toString());
-        MenuCliente menuCliente = new MenuCliente();
-        menuCliente.setIdCliente(TextFieldId.getText());
-        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
-        menuCliente.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
