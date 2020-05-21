@@ -21,7 +21,9 @@ public class MenuStarBank extends javax.swing.JFrame {
      */
     public static String idCliente;
     public static String tipoCliente;
-    public static boolean iniciarSesion = false;
+    public static boolean iniciarSesion = false;//Esta variable le indica a la clase MenuCliente si debe venir a esta clase y tomar el id y tipo de cliente
+    //o si debe ir a tomar estos datos a la clase CrearCliente
+    //Si es false, entonces la persona no está registrada y deberá registrarse. Si es verdadera, entonces la persona si está registrada y deberá traerInformacionCliente sesion.
 
     public MenuStarBank() {
         initComponents();
@@ -155,7 +157,7 @@ public class MenuStarBank extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearClienteActionPerformed
-        // TODO add your handling code here:
+        //Abré la ventana para crear un Cliente, pero sin cerrar esta
         CrearCliente ventanaCrearCliente = new CrearCliente();
         ventanaCrearCliente.setVisible(true);
         //this.dispose();
@@ -163,27 +165,35 @@ public class MenuStarBank extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonCrearClienteActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //Lee lo que hay en el Json
         Cajero.cajero.traerJson();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+
+
+//Comprueba que el cliente sí exista y si es así comprueba la contraseña. Si todo es correcto lo lleva a MenuCliente
     private void BotonIniciarSesionClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIniciarSesionClienteActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Combo:" + ComboBoxTipoCliente.getSelectedItem().toString());
+
+        //Mira el tipo de Cliente para buscarlo en la lista de Personas o Empresas
         if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Persona")) {
+            
+            //Busca el id dentro de la lista de clientes
             ClientePersona persona = Json.objetoJson.retornaClientePersona(TextFieldId.getText());
 
+            //Si persona es nulo significa que el cliente no está registrado y manda un mensaje para que se registre
             if (persona == null) {
                 LabelError.setText("Cliente no registrado");
                 System.out.println("Cliente Nulo");
             } else {
+                
+                //Si el cliente si está registrado, entonces comprueba la contraseña
                 if (TextFieldContraseña.getText().equalsIgnoreCase(persona.getContraseña())) {
-                    //MenuCliente menuCliente = new MenuCliente(TextFieldId.getText(), ComboBoxTipoCliente.getSelectedItem().toString());
 
                     this.idCliente = TextFieldId.getText();
                     this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
                     this.iniciarSesion = true;
-                    System.out.println("tipoCliente: " + tipoCliente);
+                    
+                    //Va a la clase MenuCliente, como traerInformacionCliente sesion en true, vendrá a está clase a tomar los valores de id y tipoCliente
                     MenuCliente menuCliente = new MenuCliente();
                     menuCliente.setVisible(true);
 
@@ -200,12 +210,12 @@ public class MenuStarBank extends javax.swing.JFrame {
                 System.out.println("Cliente Nulo");
             } else {
                 if (TextFieldContraseña.getText().equalsIgnoreCase(empresa.getContraseña())) {
-                    //MenuCliente menuCliente = new MenuCliente(TextFieldId.getText(), ComboBoxTipoCliente.getSelectedItem().toString());
+
 
                     this.idCliente = TextFieldId.getText();
                     this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
                     this.iniciarSesion = true;
-                    System.out.println("tipoCliente: " + tipoCliente);
+                    
                     MenuCliente menuCliente = new MenuCliente();
                     menuCliente.setVisible(true);
 

@@ -26,6 +26,7 @@ public class MenuCliente extends javax.swing.JFrame {
     public MenuCliente() {
         initComponents();
 
+        //Comprueba si tiene que ir a MenuStarBank o a CrearCliente por los datos de idCliente y tipoCliente
         if (MenuStarBank.iniciarSesion) {
             this.idCliente = MenuStarBank.idCliente;
             this.tipoCliente = MenuStarBank.tipoCliente;
@@ -33,46 +34,32 @@ public class MenuCliente extends javax.swing.JFrame {
             this.idCliente = CrearCliente.idCliente;
             this.tipoCliente = CrearCliente.tipoCliente;
         }
-        iniciar();
+        traerInformacionCliente();
 
     }
 
-    public MenuCliente(String idCliente, String tipoCliente) {
-        this.idCliente = idCliente;
-        this.tipoCliente = tipoCliente;
-    }
+    public void traerInformacionCliente() {
+        try {
+            if (this.tipoCliente.equalsIgnoreCase("Persona")) {
 
-    public void setTipoCliente(String tipoCliente) {
-        this.tipoCliente = tipoCliente;
-    }
+                //Busca el cliente en las listas de clientes y trae sus datos
+                clientePersona = Json.objetoJson.retornaClientePersona(this.idCliente);
 
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
-    }
+                LabelNombreCliente.setText(clientePersona.getNombre());
+                LabelIdCliente.setText(clientePersona.getId());
 
-    public void iniciar() {
-        if (this.tipoCliente.equalsIgnoreCase("Persona")) {
+            } else if (tipoCliente.equalsIgnoreCase("Empresa")) {
 
-            clientePersona = Json.objetoJson.retornaClientePersona(this.idCliente);
-            if (clientePersona == null) {
-                System.out.println("Menu cliente persona, es nullo");
-            }else{
-                System.out.println("no nullo");
-                System.out.println(clientePersona.getNombre());
+                clienteEmpresa = Json.objetoJson.retornaClienteEmpresa(idCliente);
+
+                LabelNombreCliente.setText(clienteEmpresa.getNombre());
+                LabelIdCliente.setText(clienteEmpresa.getId());
+
             }
-            LabelNombreCliente.setText(clientePersona.getNombre());
-            LabelIdCliente.setText(clientePersona.getId());
-
-        } else if (tipoCliente.equalsIgnoreCase("Empresa")) {
-
-            clienteEmpresa = Json.objetoJson.retornaClienteEmpresa(idCliente);
-            if (clienteEmpresa == null) {
-                System.out.println("Menu cliente empresa, es nullo");
-            }
-            LabelNombreCliente.setText(clienteEmpresa.getNombre());
-            LabelIdCliente.setText(clienteEmpresa.getId());
-
+        } catch (NullPointerException e) {
+            System.out.println("Error en MenuCliente, cliente nullo: " + e);
         }
+
     }
 
     /**
@@ -170,6 +157,7 @@ public class MenuCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Mostrar informacion detallada del Cliente
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         InformacionCliente informacionCliente = new InformacionCliente();

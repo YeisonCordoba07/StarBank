@@ -238,6 +238,7 @@ public class CrearCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Comprueba que los campos no estén vacios, si no lo están, entonces mira que el cliente que se va a registrar no esté registrado
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         switch ((String) ComboBoxTipoCliente.getSelectedItem()) {
@@ -255,15 +256,13 @@ public class CrearCliente extends javax.swing.JFrame {
                         Cajero.cajero.crearClientePersona(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
                                 TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem());
 
-
                         this.idCliente = TextFieldId.getText();
                         this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
+
                         LabelError.setForeground(Color.green);
                         LabelError.setText("Exito");
 
                         MenuCliente menuCliente = new MenuCliente();
-//                        menuCliente.setIdCliente(TextFieldId.getText());
-//                        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
                         menuCliente.setVisible(true);
 
                         this.dispose();
@@ -276,7 +275,7 @@ public class CrearCliente extends javax.swing.JFrame {
 
                 break;
             case "Empresa":
-                //Comprueba que si el cliente es una empresa, llene todos los espacios para empresa
+                //Comprueba que si el cliente es una empresa, llene todos los espacios para empresa y también haya llenado todos los otros
                 if (TextFieldId.getText().length() == 0 || TextFieldNombre.getText().length() == 0 || TextFieldTelefono.getText().length() == 0
                         || TextFieldDireccion.getText().length() == 0 || TextFieldOcupacion.getText().length() == 0 || TextFieldContraseña.getText().length() == 0
                         || TextFieldNit.getText().length() == 0 || TextFieldNombreEmpresa.getText().length() == 0 || TextFieldSectorComercial.getText().length() == 0) {
@@ -293,12 +292,10 @@ public class CrearCliente extends javax.swing.JFrame {
                         LabelError.setForeground(Color.green);
                         LabelError.setText("Exito");
 
-
                         this.idCliente = TextFieldId.getText();
                         this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
-                                                MenuCliente menuCliente = new MenuCliente();
-//                        menuCliente.setIdCliente(TextFieldId.getText());
-//                        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
+
+                        MenuCliente menuCliente = new MenuCliente();
                         menuCliente.setVisible(true);
                         this.dispose();
                     } else {
