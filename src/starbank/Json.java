@@ -127,7 +127,10 @@ public class Json {
                 System.out.println("Error al ver el tipo de objeto en Clase Json");
             }
         }
-
+        
+        agregarCuentasCorrientesACliente();
+        agregarCuentasDeAhorrosACliente();
+        
         System.out.println("IMPRIMIR LISTA");
         imprimirLista(clientePersona);
         imprimirLista(clienteEmpresa);

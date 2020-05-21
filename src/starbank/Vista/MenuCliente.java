@@ -5,6 +5,10 @@
  */
 package starbank.Vista;
 
+import starbank.ClienteEmpresa;
+import starbank.ClientePersona;
+import starbank.Json;
+
 /**
  *
  * @author YEISON
@@ -14,8 +18,47 @@ public class MenuCliente extends javax.swing.JFrame {
     /**
      * Creates new form InformacionCliente
      */
+    private static String idCliente;
+    private static String tipoCliente;
+    private ClientePersona clientePersona;
+    private ClienteEmpresa clienteEmpresa;
+
     public MenuCliente() {
         initComponents();
+
+        idCliente = MenuStarBank.idCliente;
+        tipoCliente = MenuStarBank.tipoCliente;
+        iniciar();
+
+    }
+
+    public MenuCliente(String idCliente, String tipoCliente) {
+        this.idCliente = idCliente;
+        this.tipoCliente = tipoCliente;
+    }
+
+    public void setTipoCliente(String tipoCliente) {
+        this.tipoCliente = tipoCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public void iniciar() {
+        if (tipoCliente.equalsIgnoreCase("Persona")) {
+
+            clientePersona = Json.objetoJson.retornaClientePersona(idCliente);
+            LabelNombreCliente.setText(clientePersona.getNombre());
+            LabelIdCliente.setText(clientePersona.getId());
+
+        } else if (tipoCliente.equalsIgnoreCase("Empresa")) {
+
+            clienteEmpresa = Json.objetoJson.retornaClienteEmpresa(idCliente);
+            LabelNombreCliente.setText(clienteEmpresa.getNombre());
+            LabelIdCliente.setText(clienteEmpresa.getId());
+
+        }
     }
 
     /**

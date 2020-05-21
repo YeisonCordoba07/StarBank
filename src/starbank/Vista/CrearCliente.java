@@ -9,6 +9,7 @@ import java.awt.Color;
 import starbank.Cajero;
 import starbank.ClienteEmpresa;
 import starbank.ClientePersona;
+import starbank.Json;
 
 /**
  *
@@ -22,6 +23,7 @@ public class CrearCliente extends javax.swing.JFrame {
     public CrearCliente() {
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -235,8 +237,7 @@ public class CrearCliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        switch ((String) ComboBoxTipoCliente.getSelectedItem()) 
-        {
+        switch ((String) ComboBoxTipoCliente.getSelectedItem()) {
             case "Persona":
                 //Comprueba que los campos no estén vacios
                 if (TextFieldId.getText().length() == 0 || TextFieldNombre.getText().length() == 0 || TextFieldTelefono.getText().length() == 0 || TextFieldDireccion.getText().length() == 0
@@ -246,14 +247,13 @@ public class CrearCliente extends javax.swing.JFrame {
                     LabelError.setText("Llene todos los campos");
 
                 } else {
-                    
+
                     Cajero.cajero.crearClientePersona(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
                             TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem());
 
                     LabelError.setForeground(Color.green);
                     LabelError.setText("Exito");
                 }
-
 
                 break;
             case "Empresa":
@@ -262,7 +262,7 @@ public class CrearCliente extends javax.swing.JFrame {
                     LabelError.setForeground(Color.red);
                     LabelError.setText("Llene todos los campos");
                 } else {
-                    
+
                     Cajero.cajero.crearClienteEmpresa(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
                             TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem(),
                             TextFieldNit.getText(), TextFieldNombreEmpresa.getText(), TextFieldSectorComercial.getText());
@@ -276,9 +276,13 @@ public class CrearCliente extends javax.swing.JFrame {
                 System.out.println("Error digitando el tipo de cliente en Clase Crear Cliente");
                 break;
         }
-        
+
         this.dispose();
+
+        //MenuCliente menuCliente = new MenuCliente(TextFieldId.getText(), ComboBoxTipoCliente.getSelectedItem().toString());
         MenuCliente menuCliente = new MenuCliente();
+        menuCliente.setIdCliente(TextFieldId.getText());
+        menuCliente.setTipoCliente(ComboBoxTipoCliente.getSelectedItem().toString());
         menuCliente.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
