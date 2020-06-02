@@ -81,6 +81,7 @@ public class MenuStarBank extends javax.swing.JFrame {
 
         ComboBoxTipoCliente.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         ComboBoxTipoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Persona", "Empresa" }));
+        ComboBoxTipoCliente.setSelectedItem(null);
 
         LabelError.setText("jLabel2");
 
@@ -174,7 +175,8 @@ public class MenuStarBank extends javax.swing.JFrame {
     private void BotonIniciarSesionClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIniciarSesionClienteActionPerformed
 
         //Mira el tipo de Cliente para buscarlo en la lista de Personas o Empresas
-        if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Persona")) {
+        if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Persona")) 
+        {
             
             //Busca el id dentro de la lista de clientes
             ClientePersona persona = Cajero.cajero.traerClientePersona(TextFieldId.getText());
@@ -222,6 +224,8 @@ public class MenuStarBank extends javax.swing.JFrame {
                     System.out.println("Contraseña empresa incorreta");
                 }
             }
+        }else{
+            System.out.println("Ninguno seleccionado");
         }
     }//GEN-LAST:event_BotonIniciarSesionClienteActionPerformed
 

@@ -5,6 +5,11 @@
  */
 package starbank.Vista;
 
+import javax.swing.table.DefaultTableModel;
+import starbank.Cajero;
+import starbank.ClienteEmpresa;
+import starbank.ClientePersona;
+
 /**
  *
  * @author YEISON
@@ -14,8 +19,49 @@ public class InformacionCliente extends javax.swing.JFrame {
     /**
      * Creates new form InformacionCliente
      */
+    private static String idCliente;
+    private static String tipoCliente;
+    private static ClientePersona persona;
+    private static ClienteEmpresa empresa;
+
+    DefaultTableModel modelo;
+
     public InformacionCliente() {
         initComponents();
+        modelo = (DefaultTableModel) TablaInformacion.getModel();
+
+        this.idCliente = MenuCliente.idCliente;
+        this.tipoCliente = MenuCliente.tipoCliente;
+        System.out.println("TipoCliente: "+this.tipoCliente + MenuCliente.tipoCliente);
+        if (this.tipoCliente.equalsIgnoreCase("Persona")) {
+            persona = Cajero.cajero.traerClientePersona(this.idCliente);
+            modelo.setValueAt(persona.getId(), 0, 1);
+            modelo.setValueAt(persona.getNombre(), 1, 1);
+            modelo.setValueAt(persona.getTelefono(), 2, 1);
+            modelo.setValueAt(persona.getDireccion(), 3, 1);
+            modelo.setValueAt(persona.getOcupacion(), 4, 1);
+            modelo.setValueAt(persona.getEstaSuscrito(), 5, 1);
+            modelo.setValueAt(persona.getContraseña(), 6, 1);
+            System.out.println("per sona");
+        } else if (this.tipoCliente.equalsIgnoreCase("Empresa")) {
+            empresa = Cajero.cajero.traerClienteEmpresa(this.idCliente);
+            modelo.setValueAt(empresa.getId(), 0, 1);
+            modelo.setValueAt(empresa.getNombre(), 1, 1);
+            modelo.setValueAt(empresa.getTelefono(), 2, 1);
+            modelo.setValueAt(empresa.getDireccion(), 3, 1);
+            modelo.setValueAt(empresa.getOcupacion(), 4, 1);
+            modelo.setValueAt(empresa.getEstaSuscrito(), 5, 1);
+            modelo.setValueAt(empresa.getContraseña(), 6, 1);
+            modelo.setValueAt(empresa.getNit(), 7, 1);
+                        modelo.setValueAt("valor", 7, 1);
+                        System.out.println("emp resa");
+            modelo.setValueAt(empresa.getNombreEmpresa(), 8, 1);
+            modelo.setValueAt(empresa.getSectorComercial(), 9, 1);
+        } else {
+            System.out.println("ClienteNoEncontrado en InformacionCliente");
+        }
+
+        //TablaInformacion.setColumnModel("hola");
     }
 
     /**
@@ -30,7 +76,7 @@ public class InformacionCliente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         LabelTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TableInformacion = new javax.swing.JTable();
+        TablaInformacion = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,9 +85,9 @@ public class InformacionCliente extends javax.swing.JFrame {
         LabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         LabelTitulo.setText("Informacion del Cliente");
 
-        TableInformacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        TableInformacion.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        TableInformacion.setModel(new javax.swing.table.DefaultTableModel(
+        TablaInformacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TablaInformacion.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        TablaInformacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"ID", null},
                 {"Nombre", null},
@@ -73,7 +119,7 @@ public class InformacionCliente extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(TableInformacion);
+        jScrollPane1.setViewportView(TablaInformacion);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -152,11 +198,12 @@ public class InformacionCliente extends javax.swing.JFrame {
                 new InformacionCliente().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelTitulo;
-    private javax.swing.JTable TableInformacion;
+    private javax.swing.JTable TablaInformacion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

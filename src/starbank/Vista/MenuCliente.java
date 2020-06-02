@@ -18,8 +18,8 @@ public class MenuCliente extends javax.swing.JFrame {
     /**
      * Creates new form InformacionCliente
      */
-    private static String idCliente;
-    private static String tipoCliente;
+    public static String idCliente;
+    public static String tipoCliente;
     private ClientePersona clientePersona;
     private ClienteEmpresa clienteEmpresa;
 
@@ -54,6 +54,7 @@ public class MenuCliente extends javax.swing.JFrame {
 
                 LabelNombreCliente.setText(clienteEmpresa.getNombre());
                 LabelIdCliente.setText(clienteEmpresa.getId());
+                System.out.println("MenuclienteEmpresa");
 
             }
         } catch (NullPointerException e) {

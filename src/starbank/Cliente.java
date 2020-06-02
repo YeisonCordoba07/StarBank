@@ -95,7 +95,7 @@ abstract class Cliente {
     }
 
     //-----------------------------------------
-    public boolean isEstaSuscrito() {
+    public boolean getEstaSuscrito() {
         return estaSuscrito;
     }
 

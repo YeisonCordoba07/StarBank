@@ -52,7 +52,7 @@ public class Json {
         stringJson += gson.toJson(nuevoCliente) + "]";
         System.out.println(stringJson);
         sobreescribirJson();
-        
+
 //        int tamaño = stringJson.length();      
 //        stringJson = stringJson.substring(0, tamaño-2);
     }
@@ -112,6 +112,7 @@ public class Json {
                 persona.setOcupacion(jsonObject1.get("ocupacion").getAsString());
                 persona.setEstaSuscrito(jsonObject1.get("estaSuscrito").getAsBoolean());
                 persona.setContraseña(jsonObject1.get("contraseña").getAsString());
+                persona.setTipoCliente(jsonObject1.get("tipoCliente").getAsString());
 
                 //Agregar cuentas una por una
                 //persona.setCuentasCorrientes((ArrayList)jsonObject1.get("cuentasCorrientes"));
@@ -126,6 +127,8 @@ public class Json {
                 empresa.setOcupacion(jsonObject1.get("ocupacion").getAsString());
                 empresa.setEstaSuscrito(jsonObject1.get("estaSuscrito").getAsBoolean());
                 empresa.setContraseña(jsonObject1.get("contraseña").getAsString());
+
+                empresa.setTipoCliente(jsonObject1.get("tipoCliente").getAsString());
                 empresa.setNit(jsonObject1.get("nit").getAsString());
                 empresa.setNombreEmpresa(jsonObject1.get("nombreEmpresa").getAsString());
                 empresa.setSectorComercial(jsonObject1.get("sectorComercial").getAsString());
