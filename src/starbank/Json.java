@@ -24,10 +24,10 @@ import sun.net.www.content.text.plain;
  */
 public class Json {
 
-    String stringJson = "[";//String con toda la informacion de los clientesJsonArray
-    String stringLista = "[";//String con los todos los tipos de cliente
-    String stringCuenta = "[";//String que tiene la informacion de las cuentas
-    Gson gson = new Gson();
+    private String stringJson = "[";//String con toda la informacion de los clientesJsonArray
+    //private String stringLista = "[";//String con los todos los tipos de cliente
+    private String stringCuenta = "[";//String que tiene la informacion de las cuentas
+    private Gson gson = new Gson();
     public static Json objetoJson = new Json();//Singleton
 
     //Listas donde se almacenará la informacion que se saca del archivo Json
@@ -52,11 +52,14 @@ public class Json {
         stringJson += gson.toJson(nuevoCliente) + "]";
         System.out.println(stringJson);
         sobreescribirJson();
+        
+//        int tamaño = stringJson.length();      
+//        stringJson = stringJson.substring(0, tamaño-2);
     }
 
     //--------------------------------------------------------------------------
     //Busca el archivo Json en la carpeta del proyecto y lo sobreescribe
-    public void sobreescribirJson() {
+    private void sobreescribirJson() {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("pruebaJson.json"))) {
             bw.write(stringJson);
@@ -143,7 +146,7 @@ public class Json {
 
 //--------------------------------------------------------------------------------------------------------------------------------  
     //Imprime los objetos de la lista que se le pasa como parametro
-    public void imprimirLista(ArrayList lista) {
+    private void imprimirLista(ArrayList lista) {
         System.out.println("");
         for (int i = 0; i < lista.size(); i++) {
             System.out.println(lista.get(i).toString());
@@ -164,7 +167,7 @@ public class Json {
     }
 
     //--------------------------------------------------------------------------
-    public void sobreescribirCuenta() {
+    private void sobreescribirCuenta() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("cuentaJson.json"))) {
             bw.write(stringCuenta);
 

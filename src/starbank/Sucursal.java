@@ -10,11 +10,11 @@ package starbank;
  * @author YEISON
  */
 public class Sucursal {
-    String idSucursal;
-    String direccionSucursal;
-    String nombreSucursal;
-    String ciudadSucursal;
-    static double saldoSucursal;
+    private String idSucursal;
+    private String direccionSucursal;
+    private String nombreSucursal;
+    private String ciudadSucursal;
+    private static double saldoSucursal;
     
     
     public void consignarSucursal(double precioRetiro){
