@@ -75,9 +75,9 @@ public class MenuCliente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         LabelNombreCliente = new javax.swing.JLabel();
         LabelIdCliente = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        BotonVerInformacionCuentas = new javax.swing.JButton();
+        BotonVerInformacionCliente = new javax.swing.JButton();
+        BotonCrearCuenta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,18 +87,29 @@ public class MenuCliente extends javax.swing.JFrame {
         LabelIdCliente.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         LabelIdCliente.setText("Id Cliente");
 
-        jButton1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
-        jButton1.setText("Ver Informacion Cuentas");
-
-        jButton2.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
-        jButton2.setText("Ver Informacion Cliente");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BotonVerInformacionCuentas.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        BotonVerInformacionCuentas.setText("Ver Informacion Cuentas");
+        BotonVerInformacionCuentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BotonVerInformacionCuentasActionPerformed(evt);
             }
         });
 
-        jButton3.setText("jButton1");
+        BotonVerInformacionCliente.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        BotonVerInformacionCliente.setText("Ver Informacion Cliente");
+        BotonVerInformacionCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonVerInformacionClienteActionPerformed(evt);
+            }
+        });
+
+        BotonCrearCuenta.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        BotonCrearCuenta.setText("Crear Cuenta");
+        BotonCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCrearCuentaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -111,15 +122,15 @@ public class MenuCliente extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(179, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addComponent(LabelIdCliente)
                             .addGap(321, 321, 321))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(BotonVerInformacionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BotonVerInformacionCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(145, 145, 145)))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -130,11 +141,11 @@ public class MenuCliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(LabelIdCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonVerInformacionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonVerInformacionCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
         );
 
@@ -159,11 +170,19 @@ public class MenuCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     //Mostrar informacion detallada del Cliente
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BotonVerInformacionClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerInformacionClienteActionPerformed
         // TODO add your handling code here:
         InformacionCliente informacionCliente = new InformacionCliente();
         informacionCliente.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BotonVerInformacionClienteActionPerformed
+
+    private void BotonVerInformacionCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerInformacionCuentasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonVerInformacionCuentasActionPerformed
+
+    private void BotonCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearCuentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonCrearCuentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,11 +221,11 @@ public class MenuCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonCrearCuenta;
+    private javax.swing.JButton BotonVerInformacionCliente;
+    private javax.swing.JButton BotonVerInformacionCuentas;
     private javax.swing.JLabel LabelIdCliente;
     private javax.swing.JLabel LabelNombreCliente;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

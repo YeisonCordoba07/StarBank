@@ -26,10 +26,22 @@ public class Cajero {
 
     }
 
-    public void crearCuenta() {
+    public void crearCuentaCorriente() {
 
     }
+    
+    public void crearCuentaDeAhorros() {
 
+    }
+    
+    public void traerCuentaCorriente(){
+        
+    }
+
+    public void traerCuentaDeAhorros(){
+        
+    }
+    
     public void desactivarCuenta() {
 
     }
