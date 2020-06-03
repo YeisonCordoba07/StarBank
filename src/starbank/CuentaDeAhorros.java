@@ -17,7 +17,11 @@ public class CuentaDeAhorros extends Cuenta{
         super(idCuenta, idCliente, contraseñaCuenta, saldo, estaActivada, tipoCuenta);
     }
 
-
+    public String toString() {
+        return "CuentaDeAhorros{" +"\n" + "IdCuenta: "+idCuenta+ "\n" +"IdCliente: "+idCliente+ "\n" 
+                +"ContraseñaCuenta: "+contraseñaCuenta+ "\n" +"Saldo: "+saldo+ "\n" +"estaActiva: "+estaActiva
+                + "\n" +"TipoCuenta: "+tipoCuenta + "\n" + "Interes: "+INTERES+ "\n" +"}" + "\n" + "\n";
+    }
     
     
     

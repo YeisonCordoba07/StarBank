@@ -171,7 +171,7 @@ public class Json {
 
     //--------------------------------------------------------------------------
     private void sobreescribirCuenta() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("cuentaJson.json"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("cuentasJson.json"))) {
             bw.write(stringCuenta);
 
         } catch (FileNotFoundException ex) {
@@ -229,6 +229,9 @@ public class Json {
                 }
             }
         }
+        System.out.println("IMPRIMIR CUENTAS");
+        imprimirLista(cuentaCorriente);
+        imprimirLista(cuentaDeAhorros);
 
     }
 

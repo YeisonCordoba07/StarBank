@@ -182,6 +182,8 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void BotonCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearCuentaActionPerformed
         // TODO add your handling code here:
+        CrearCuenta crearCuenta = new CrearCuenta();
+        crearCuenta.setVisible(true);
     }//GEN-LAST:event_BotonCrearCuentaActionPerformed
 
     /**

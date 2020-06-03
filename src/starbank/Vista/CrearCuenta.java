@@ -178,14 +178,25 @@ public class CrearCuenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (TextFieldIdCuenta.getText().length() == 0 || TextFieldIdCliente.getText().length() == 0 || TextFieldContraseñaCuenta.getText().length() == 0 
+        if (TextFieldIdCuenta.getText().length() == 0 || TextFieldIdCliente.getText().length() == 0 || TextFieldContraseñaCuenta.getText().length() == 0
                 || ComboBoxTipoCuenta.getSelectedItem() == null || ComboBoxTipoCliente.getSelectedItem() == null) {
 
             LabelError.setForeground(Color.red);
             LabelError.setText("Llene todos los campos");
 
-        }else{
-            
+        } else {
+            if (ComboBoxTipoCuenta.getSelectedItem().toString().equalsIgnoreCase("Cuenta corriente")) {
+
+                Cajero.cajero.crearCuentaCorriente(TextFieldIdCuenta.getText(), TextFieldIdCliente.getText(),
+                        TextFieldContraseñaCuenta.getText(), "Corriente");
+                
+            } else if (ComboBoxTipoCuenta.getSelectedItem().toString().equalsIgnoreCase("cuenta de ahorros")) {
+
+                Cajero.cajero.crearCuentaDeAhorros(TextFieldIdCuenta.getText(), TextFieldIdCliente.getText(),
+                        TextFieldContraseñaCuenta.getText(), "DeAhorros");
+            } else {
+                System.out.println("Tipo de cuenta incorrecta en CrearCuenta");
+            }
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

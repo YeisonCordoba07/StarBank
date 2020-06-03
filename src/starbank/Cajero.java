@@ -26,22 +26,24 @@ public class Cajero {
 
     }
 
-    public void crearCuentaCorriente() {
-
-    }
-    
-    public void crearCuentaDeAhorros() {
-
-    }
-    
-    public void traerCuentaCorriente(){
-        
+    public void crearCuentaCorriente(String idCuenta, String idCliente, String contraseña, String tipoCuenta) {
+        CuentaCorriente cuentaCorriente = new CuentaCorriente(idCuenta, idCliente, contraseña, 0, false, tipoCuenta);
+        Json.objetoJson.agregarCuenta(cuentaCorriente);
     }
 
-    public void traerCuentaDeAhorros(){
-        
+    public void crearCuentaDeAhorros(String idCuenta, String idCliente, String contraseña, String tipoCuenta) {
+        CuentaDeAhorros cuentaDeAhorros = new CuentaDeAhorros(idCuenta, idCliente, contraseña, 0, false, tipoCuenta);
+        Json.objetoJson.agregarCuenta(cuentaDeAhorros);
     }
-    
+
+    public void traerCuentaCorriente() {
+
+    }
+
+    public void traerCuentaDeAhorros() {
+
+    }
+
     public void desactivarCuenta() {
 
     }
@@ -57,6 +59,7 @@ public class Cajero {
     //Lee lo que está en la base de datos Json
     public void traerJson() {
         Json.objetoJson.leerJson();
+        Json.objetoJson.leerCuenta();
     }
 
 }

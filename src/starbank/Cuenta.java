@@ -18,9 +18,9 @@ public abstract class Cuenta {
     protected String idCliente;
     protected String contraseñaCuenta;
     protected double saldo;//Una cuenta nunca puede tener un saldo menor a 10000
-    protected boolean estaActivada;//Está activada cuando se crea y reliza una consignacion de 20000
+    protected boolean estaActiva;//Está activa cuando se crea y reliza una consignacion de 20000
     protected String tipoCuenta;
-    protected List<Operacion> listaOperaciones;
+    //protected List<Operacion> listaOperaciones;
 
 //---------------------------------------------------------------------------------------------------------------------
     public Cuenta(String idCuenta, String idCliente, String contraseñaCuenta, double saldo, boolean estaActivada, String tipoCuenta) {
@@ -28,7 +28,7 @@ public abstract class Cuenta {
         this.idCliente = idCliente;
         this.contraseñaCuenta = contraseñaCuenta;
         this.saldo = saldo;
-        this.estaActivada = estaActivada;
+        this.estaActiva = estaActivada;
         this.tipoCuenta = tipoCuenta;
     }
 
@@ -44,11 +44,11 @@ public abstract class Cuenta {
         double costoDeRetiro;
     }
 
-    public void agregarOperacion(Operacion operacion) {
-        //Agrega la operacion a listaOperaciones
-        listaOperaciones.add(operacion);
-
-    }
+//    public void agregarOperacion(Operacion operacion) {
+//        //Agrega la operacion a listaOperaciones
+//        listaOperaciones.add(operacion);
+//
+//    }
 
     public void verificarValorARetirar(double valorARetirar, double interes) {
         if (saldo - (interes * valorARetirar) < 10000) {
@@ -93,22 +93,22 @@ public abstract class Cuenta {
     }
     //--------------------------------------
 
-    public boolean isEstaActivada() {
-        return estaActivada;
+    public boolean isEstaActiva() {
+        return estaActiva;
     }
 
-    public void setEstaActivada(boolean estaActivada) {
-        this.estaActivada = estaActivada;
+    public void setEstaActiva(boolean estaActiva) {
+        this.estaActiva = estaActiva;
     }
     //--------------------------------------
-
-    public List<Operacion> getListaOperaciones() {
-        return listaOperaciones;
-    }
-
-    public void setListaOperaciones(List<Operacion> listaOperaciones) {
-        this.listaOperaciones = listaOperaciones;
-    }
+//
+//    public List<Operacion> getListaOperaciones() {
+//        return listaOperaciones;
+//    }
+//
+//    public void setListaOperaciones(List<Operacion> listaOperaciones) {
+//        this.listaOperaciones = listaOperaciones;
+//    }
 
     //--------------------------------------
     public String getTipoCuenta() {
