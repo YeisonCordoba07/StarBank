@@ -54,7 +54,6 @@ public class InformacionCuentas extends javax.swing.JFrame {
     public void asignaBotonesCuentaCorriente() {
         for (int i = 0; i < listaCuentaCorriente.size(); i++) {
             JButton botonCuentas = new JButton(listaCuentaCorriente.get(i).getIdCuenta());
-            botonCuentas.setBounds(50, i * 50, 150, 75);
             panel.add(botonCuentas);
         }
     }
@@ -62,7 +61,6 @@ public class InformacionCuentas extends javax.swing.JFrame {
     public void asignaBotonesCuentaDeAhorros() {
         for (int i = 0; i < listaCuentaDeAhorros.size(); i++) {
             JButton botonCuentas = new JButton(listaCuentaDeAhorros.get(i).getIdCuenta());
-            botonCuentas.setBounds(250, i * 50, 150, 75);
             panel.add(botonCuentas);
         }
     }

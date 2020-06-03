@@ -177,6 +177,7 @@ public class Json {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+        leerCuenta();
     }
 
     //--------------------------------------------------------------------------
@@ -196,6 +197,9 @@ public class Json {
             System.out.println(ex.getMessage());
         }
         stringCuenta = newStringCuenta;
+        //VaciarCuentas
+        cuentaCorriente = new ArrayList<CuentaCorriente>();
+        cuentaDeAhorros = new ArrayList<CuentaDeAhorros>();
         JsonArray cuentasJsonArray = gson.fromJson(newStringCuenta, JsonArray.class);
         if (cuentasJsonArray != null) {
             for (int i = 0; i < cuentasJsonArray.size(); i++) {
