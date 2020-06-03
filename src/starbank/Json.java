@@ -15,8 +15,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
-import sun.net.www.content.text.plain;
 
 /**
  *
@@ -277,4 +275,47 @@ public class Json {
         }
         return null;
     }
+
+//--------------------------------------------------------------------------------------------------------------------------------
+    public CuentaCorriente retornaCuentaCorriente(String idCuenta) {
+        for (CuentaCorriente corriente : this.cuentaCorriente) {
+            if (corriente.getIdCuenta().equalsIgnoreCase(idCuenta)) {
+                return corriente;
+            }
+        }
+        return null;
+    }
+
+    //--------------------------------------------------------------------------
+    public CuentaDeAhorros retornaCuentaDeAhorros(String idCuenta) {
+        for (CuentaDeAhorros deAhorros : this.cuentaDeAhorros) {
+            if (deAhorros.getIdCuenta().equalsIgnoreCase(idCuenta)) {
+                return deAhorros;
+            }
+        }
+        return null;
+    }
+
+    //--------------------------------------------------------------------------
+    public ArrayList<CuentaCorriente> retornaCuentasCorrientesCliente(String idCliente) {
+        ArrayList<CuentaCorriente> listaCorriente = new ArrayList<CuentaCorriente>();
+        for (CuentaCorriente corriente : this.cuentaCorriente) {
+            if (corriente.getIdCliente().equalsIgnoreCase(idCliente)) {
+                listaCorriente.add(corriente);
+            }
+        }
+        return listaCorriente;
+    }
+
+    //--------------------------------------------------------------------------
+    public ArrayList<CuentaDeAhorros> retornaCuentasDeAhorrosCliente(String idCliente) {
+        ArrayList<CuentaDeAhorros> listaDeAhorros = new ArrayList<CuentaDeAhorros>();
+        for (CuentaDeAhorros deAhorros : this.cuentaDeAhorros) {
+            if (deAhorros.getIdCliente().equalsIgnoreCase(idCliente)) {
+                listaDeAhorros.add(deAhorros);
+            }
+        }
+        return listaDeAhorros;
+    }
+
 }

@@ -6,6 +6,7 @@
 package starbank.Vista;
 
 import java.awt.Color;
+import javax.swing.JFrame;
 import starbank.Cajero;
 import starbank.ClienteEmpresa;
 import starbank.ClientePersona;
@@ -24,6 +25,7 @@ public class CrearCliente extends javax.swing.JFrame {
 
     public CrearCliente() {
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**

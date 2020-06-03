@@ -5,6 +5,8 @@
  */
 package starbank;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author YEISON
@@ -36,16 +38,24 @@ public class Cajero {
         Json.objetoJson.agregarCuenta(cuentaDeAhorros);
     }
 
-    public void traerCuentaCorriente() {
-
+    public CuentaCorriente traerCuentaCorriente(String idCuenta) {
+        return Json.objetoJson.retornaCuentaCorriente(idCuenta);
     }
 
-    public void traerCuentaDeAhorros() {
-
+    public CuentaDeAhorros traerCuentaDeAhorros(String idCuenta) {
+        return Json.objetoJson.retornaCuentaDeAhorros(idCuenta);
     }
 
     public void desactivarCuenta() {
 
+    }
+
+    public ArrayList<CuentaCorriente> traerCuentasCorrientesCliente(String idCliente) {
+        return Json.objetoJson.retornaCuentasCorrientesCliente(idCliente);
+    }
+
+    public ArrayList<CuentaDeAhorros> traerCuentasDeAhorrosCliente(String idCliente) {
+        return Json.objetoJson.retornaCuentasDeAhorrosCliente(idCliente);
     }
 
     public ClientePersona traerClientePersona(String id) {

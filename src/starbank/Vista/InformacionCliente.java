@@ -5,6 +5,7 @@
  */
 package starbank.Vista;
 
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import starbank.Cajero;
 import starbank.ClienteEmpresa;
@@ -28,6 +29,7 @@ public class InformacionCliente extends javax.swing.JFrame {
 
     public InformacionCliente() {
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         modelo = (DefaultTableModel) TablaInformacion.getModel();
 
         this.idCliente = MenuCliente.idCliente;
@@ -82,7 +84,7 @@ public class InformacionCliente extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        LabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LabelTitulo.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 30)); // NOI18N
         LabelTitulo.setText("Informacion del Cliente");
 
         TablaInformacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -133,16 +135,16 @@ public class InformacionCliente extends javax.swing.JFrame {
                         .addGap(101, 101, 101))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(LabelTitulo)
-                        .addGap(178, 178, 178))))
+                        .addGap(131, 131, 131))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(34, 34, 34)
                 .addComponent(LabelTitulo)
-                .addGap(45, 45, 45)
+                .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

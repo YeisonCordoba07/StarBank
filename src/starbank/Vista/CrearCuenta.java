@@ -19,6 +19,9 @@ public class CrearCuenta extends javax.swing.JFrame {
      */
     public CrearCuenta() {
         initComponents();
+        TextFieldIdCliente.setText(MenuCliente.idCliente);
+        TextFieldIdCliente.setEnabled(false);
+        ComboBoxTipoCliente.setSelectedItem(MenuCliente.tipoCliente);
     }
 
     /**
