@@ -66,6 +66,14 @@ public class Cajero {
         return Json.objetoJson.retornaClienteEmpresa(id);
     }
 
+    public void actulizarCuentaCorriente(CuentaCorriente corriente) {
+        Json.objetoJson.actulizarCuentaCorriente(corriente);
+    }
+
+    public void actulizarCuentaDeAhorros(CuentaDeAhorros deAhorros) {
+        Json.objetoJson.actulizarCuentaDeAhorros(deAhorros);
+    }
+
     //Lee lo que está en la base de datos Json
     public void traerJson() {
         Json.objetoJson.leerJson();

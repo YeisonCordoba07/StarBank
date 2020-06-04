@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import starbank.Cajero;
+import starbank.Cuenta;
 import starbank.CuentaCorriente;
 import starbank.CuentaDeAhorros;
 
@@ -17,19 +18,22 @@ import starbank.CuentaDeAhorros;
  *
  * @author YEISON
  */
-public class InicarSesionEnCuenta extends javax.swing.JFrame {
+public class IniciarSesionEnCuenta extends javax.swing.JFrame {
 
     /**
-     * Creates new form InicarSesionEnCuenta
+     * Creates new form IniciarSesionEnCuenta
      */
     public static String idCliente;
     public static String tipoCliente;
+    public static String idCuenta;
+    public static String tipoCuenta;
     private ArrayList<CuentaCorriente> listaCuentaCorriente;
     private ArrayList<CuentaDeAhorros> listaCuentaDeAhorros;
+    public static Cuenta cuenta;
 
     DefaultTableModel modelo;
 
-    public InicarSesionEnCuenta() {
+    public IniciarSesionEnCuenta() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
@@ -217,6 +221,12 @@ public class InicarSesionEnCuenta extends javax.swing.JFrame {
                             LabelError.setForeground(Color.green);
                             LabelError.setText("Exito corriente");
                             //Abrir infoCuenta
+                            this.idCuenta = ComboBoxCuentas.getSelectedItem().toString();
+                            this.tipoCuenta = "Corriente";
+                            cuenta = listaCuentaCorriente.get(i);
+                            InformacionCuenta informacionCuenta = new InformacionCuenta();
+                            informacionCuenta.setVisible(true);
+                            this.dispose();
                             System.out.println("exito corriente :)");
 
                         } else {
@@ -239,6 +249,12 @@ public class InicarSesionEnCuenta extends javax.swing.JFrame {
                                 LabelError.setText("Exito de ahorros");
                                 //Abrir infoCuenta
                                 //System.out.println("exito de ahorros :)");
+                                this.idCuenta = ComboBoxCuentas.getSelectedItem().toString();
+                                this.tipoCuenta = "DeAhorros";
+                                cuenta = listaCuentaDeAhorros.get(i);
+                                InformacionCuenta informacionCuenta = new InformacionCuenta();
+                                informacionCuenta.setVisible(true);
+                                this.dispose();
 
                             } else {
                                 LabelError.setForeground(Color.orange);
@@ -292,21 +308,23 @@ public class InicarSesionEnCuenta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InicarSesionEnCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IniciarSesionEnCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InicarSesionEnCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IniciarSesionEnCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InicarSesionEnCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IniciarSesionEnCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InicarSesionEnCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IniciarSesionEnCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InicarSesionEnCuenta().setVisible(true);
+                new IniciarSesionEnCuenta().setVisible(true);
             }
         });
     }

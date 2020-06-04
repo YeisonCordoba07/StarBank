@@ -26,7 +26,7 @@ public class InformacionCliente extends javax.swing.JFrame {
     private static ClienteEmpresa empresa;
 
     DefaultTableModel modelo;
-
+    
     public InformacionCliente() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

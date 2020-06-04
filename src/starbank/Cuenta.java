@@ -93,7 +93,7 @@ public abstract class Cuenta {
     }
     //--------------------------------------
 
-    public boolean isEstaActiva() {
+    public boolean getEstaActiva() {
         return estaActiva;
     }
 

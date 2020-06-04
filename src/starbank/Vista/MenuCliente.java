@@ -8,6 +8,7 @@ package starbank.Vista;
 import starbank.Cajero;
 import starbank.ClienteEmpresa;
 import starbank.ClientePersona;
+import starbank.Cuenta;
 
 /**
  *
@@ -22,6 +23,7 @@ public class MenuCliente extends javax.swing.JFrame {
     public static String tipoCliente;
     private ClientePersona clientePersona;
     private ClienteEmpresa clienteEmpresa;
+    private Cuenta cuenta;
 
     public MenuCliente() {
         initComponents();
@@ -178,7 +180,7 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void BotonVerInformacionCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerInformacionCuentasActionPerformed
         // TODO add your handling code here:
-        InicarSesionEnCuenta informacionCuentas = new InicarSesionEnCuenta();
+        IniciarSesionEnCuenta informacionCuentas = new IniciarSesionEnCuenta();
         informacionCuentas.setVisible(true);
         
     }//GEN-LAST:event_BotonVerInformacionCuentasActionPerformed
