@@ -16,27 +16,25 @@ public class Operacion {
     protected String nombreOperacion;
     protected Date fechaOperacion;
     protected Time hora;
-    protected String otros;
 
     
     //Contructor----------------------------------------------------------------
-    public Operacion(String nombreOperacion, Date fechaOperacion, Time hora, String otros) {
+    public Operacion(String nombreOperacion, Date fechaOperacion, Time hora) {
         this.nombreOperacion = nombreOperacion;
         this.fechaOperacion = fechaOperacion;
         this.hora = hora;
-        this.otros = otros;
+
     }
     
     
     
 //------------------------------------------------------------------------------ 
     
-    public String imprimirOperacion(){
+    public String retornaStringOperacion(){
         String operacionString = "";
-        operacionString += nombreOperacion + "/n";
-        operacionString += fechaOperacion +"/n";
-        operacionString += hora + "/n";
-        operacionString += otros + "/n";
+        operacionString += nombreOperacion + "\n";
+        operacionString += fechaOperacion +"\n";
+        operacionString += hora + "\n";
         return operacionString;
     }
     
@@ -67,13 +65,7 @@ public class Operacion {
         this.hora = hora;
     }
     //--------------------------------------------
-    public String getOtros() {
-        return otros;
-    }
 
-    public void setOtros(String otros) {
-        this.otros = otros;
-    }
 //------------------------------------------------------------------------------    
     
     

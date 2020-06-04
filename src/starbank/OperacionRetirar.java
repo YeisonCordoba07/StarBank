@@ -16,12 +16,22 @@ public class OperacionRetirar extends Operacion {
 
     private double valorARetirar;
 
-    public OperacionRetirar(String nombreOperacion, Date fechaOperacion, Time hora, String otros) {
-        super(nombreOperacion, fechaOperacion, hora, otros);
-        this.valorARetirar = Double.parseDouble(otros);//Revisar
+    public OperacionRetirar(String nombreOperacion, Date fechaOperacion, Time hora, double valor) {
+        super(nombreOperacion, fechaOperacion, hora);
+        this.valorARetirar = valor;//Revisar
     }
 
     public void buscarValor() {
         //busca dentro de otros el valor y lo guarda en valorARetirar
+    }
+
+    @Override
+    public String retornaStringOperacion() {
+        String operacionString = "";
+        operacionString += nombreOperacion + "\n";
+        operacionString += fechaOperacion + "\n";
+        operacionString += hora + "\n";
+        operacionString += valorARetirar;
+        return operacionString;
     }
 }
