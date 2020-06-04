@@ -164,13 +164,13 @@ public class Json {
         }
         stringCuenta += gson.toJson(nuevaCuenta) + "]";
         System.out.println(stringCuenta);
-        sobreescribirCuenta();
+        sobreescribirCuenta(stringCuenta);
     }
 
     //--------------------------------------------------------------------------
-    private void sobreescribirCuenta() {
+    private void sobreescribirCuenta(String stringInformacion) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("cuentasJson.json"))) {
-            bw.write(stringCuenta);
+            bw.write(stringInformacion);
 
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());
@@ -320,6 +320,47 @@ public class Json {
             }
         }
         return listaDeAhorros;
+    }
+
+    //--------------------------------------------------------------------------
+    public void actulizarCuentaCorriente(CuentaCorriente cuenta) {
+        String nuevoStringCuenta = "[";
+        for (int i = 0; i < cuentaCorriente.size(); i++) {
+            if (cuentaCorriente.get(i).getIdCuenta().equalsIgnoreCase(cuenta.getIdCuenta())) {
+                nuevoStringCuenta += gson.toJson(cuenta);
+
+            } else {
+                nuevoStringCuenta += gson.toJson(cuentaCorriente.get(i));
+            }
+
+            if (i + 1 == cuentaCorriente.size()) {
+                nuevoStringCuenta += "]";
+            } else {
+                nuevoStringCuenta += ",";
+            }
+        }
+        sobreescribirCuenta(nuevoStringCuenta);
+    }
+    
+    
+    //--------------------------------------------------------------------------
+    public void actulizarCuentaDeAhorros(CuentaDeAhorros cuenta) {
+        String nuevoStringCuenta = "[";
+        for (int i = 0; i < cuentaDeAhorros.size(); i++) {
+            if (cuentaDeAhorros.get(i).getIdCuenta().equalsIgnoreCase(cuenta.getIdCuenta())) {
+                nuevoStringCuenta += gson.toJson(cuenta);
+
+            } else {
+                nuevoStringCuenta += gson.toJson(cuentaDeAhorros.get(i));
+            }
+
+            if (i + 1 == cuentaDeAhorros.size()) {
+                nuevoStringCuenta += "]";
+            } else {
+                nuevoStringCuenta += ",";
+            }
+        }
+        sobreescribirCuenta(nuevoStringCuenta);
     }
 
 }
