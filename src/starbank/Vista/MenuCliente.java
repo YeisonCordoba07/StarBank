@@ -178,7 +178,7 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void BotonVerInformacionCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerInformacionCuentasActionPerformed
         // TODO add your handling code here:
-        InformacionCuentas informacionCuentas = new InformacionCuentas();
+        InicarSesionEnCuenta informacionCuentas = new InicarSesionEnCuenta();
         informacionCuentas.setVisible(true);
         
     }//GEN-LAST:event_BotonVerInformacionCuentasActionPerformed

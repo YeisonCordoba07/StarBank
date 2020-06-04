@@ -44,7 +44,7 @@ public class InformacionCliente extends javax.swing.JFrame {
             modelo.setValueAt(persona.getOcupacion(), 4, 1);
             modelo.setValueAt(persona.getEstaSuscrito(), 5, 1);
             modelo.setValueAt(persona.getContraseña(), 6, 1);
-            System.out.println("per sona");
+
         } else if (this.tipoCliente.equalsIgnoreCase("Empresa")) {
             empresa = Cajero.cajero.traerClienteEmpresa(this.idCliente);
             modelo.setValueAt(empresa.getId(), 0, 1);
@@ -55,8 +55,6 @@ public class InformacionCliente extends javax.swing.JFrame {
             modelo.setValueAt(empresa.getEstaSuscrito(), 5, 1);
             modelo.setValueAt(empresa.getContraseña(), 6, 1);
             modelo.setValueAt(empresa.getNit(), 7, 1);
-                        modelo.setValueAt("valor", 7, 1);
-                        System.out.println("emp resa");
             modelo.setValueAt(empresa.getNombreEmpresa(), 8, 1);
             modelo.setValueAt(empresa.getSectorComercial(), 9, 1);
         } else {
@@ -122,6 +120,10 @@ public class InformacionCliente extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(TablaInformacion);
+        if (TablaInformacion.getColumnModel().getColumnCount() > 0) {
+            TablaInformacion.getColumnModel().getColumn(0).setResizable(false);
+            TablaInformacion.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
