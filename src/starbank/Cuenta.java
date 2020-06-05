@@ -5,6 +5,8 @@
  */
 package starbank;
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,7 +22,7 @@ public abstract class Cuenta {
     protected double saldo;//Una cuenta nunca puede tener un saldo menor a 10000
     protected boolean estaActiva;//Está activa cuando se crea y reliza una consignacion de 20000
     protected String tipoCuenta;
-    //protected List<Operacion> listaOperaciones;
+    protected List<String> listaOperaciones;
 
 //---------------------------------------------------------------------------------------------------------------------
     public Cuenta(String idCuenta, String idCliente, String contraseñaCuenta, double saldo, boolean estaActivada, String tipoCuenta) {
@@ -35,6 +37,9 @@ public abstract class Cuenta {
 //---------------------------------------------------------------------------------------------------------------------
     public void consignar(double valorAConsignar) {
         saldo += valorAConsignar;
+        Date fecha = new Date();
+        OperacionRetirar a = new OperacionRetirar("Consignar", fecha, valorAConsignar);
+        agregarOperacion(a.retornaStringOperacion());
         //Añadir a operaciones
     }
 
@@ -47,19 +52,25 @@ public abstract class Cuenta {
             costoDeRetiro = 0.17;
         } else if (tipoCuenta.equalsIgnoreCase("DeAhorros")) {
             costoDeRetiro = 0.2;
-        }else{
+        } else {
             System.out.println("Tipo de cuenta no encontrada en cajero retiro");
         }
         saldo = saldo - (valorARetirar + valorARetirar * costoDeRetiro);
         System.out.println("Retiro cajero exitoso");
         //Añadir a operaciones
+        Date fecha = new Date();
+        OperacionRetirar a = new OperacionRetirar("Retirar", fecha, valorARetirar);
+        agregarOperacion(a.retornaStringOperacion());
     }
-    //    public void agregarOperacion(Operacion operacion) {
-    //        //Agrega la operacion a listaOperaciones
-    //        listaOperaciones.add(operacion);
-    //
-    //    }
 
+//------------------------------------------------------------------------------
+    public void agregarOperacion(String operacion) {
+        //Agrega la operacion a listaOperaciones
+        listaOperaciones.add(operacion);
+
+    }
+
+//------------------------------------------------------------------------------
     public void verificarValorARetirar(double valorARetirar, double interes) {
         if (saldo - (interes * valorARetirar) < 10000) {
             //No se puede retirar

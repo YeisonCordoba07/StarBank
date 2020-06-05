@@ -16,8 +16,8 @@ public class OperacionRetirar extends Operacion {
 
     private double valorARetirar;
 
-    public OperacionRetirar(String nombreOperacion, Date fechaOperacion, Time hora, double valor) {
-        super(nombreOperacion, fechaOperacion, hora);
+    public OperacionRetirar(String nombreOperacion, Date fechaOperacion, double valor) {
+        super(nombreOperacion, fechaOperacion);
         this.valorARetirar = valor;//Revisar
     }
 
@@ -28,10 +28,9 @@ public class OperacionRetirar extends Operacion {
     @Override
     public String retornaStringOperacion() {
         String operacionString = "";
-        operacionString += nombreOperacion + "\n";
-        operacionString += fechaOperacion + "\n";
-        operacionString += hora + "\n";
-        operacionString += valorARetirar;
+        operacionString += "Operacion: "+nombreOperacion + "\n";
+        operacionString += "Fecha: "+fechaOperacion + "\n";
+        operacionString += "Valor retiro: "+valorARetirar;
         return operacionString;
     }
 }

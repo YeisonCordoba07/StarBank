@@ -15,14 +15,11 @@ import java.util.Date;
 public class Operacion {
     protected String nombreOperacion;
     protected Date fechaOperacion;
-    protected Time hora;
-
     
     //Contructor----------------------------------------------------------------
-    public Operacion(String nombreOperacion, Date fechaOperacion, Time hora) {
+    public Operacion(String nombreOperacion, Date fechaOperacion) {
         this.nombreOperacion = nombreOperacion;
         this.fechaOperacion = fechaOperacion;
-        this.hora = hora;
 
     }
     
@@ -32,9 +29,8 @@ public class Operacion {
     
     public String retornaStringOperacion(){
         String operacionString = "";
-        operacionString += nombreOperacion + "\n";
-        operacionString += fechaOperacion +"\n";
-        operacionString += hora + "\n";
+        operacionString += "Operacion:"+nombreOperacion + "\n";
+        operacionString += "Fecha: "+fechaOperacion +"\n";
         return operacionString;
     }
     
@@ -55,14 +51,6 @@ public class Operacion {
 
     public void setFechaOperacion(Date fechaOperacion) {
         this.fechaOperacion = fechaOperacion;
-    }
-    //--------------------------------------------
-    public Time getHora() {
-        return hora;
-    }
-
-    public void setHora(Time hora) {
-        this.hora = hora;
     }
     //--------------------------------------------
 

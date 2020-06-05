@@ -16,8 +16,8 @@ public class OperacionConsignar extends Operacion {
 
     private double valorAConsignar;
 
-    public OperacionConsignar(String nombreOperacion, Date fechaOperacion, Time hora, double valor) {
-        super(nombreOperacion, fechaOperacion, hora);
+    public OperacionConsignar(String nombreOperacion, Date fechaOperacion, double valor) {
+        super(nombreOperacion, fechaOperacion);
         this.valorAConsignar = valor;//Revisar
     }
 
@@ -28,10 +28,9 @@ public class OperacionConsignar extends Operacion {
     @Override
     public String retornaStringOperacion() {
         String operacionString = "";
-        operacionString += nombreOperacion + "\n";
-        operacionString += fechaOperacion + "\n";
-        operacionString += hora + "\n";
-        operacionString += valorAConsignar;
+        operacionString += "Operacion: "+nombreOperacion + "\n";
+        operacionString += "Fecha: "+fechaOperacion + "\n";
+        operacionString += "Valor consignado: "+valorAConsignar;
         return operacionString;
     }
 }

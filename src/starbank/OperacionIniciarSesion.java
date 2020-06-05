@@ -14,8 +14,8 @@ import java.util.Date;
  */
 public class OperacionIniciarSesion extends Operacion{
 
-    public OperacionIniciarSesion(String nombreOperacion, Date fechaOperacion, Time hora) {
-        super(nombreOperacion, fechaOperacion, hora);
+    public OperacionIniciarSesion(String nombreOperacion, Date fechaOperacion) {
+        super(nombreOperacion, fechaOperacion);
     }
     
 }
