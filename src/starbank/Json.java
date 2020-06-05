@@ -329,7 +329,7 @@ public class Json {
         }
         for (int i = 0; i < cuentaCorriente.size(); i++) {
             try {
-                if (cuentaCorriente.get(i).getIdCuenta().equalsIgnoreCase(cuenta.getIdCuenta())) {
+                if (cuenta != null && cuentaCorriente.get(i).getIdCuenta().equalsIgnoreCase(cuenta.getIdCuenta())) {
                     stringCuenta += gson.toJson(cuenta);
 
                 } else {
@@ -339,7 +339,7 @@ public class Json {
                 System.out.println("Nullo en actualizarCuentaCorriente");
             }
 
-            if (i + 1 == cuentaCorriente.size()) {
+            if (cuenta == null && i + 1 == cuentaCorriente.size()) {
                 stringCuenta += "]";
             } else {
                 stringCuenta += ",";
@@ -363,7 +363,7 @@ public class Json {
 
         for (int i = 0; i < cuentaDeAhorros.size(); i++) {
             try {
-                if (cuentaDeAhorros.get(i).getIdCuenta().equalsIgnoreCase(cuenta.getIdCuenta())) {
+                if (cuenta != null && cuentaDeAhorros.get(i).getIdCuenta().equalsIgnoreCase(cuenta.getIdCuenta())) {
                     stringCuenta += gson.toJson(cuenta);
 
                 } else {
@@ -373,7 +373,7 @@ public class Json {
                 System.out.println("Nullo en actualizar cuenta de ahorros");
             }
 
-            if (i + 1 == cuentaDeAhorros.size()) {
+            if (cuenta == null && i + 1 == cuentaDeAhorros.size()) {
                 stringCuenta += "]";
             } else {
                 stringCuenta += ",";
