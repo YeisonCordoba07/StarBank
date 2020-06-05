@@ -152,8 +152,8 @@ public class Retirar extends javax.swing.JFrame {
                                                 .addGap(33, 33, 33)
                                                 .addComponent(BotonVerificar))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(57, 57, 57)
-                                                .addComponent(LabelVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGap(16, 16, 16)
+                                                .addComponent(LabelVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addComponent(TextFieldCobroRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -171,7 +171,7 @@ public class Retirar extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(LabelError, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(BotonRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,10 +198,11 @@ public class Retirar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addGap(58, 58, 58)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextFieldValorARetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(BotonVerificar))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotonVerificar)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TextFieldValorARetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LabelVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -216,9 +217,7 @@ public class Retirar extends javax.swing.JFrame {
                     .addComponent(TextFieldSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel9))
+                    .addComponent(jLabel9)
                     .addComponent(TextFieldSaldoDespuesDeRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(BotonRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -280,21 +279,15 @@ public class Retirar extends javax.swing.JFrame {
         if (TextFieldValorARetirar.getText().length() > 0) {
             if (Cajero.cajero.verificar(Double.parseDouble(TextFieldValorARetirar.getText()), this.saldo, porcentajeCobro)) {
 
-                cobroRetiro = Double.parseDouble(TextFieldValorARetirar.getText()) * porcentajeCobro;
-
-                saldo = saldo - (cobroRetiro + Double.parseDouble(TextFieldValorARetirar.getText()));
-
                 if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("Corriente")) {
 
-                    //ARREGLAR RETIRAR
-                    InformacionCuenta.cuentaCorriente.retirar(10000000);
+                    InformacionCuenta.cuentaCorriente.retirar(Double.parseDouble(TextFieldValorARetirar.getText()));
                     Cajero.cajero.actulizarCuentaCorriente(InformacionCuenta.cuentaCorriente);
                     this.dispose();
 
                 } else if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("DeAhorros")) {
 
-                    //ARREGLAR RETIRAR
-                    InformacionCuenta.cuentaDeAhorros.retirar(1000000);
+                    InformacionCuenta.cuentaDeAhorros.retirar(Double.parseDouble(TextFieldValorARetirar.getText()));
                     Cajero.cajero.actulizarCuentaDeAhorros(InformacionCuenta.cuentaDeAhorros);
                     this.dispose();
                 }

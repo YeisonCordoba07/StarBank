@@ -42,14 +42,23 @@ public abstract class Cuenta {
     //Costo de retiro para cuenta de ahorros vale el 2% y para una cuenta corriente vale el 1.7% del valor a retirar
     //Se podra retirar si el valorARetirar + costoDeRetiro deja en la cuenta 10000 o mas
     public void retirar(double valorARetirar) {
-        double costoDeRetiro;
+        double costoDeRetiro = 0;
+        if (tipoCuenta.equalsIgnoreCase("Corriente")) {
+            costoDeRetiro = 0.17;
+        } else if (tipoCuenta.equalsIgnoreCase("DeAhorros")) {
+            costoDeRetiro = 0.2;
+        }else{
+            System.out.println("Tipo de cuenta no encontrada en cajero retiro");
+        }
+        saldo = saldo - (valorARetirar + valorARetirar * costoDeRetiro);
+        System.out.println("Retiro cajero exitoso");
+        //Añadir a operaciones
     }
-
-//    public void agregarOperacion(Operacion operacion) {
-//        //Agrega la operacion a listaOperaciones
-//        listaOperaciones.add(operacion);
-//
-//    }
+    //    public void agregarOperacion(Operacion operacion) {
+    //        //Agrega la operacion a listaOperaciones
+    //        listaOperaciones.add(operacion);
+    //
+    //    }
 
     public void verificarValorARetirar(double valorARetirar, double interes) {
         if (saldo - (interes * valorARetirar) < 10000) {
