@@ -18,7 +18,7 @@ public class OperacionRetirar extends Operacion {
 
     public OperacionRetirar(String nombreOperacion, Date fechaOperacion, double valor) {
         super(nombreOperacion, fechaOperacion);
-        this.valorARetirar = valor;//Revisar
+        this.valorARetirar = valor;
     }
 
     public void buscarValor() {

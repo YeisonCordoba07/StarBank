@@ -6,6 +6,7 @@
 package starbank;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public abstract class Cuenta {
     protected double saldo;//Una cuenta nunca puede tener un saldo menor a 10000
     protected boolean estaActiva;//Está activa cuando se crea y reliza una consignacion de 20000
     protected String tipoCuenta;
-    protected List<String> listaOperaciones;
+    protected ArrayList<String> listaOperaciones = new ArrayList<String>();
 
 //---------------------------------------------------------------------------------------------------------------------
     public Cuenta(String idCuenta, String idCliente, String contraseñaCuenta, double saldo, boolean estaActivada, String tipoCuenta) {
@@ -122,14 +123,14 @@ public abstract class Cuenta {
         this.estaActiva = estaActiva;
     }
     //--------------------------------------
-//
-//    public List<Operacion> getListaOperaciones() {
-//        return listaOperaciones;
-//    }
-//
-//    public void setListaOperaciones(List<Operacion> listaOperaciones) {
-//        this.listaOperaciones = listaOperaciones;
-//    }
+
+    public ArrayList<String> getListaOperaciones() {
+        return listaOperaciones;
+    }
+
+    public void setListaOperaciones(ArrayList<String> listaOperaciones) {
+        this.listaOperaciones = listaOperaciones;
+    }
 
     //--------------------------------------
     public String getTipoCuenta() {

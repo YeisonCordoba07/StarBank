@@ -51,8 +51,6 @@ public class Json {
         System.out.println(stringJson);
         sobreescribirJson();
 
-//        int tamaño = stringJson.length();      
-//        stringJson = stringJson.substring(0, tamaño-2);
     }
 
     //--------------------------------------------------------------------------
@@ -157,7 +155,8 @@ public class Json {
 //--------------------------------------------------------------------------------------------------------------------------------  
     public void agregarCuenta(Cuenta nuevaCuenta) {
         if (stringCuenta != "[") {
-            stringCuenta = stringCuenta.replace("]", "");
+            stringCuenta = stringCuenta.substring(0, stringCuenta.length()-2);
+            //stringCuenta = stringCuenta.replace("]", "");
             stringCuenta += ",";
 
             stringCuenta += "\n";
@@ -165,6 +164,9 @@ public class Json {
         stringCuenta += gson.toJson(nuevaCuenta) + "]";
         System.out.println(stringCuenta);
         sobreescribirCuenta(stringCuenta);
+
+//        int tamaño = stringJson.length();      
+//        stringJson = stringJson.substring(0, tamaño-2);
     }
 
     //--------------------------------------------------------------------------
@@ -333,8 +335,6 @@ public class Json {
 
     }
 
-    
-    
     //--------------------------------------------------------------------------
     public void actulizarCuentaDeAhorros(CuentaDeAhorros cuenta) {
         if (cuenta != null) {
