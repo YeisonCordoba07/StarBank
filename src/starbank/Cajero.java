@@ -129,6 +129,15 @@ public class Cajero {
     
     
     
+//-------------------------------------------------------------------------------------------------------------------------  
+    public void consigarASucursal(double valor)
+    {
+        Sucursal sucursal = new Sucursal();
+        sucursal.consignarSucursal(valor);
+    }
+    
+    
+    
 //-------------------------------------------------------------------------------------------------------------------------
     /*Lee lo que está en la base de datos Json*/
     public void traerJson() 

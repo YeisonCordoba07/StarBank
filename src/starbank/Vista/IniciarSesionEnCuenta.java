@@ -47,18 +47,21 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
 
         ComboBoxCuentas.addItem("");//Agrega un primer item nulo
         ComboBoxCuentas.setSelectedIndex(0); //selecciona ese primer item nulo
+        
         modelo = (DefaultTableModel) TablaCuentas.getModel();
-        for (int i = 0; i < listaCuentaCorriente.size(); i++) {
+        for (int i = 0; i < listaCuentaCorriente.size(); i++) 
+        {
             modelo.addRow(new Object[]{"", ""});//Agrega una nueva fila
             modelo.setValueAt(listaCuentaCorriente.get(i).getIdCuenta(), i, 0);//Agrega el id de la cuenta a la tabla
             ComboBoxCuentas.addItem(listaCuentaCorriente.get(i).getIdCuenta());//Agrega el id de la cuenta al comboBox
         }
-        for (int i = 0; i < listaCuentaDeAhorros.size(); i++) {
+        for (int i = 0; i < listaCuentaDeAhorros.size(); i++)
+        {
             //Si el numero de filas que hay, no va a alcanzar para agregar todas las cuentas, entonces agrega una nueva fila
-            if (modelo.getRowCount() < listaCuentaDeAhorros.size()) {
+            if (modelo.getRowCount() < listaCuentaDeAhorros.size()) 
+            {
                 modelo.addRow(new Object[]{"", ""});
             }
-
             modelo.setValueAt(listaCuentaDeAhorros.get(i).getIdCuenta(), i, 1);
             ComboBoxCuentas.addItem(listaCuentaDeAhorros.get(i).getIdCuenta());
         }
@@ -207,28 +210,32 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         imprimirListaCorriente();
         boolean esCuentaDeAhorros = false;
-        if (ComboBoxCuentas.getSelectedIndex() == 0) {
+        if (ComboBoxCuentas.getSelectedIndex() == 0)
+        {
             LabelError.setForeground(Color.red);
             LabelError.setText("Seleccione una cuenta");
         } else {
-            if (TextFieldContraseña.getText().length() > 0) {
-                for (int i = 0; i < listaCuentaCorriente.size(); i++) {
-                    if (listaCuentaCorriente.get(i).getIdCuenta().equals(ComboBoxCuentas.getSelectedItem().toString())) {
-                        if (listaCuentaCorriente.get(i).getContraseñaCuenta().equals(TextFieldContraseña.getText())) {
-
+            if (TextFieldContraseña.getText().length() > 0)
+            {
+                for (int i = 0; i < listaCuentaCorriente.size(); i++) 
+                {
+                    if (listaCuentaCorriente.get(i).getIdCuenta().equals(ComboBoxCuentas.getSelectedItem().toString())) 
+                    {
+                        if (listaCuentaCorriente.get(i).getContraseñaCuenta().equals(TextFieldContraseña.getText())) 
+                        {
                             LabelError.setForeground(Color.green);
                             LabelError.setText("Exito corriente");
-                            //Abrir infoCuenta
+
                             this.idCuenta = ComboBoxCuentas.getSelectedItem().toString();
                             this.tipoCuenta = "Corriente";
                             this.cuentaCorriente = listaCuentaCorriente.get(i);
+
                             InformacionCuenta informacionCuenta = new InformacionCuenta();
                             informacionCuenta.setVisible(true);
                             this.dispose();
-                            System.out.println("exito corriente :)");
+
 
                         } else {
                             LabelError.setForeground(Color.orange);
@@ -240,16 +247,17 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
                     }
                 }
 
-                if (esCuentaDeAhorros) {
-                    for (int i = 0; i < listaCuentaDeAhorros.size(); i++) {
-
-                        if (this.listaCuentaDeAhorros.get(i).getIdCuenta().equals(ComboBoxCuentas.getSelectedItem().toString()) == true) {
-                            if (listaCuentaDeAhorros.get(i).getContraseñaCuenta().equals(TextFieldContraseña.getText())) {
-
+                if (esCuentaDeAhorros) 
+                {
+                    for (int i = 0; i < listaCuentaDeAhorros.size(); i++) 
+                    {
+                        if (this.listaCuentaDeAhorros.get(i).getIdCuenta().equals(ComboBoxCuentas.getSelectedItem().toString()) == true)
+                        {
+                            if (listaCuentaDeAhorros.get(i).getContraseñaCuenta().equals(TextFieldContraseña.getText())) 
+                            {
                                 LabelError.setForeground(Color.green);
                                 LabelError.setText("Exito de ahorros");
-                                //Abrir infoCuenta
-                                //System.out.println("exito de ahorros :)");
+
                                 this.idCuenta = ComboBoxCuentas.getSelectedItem().toString();
                                 this.tipoCuenta = "DeAhorros";
                                 cuentaDeAhorros = listaCuentaDeAhorros.get(i);
@@ -278,13 +286,16 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void imprimirListaCorriente() {
+    private void imprimirListaCorriente() 
+    {
         System.out.println("LISTA CUENTA CORRIENTE");
-        for (int i = 0; i < listaCuentaCorriente.size(); i++) {
+        for (int i = 0; i < listaCuentaCorriente.size(); i++) 
+        {
             System.out.println(listaCuentaCorriente.get(i).getIdCuenta());
         }
         System.out.println("LISTA CUENTA DE AHORROS");
-        for (int i = 0; i < listaCuentaDeAhorros.size(); i++) {
+        for (int i = 0; i < listaCuentaDeAhorros.size(); i++) 
+        {
             System.out.println(listaCuentaDeAhorros.get(i).getIdCuenta());
         }
         System.out.println("");

@@ -8,7 +8,6 @@ package starbank.Vista;
 import starbank.Cajero;
 import starbank.ClienteEmpresa;
 import starbank.ClientePersona;
-import starbank.Cuenta;
 
 /**
  *
@@ -23,13 +22,13 @@ public class MenuCliente extends javax.swing.JFrame {
     public static String tipoCliente;
     private ClientePersona clientePersona;
     private ClienteEmpresa clienteEmpresa;
-    private Cuenta cuenta;
 
     public MenuCliente() {
         initComponents();
 
         //Comprueba si tiene que ir a MenuStarBank o a CrearCliente por los datos de idCliente y tipoCliente
-        if (MenuStarBank.iniciarSesion) {
+        if (MenuStarBank.iniciarSesion) 
+        {
             this.idCliente = MenuStarBank.idCliente;
             this.tipoCliente = MenuStarBank.tipoCliente;
         } else {
@@ -40,10 +39,12 @@ public class MenuCliente extends javax.swing.JFrame {
 
     }
 
-    public void traerInformacionCliente() {
-        try {
-            if (this.tipoCliente.equalsIgnoreCase("Persona")) {
-
+    public void traerInformacionCliente() 
+    {
+        try 
+        {
+            if (this.tipoCliente.equalsIgnoreCase("Persona"))
+            {
                 //Busca el cliente en las listas de clientes y trae sus datos
                 clientePersona = Cajero.cajero.traerClientePersona(this.idCliente);
 
@@ -56,13 +57,11 @@ public class MenuCliente extends javax.swing.JFrame {
 
                 LabelNombreCliente.setText(clienteEmpresa.getNombre());
                 LabelIdCliente.setText(clienteEmpresa.getId());
-                System.out.println("MenuclienteEmpresa");
 
             }
         } catch (NullPointerException e) {
             System.out.println("Error en MenuCliente, cliente nullo: " + e);
         }
-
     }
 
     /**

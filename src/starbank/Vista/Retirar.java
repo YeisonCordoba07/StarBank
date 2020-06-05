@@ -23,16 +23,16 @@ public class Retirar extends javax.swing.JFrame {
 
     public Retirar() {
         initComponents();
-        if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("Corriente")) {
-
+        if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("Corriente"))
+        {
             TextFieldSaldo.setText("" + InformacionCuenta.cuentaCorriente.getSaldo());
             this.saldo = InformacionCuenta.cuentaCorriente.getSaldo();
             this.porcentajeCobro = 0.17;
             Cajero.cajero.actulizarCuentaCorriente(InformacionCuenta.cuentaCorriente);
             this.dispose();
 
-        } else if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("DeAhorros")) {
-
+        } else if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("DeAhorros")) 
+        {
             TextFieldSaldo.setText("" + InformacionCuenta.cuentaDeAhorros.getSaldo());
             this.saldo = InformacionCuenta.cuentaDeAhorros.getSaldo();
             this.porcentajeCobro = 0.2;
@@ -249,9 +249,10 @@ public class Retirar extends javax.swing.JFrame {
     private void BotonVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerificarActionPerformed
         LabelVerificar.setText("");
         LabelError.setText("");
-        if (TextFieldValorARetirar.getText().length() > 0) {
-            if (Cajero.cajero.verificar(Double.parseDouble(TextFieldValorARetirar.getText()), this.saldo, porcentajeCobro)) {
-
+        if (TextFieldValorARetirar.getText().length() > 0)
+        {
+            if (Cajero.cajero.verificar(Double.parseDouble(TextFieldValorARetirar.getText()), this.saldo, porcentajeCobro)) 
+            {
                 TextFieldCobroRetiro.setText("" + Double.parseDouble(TextFieldValorARetirar.getText()) * porcentajeCobro);
                 TextFieldCobroRetiro.setEnabled(false);
 
@@ -276,19 +277,22 @@ public class Retirar extends javax.swing.JFrame {
         // TODO add your handling code here:
         //LabelVerificar.setText("");
         LabelError.setText("");
-        if (TextFieldValorARetirar.getText().length() > 0) {
-            if (Cajero.cajero.verificar(Double.parseDouble(TextFieldValorARetirar.getText()), this.saldo, porcentajeCobro)) {
-
-                if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("Corriente")) {
-
+        if (TextFieldValorARetirar.getText().length() > 0) 
+        {
+            if (Cajero.cajero.verificar(Double.parseDouble(TextFieldValorARetirar.getText()), this.saldo, porcentajeCobro)) 
+            {
+                if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("Corriente"))
+                {
                     InformacionCuenta.cuentaCorriente.retirar(Double.parseDouble(TextFieldValorARetirar.getText()));
                     Cajero.cajero.actulizarCuentaCorriente(InformacionCuenta.cuentaCorriente);
+                    Cajero.cajero.consigarASucursal(Double.parseDouble(TextFieldValorARetirar.getText())*porcentajeCobro);
                     this.dispose();
 
-                } else if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("DeAhorros")) {
-
+                } else if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("DeAhorros"))
+                {
                     InformacionCuenta.cuentaDeAhorros.retirar(Double.parseDouble(TextFieldValorARetirar.getText()));
                     Cajero.cajero.actulizarCuentaDeAhorros(InformacionCuenta.cuentaDeAhorros);
+                    Cajero.cajero.consigarASucursal(Double.parseDouble(TextFieldValorARetirar.getText())*porcentajeCobro);
                     this.dispose();
                 }
 

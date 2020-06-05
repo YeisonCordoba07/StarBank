@@ -27,6 +27,7 @@ public class MenuStarBank extends javax.swing.JFrame {
     public MenuStarBank() {
         initComponents();
         this.setResizable(false);//Para que no se pueda cambiar el tamaño de la ventana
+        Cajero.cajero.traerJson();
 
     }
 
@@ -44,7 +45,6 @@ public class MenuStarBank extends javax.swing.JFrame {
         BotonIniciarSesionCliente = new javax.swing.JButton();
         TextFieldId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         ComboBoxTipoCliente = new javax.swing.JComboBox<>();
         TextFieldContraseña = new javax.swing.JTextField();
         LabelError = new javax.swing.JLabel();
@@ -72,13 +72,6 @@ public class MenuStarBank extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 36)); // NOI18N
         jLabel1.setText("INICIAR SESION");
 
-        jButton1.setText("Leer e imprimir archivo Json");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         ComboBoxTipoCliente.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         ComboBoxTipoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Persona", "Empresa" }));
         ComboBoxTipoCliente.setSelectedItem(null);
@@ -101,9 +94,6 @@ public class MenuStarBank extends javax.swing.JFrame {
                                 .addComponent(BotonIniciarSesionCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                                 .addComponent(TextFieldId, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(TextFieldContraseña, javax.swing.GroupLayout.Alignment.LEADING))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(jButton1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addComponent(ComboBoxTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,9 +121,7 @@ public class MenuStarBank extends javax.swing.JFrame {
                 .addComponent(BotonIniciarSesionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LabelError)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(62, 62, 62))
+                .addGap(62, 135, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,39 +145,28 @@ public class MenuStarBank extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearClienteActionPerformed
-        //Abré la ventana para crear un Cliente, pero sin cerrar esta
         CrearCliente ventanaCrearCliente = new CrearCliente();
         ventanaCrearCliente.setVisible(true);
-        //this.dispose();
-
     }//GEN-LAST:event_BotonCrearClienteActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Lee lo que hay en el Json
-        Cajero.cajero.traerJson();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-
 
 //Comprueba que el cliente sí exista y si es así comprueba la contraseña. Si todo es correcto lo lleva a MenuCliente
     private void BotonIniciarSesionClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIniciarSesionClienteActionPerformed
 
         //Mira el tipo de Cliente para buscarlo en la lista de Personas o Empresas
-        if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Persona")) 
+        if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Persona"))
         {
-            
             //Busca el id dentro de la lista de clientes
             ClientePersona persona = Cajero.cajero.traerClientePersona(TextFieldId.getText());
 
             //Si persona es nulo significa que el cliente no está registrado y manda un mensaje para que se registre
-            if (persona == null) {
+            if (persona == null)
+            {
                 LabelError.setText("Cliente no registrado");
                 System.out.println("Cliente Nulo");
             } else {
-                
                 //Si el cliente si está registrado, entonces comprueba la contraseña
-                if (TextFieldContraseña.getText().equalsIgnoreCase(persona.getContraseña())) {
-
+                if (TextFieldContraseña.getText().equalsIgnoreCase(persona.getContraseña()))
+                {
                     this.idCliente = TextFieldId.getText();
                     this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
                     this.iniciarSesion = true;
@@ -203,28 +180,27 @@ public class MenuStarBank extends javax.swing.JFrame {
                 }
             }
 
-        } else if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Empresa")) {
+        } else if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Empresa")){
             ClienteEmpresa empresa = Cajero.cajero.traerClienteEmpresa(TextFieldId.getText());
 
-            if (empresa == null) {
+            if (empresa == null) 
+            {
                 LabelError.setText("Cliente no registrado");
                 System.out.println("Cliente Nulo");
             } else {
-                if (TextFieldContraseña.getText().equalsIgnoreCase(empresa.getContraseña())) {
-
-
+                if (TextFieldContraseña.getText().equalsIgnoreCase(empresa.getContraseña())) 
+                {
                     this.idCliente = TextFieldId.getText();
                     this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
                     this.iniciarSesion = true;
-                    
+
                     MenuCliente menuCliente = new MenuCliente();
                     menuCliente.setVisible(true);
-
                 } else {
                     System.out.println("Contraseña empresa incorreta");
                 }
             }
-        }else{
+        } else {
             System.out.println("Ninguno seleccionado");
         }
     }//GEN-LAST:event_BotonIniciarSesionClienteActionPerformed
@@ -271,7 +247,6 @@ public class MenuStarBank extends javax.swing.JFrame {
     private javax.swing.JLabel LabelError;
     private javax.swing.JTextField TextFieldContraseña;
     private javax.swing.JTextField TextFieldId;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

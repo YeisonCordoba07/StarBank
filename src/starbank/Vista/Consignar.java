@@ -108,18 +108,15 @@ public class Consignar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if (TextFieldValorAConsignar.getText().length() > 0) {
-            if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("Corriente")) {
-//                InformacionCuenta.cuentaCorriente.setSaldo(Double.parseDouble(TextFieldValorAConsignar.getText())
-//                        + InformacionCuenta.cuentaCorriente.getSaldo());
-
+        if (TextFieldValorAConsignar.getText().length() > 0)
+        {
+            if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("Corriente")) 
+            {
                 InformacionCuenta.cuentaCorriente.consignar(Double.parseDouble(TextFieldValorAConsignar.getText()));
                 Cajero.cajero.actulizarCuentaCorriente(InformacionCuenta.cuentaCorriente);
                 this.dispose();
 
-            } else if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("DeAhorros")) {
-//                InformacionCuenta.cuentaDeAhorros.setSaldo(Double.parseDouble(TextFieldValorAConsignar.getText())
-//                        + InformacionCuenta.cuentaDeAhorros.getSaldo());
+            } else if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("DeAhorros")){
 
                 InformacionCuenta.cuentaDeAhorros.consignar(Double.parseDouble(TextFieldValorAConsignar.getText()));
                 Cajero.cajero.actulizarCuentaDeAhorros(InformacionCuenta.cuentaDeAhorros);
