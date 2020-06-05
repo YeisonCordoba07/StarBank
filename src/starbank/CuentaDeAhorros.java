@@ -12,17 +12,31 @@ package starbank;
 public class CuentaDeAhorros extends Cuenta{
     private final double INTERES = 0.1;
 
-    public CuentaDeAhorros(String idCuenta,String idCliente, String contraseñaCuenta, double saldo, boolean estaActivada, String tipoCuenta) {
+    
+    
+    
+    public CuentaDeAhorros(String idCuenta,String idCliente, String contraseñaCuenta, double saldo, 
+            boolean estaActivada, String tipoCuenta) {
+        
         super(idCuenta, idCliente, contraseñaCuenta, saldo, estaActivada, tipoCuenta);
     }
-
-    public String toString() {
+    
+    
+    
+//---------------------------------------------------------------------------------------------------------------------
+    @Override
+    public String toString()
+    {
         return "CuentaDeAhorros{" +"\n" + "IdCuenta: "+idCuenta+ "\n" +"IdCliente: "+idCliente+ "\n" 
                 +"ContraseñaCuenta: "+contraseñaCuenta+ "\n" +"Saldo: "+saldo+ "\n" +"estaActiva: "+estaActiva
                 + "\n" +"TipoCuenta: "+tipoCuenta + "\n" + "Interes: "+INTERES+ "\n" +"}" + "\n" + "\n";
     }
-
-    public double getINTERES() {
+    
+    
+    
+//---------------------------------------------------------------------------------------------------------------------
+    public double getINTERES() 
+    {
         return INTERES;
     }
     

@@ -18,33 +18,35 @@ public class ClienteEmpresa extends Cliente {
     public ClienteEmpresa() {
     }
 
-    public ClienteEmpresa(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña, String tipoCliente, String nit, String nombreEmpresa, String sectorComercial) {
+    public ClienteEmpresa(String id, String nombre, String telefono, String direccion, String ocupacion, 
+            boolean estaSuscrito, String contraseña, String tipoCliente, String nit, String nombreEmpresa, 
+            String sectorComercial) {
+        
         super(id, nombre, telefono, direccion, ocupacion, estaSuscrito, contraseña, tipoCliente);
         this.nit = nit;
         this.nombreEmpresa = nombreEmpresa;
         this.sectorComercial = sectorComercial;
     }
 
-
-    public void iniciarSesion(String id, String contraseña) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 //------------------------------------------------------------------------------
-
-    public String getNit() {
+    public String getNit() 
+    {
         return nit;
     }
 
-    public void setNit(String nit) {
+    public void setNit(String nit) 
+    {
         this.nit = nit;
     }
 
     //-----------------------------------
-    public String getNombreEmpresa() {
+    public String getNombreEmpresa() 
+    {
         return nombreEmpresa;
     }
 
-    public void setNombreEmpresa(String nombreEmpresa) {
+    public void setNombreEmpresa(String nombreEmpresa) 
+    {
         this.nombreEmpresa = nombreEmpresa;
     }
 
@@ -53,13 +55,17 @@ public class ClienteEmpresa extends Cliente {
         return sectorComercial;
     }
 
-    public void setSectorComercial(String sectorComercial) {
+    public void setSectorComercial(String sectorComercial) 
+    {
         this.sectorComercial = sectorComercial;
     }
-    //------------------------------------------------------------------------------   
-
-    //@Override
-    public String toString() {
+    
+    
+    
+//-------------------------------------------------------------------------------------------------------------------------  
+    @Override
+    public String toString() 
+    {
         return "ClienteEmpresa{"+"\n" + "Nombre: " + nombre + "\n" + "ID: " + id + "\n" + "Telefono: " + telefono + "\n" + "Direccion: " + direccion + "\n"
                 + "Ocupacion: " + ocupacion + "\n" + "Contraseña: " + contraseña + "\n"+"Nit: " + nit + "\n" + "Nombre Empresa: " + nombreEmpresa + "\n"
                 + "Sector comercial: " + sectorComercial + "\n" + "}"+"\n"+"\n";

@@ -17,7 +17,8 @@ public class Sucursal {
     private static double saldoSucursal;
     
     
-    public void consignarSucursal(double precioRetiro){
-        this.saldoSucursal += precioRetiro;//Se le añade el precio de retiro a el saldo de la sucursal
+    public void consignarSucursal(double precioRetiro)
+    {
+        this.saldoSucursal += precioRetiro;/*Se le añade el precio de retiro a el saldo de la sucursal*/
     }
 }

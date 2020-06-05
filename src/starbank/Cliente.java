@@ -18,18 +18,17 @@ abstract class Cliente {
     protected String telefono;
     protected String direccion;
     protected String ocupacion;
-    protected boolean estaSuscrito;//Se perderá la suscripcion a la sucursal si no tiene por lo menos una cuenta activa
+    protected boolean estaSuscrito;/*Se perderá la suscripcion a la sucursal si no tiene por lo menos una cuenta activa*/
     protected String contraseña;
     protected String tipoCliente;
-//    protected ArrayList<CuentaCorriente> cuentasCorrientes = new ArrayList<CuentaCorriente>();
-//    protected ArrayList<CuentaDeAhorros> cuentasDeAhorros = new ArrayList<CuentaDeAhorros>();
-    //protected ArrayList<Cuenta> cuentasBorradas = new ArrayList<Cuenta>();
 
-    //public void iniciarSesion(String id, String contraseña);//Ir a la base de datos y comprobar que el id y la contraseña esten bien, luego trae toda la informacion del Cliente
+    
     public Cliente() {
     }
 
-    public Cliente(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, String contraseña, String tipoCliente) {
+    public Cliente(String id, String nombre, String telefono, String direccion, String ocupacion, boolean estaSuscrito, 
+            String contraseña, String tipoCliente) {
+        
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -40,102 +39,94 @@ abstract class Cliente {
         this.tipoCliente = tipoCliente;
     }
 
-//------------------------------------------------------------------------------   
-//    public void agregarCuentaCorriente(CuentaCorriente cuenta) {
-//        cuentasCorrientes.add(cuenta);
-//    }
-//
-//    public void agregarCuentaDeAhorros(CuentaDeAhorros cuenta) {
-//        cuentasDeAhorros.add(cuenta);
-//    }
-
 //------------------------------------------------------------------------------ 
-    public String getId() {
+    public String getId() 
+    {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(String id) 
+    {
         this.id = id;
     }
 
     //-----------------------------------------
-    public String getNombre() {
+    public String getNombre() 
+    {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) 
+    {
         this.nombre = nombre;
     }
 
     //-----------------------------------------
-    public String getTelefono() {
+    public String getTelefono() 
+    {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(String telefono) 
+    {
         this.telefono = telefono;
     }
 
     //-----------------------------------------
-    public String getDireccion() {
+    public String getDireccion() 
+    {
         return direccion;
     }
 
-    public void setDireccion(String direccion) {
+    public void setDireccion(String direccion) 
+    {
         this.direccion = direccion;
     }
 
     //-----------------------------------------
-    public String getOcupacion() {
+    public String getOcupacion() 
+    {
         return ocupacion;
     }
 
-    public void setOcupacion(String ocupacion) {
+    public void setOcupacion(String ocupacion) 
+    {
         this.ocupacion = ocupacion;
     }
 
     //-----------------------------------------
-    public boolean getEstaSuscrito() {
+    public boolean getEstaSuscrito()
+    {
         return estaSuscrito;
     }
 
-    public void setEstaSuscrito(boolean estaSuscrito) {
+    public void setEstaSuscrito(boolean estaSuscrito) 
+    {
         this.estaSuscrito = estaSuscrito;
     }
 
     //-----------------------------------------
-    public String getContraseña() {
+    public String getContraseña()
+    {
         return contraseña;
     }
 
-    public void setContraseña(String contraseña) {
+    public void setContraseña(String contraseña)
+    {
         this.contraseña = contraseña;
     }
+    
     //----------------------------------------- 
-
-    public String getTipoCliente() {
+    public String getTipoCliente()
+    {
         return tipoCliente;
     }
 
-    public void setTipoCliente(String tipoCliente) {
+    public void setTipoCliente(String tipoCliente)
+    {
         this.tipoCliente = tipoCliente;
     }
+    
     //-----------------------------------------     
-
-//    public ArrayList<CuentaCorriente> getCuentasCorrientes() {
-//        return cuentasCorrientes;
-//    }
-//
-//    public void setCuentasCorrientes(ArrayList<CuentaCorriente> cuentasCorrientes) {
-//        this.cuentasCorrientes = cuentasCorrientes;
-//    }
-//
-//    public ArrayList<CuentaDeAhorros> getCuentasDeAhorros() {
-//        return cuentasDeAhorros;
-//    }
-//
-//    public void setCuentasDeAhorros(ArrayList<CuentaDeAhorros> cuentasDeAhorros) {
-//        this.cuentasDeAhorros = cuentasDeAhorros;
-//    }
 
 }

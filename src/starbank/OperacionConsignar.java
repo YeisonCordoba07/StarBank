@@ -15,22 +15,25 @@ import java.util.Date;
 public class OperacionConsignar extends Operacion {
 
     private double valorAConsignar;
-
-    public OperacionConsignar(String nombreOperacion, Date fechaOperacion, double valor) {
+    
+    
+    
+    public OperacionConsignar(String nombreOperacion, Date fechaOperacion, double valor) 
+    {
         super(nombreOperacion, fechaOperacion);
         this.valorAConsignar = valor;//Revisar
     }
-
-    public void buscarValor() {
-        //busca dentro de otros el valor y lo guarda en valorAConsignar
-    }
-
+    
+    
+    
+//------------------------------------------------------------------------------
     @Override
-    public String retornaStringOperacion() {
+    public String retornaStringOperacion() 
+    {
         String operacionString = "";
-        operacionString += "Operacion: "+nombreOperacion + "\n";
-        operacionString += "Fecha: "+fechaOperacion + "\n";
-        operacionString += "Valor consignado: "+valorAConsignar;
+        operacionString += "Operacion: " + nombreOperacion + "\n";
+        operacionString += "Fecha: " + fechaOperacion + "\n";
+        operacionString += "Valor consignado: " + valorAConsignar;
         return operacionString;
     }
 }

@@ -13,11 +13,15 @@ import java.util.Date;
  * @author YEISON
  */
 public class Operacion {
+
     protected String nombreOperacion;
     protected Date fechaOperacion;
+
     
-    //Contructor----------------------------------------------------------------
-    public Operacion(String nombreOperacion, Date fechaOperacion) {
+    
+    
+    public Operacion(String nombreOperacion, Date fechaOperacion)
+    {
         this.nombreOperacion = nombreOperacion;
         this.fechaOperacion = fechaOperacion;
 
@@ -25,36 +29,40 @@ public class Operacion {
     
     
     
+
 //------------------------------------------------------------------------------ 
-    
-    public String retornaStringOperacion(){
+    public String retornaStringOperacion()
+    {
         String operacionString = "";
-        operacionString += "Operacion:"+nombreOperacion + "\n";
-        operacionString += "Fecha: "+fechaOperacion +"\n";
+        operacionString += "Operacion:" + nombreOperacion + "\n";
+        operacionString += "Fecha: " + fechaOperacion + "\n";
         return operacionString;
     }
-    
-    
+
     
 //Setter y Getters--------------------------------------------------------------
-    public String getNombreOperacion() {
+    public String getNombreOperacion()
+    {
         return nombreOperacion;
     }
 
-    public void setNombreOperacion(String nombreOperacion) {
+    public void setNombreOperacion(String nombreOperacion)
+    {
         this.nombreOperacion = nombreOperacion;
     }
+
     //--------------------------------------------
-    public Date getFechaOperacion() {
+    public Date getFechaOperacion() 
+    {
         return fechaOperacion;
     }
 
-    public void setFechaOperacion(Date fechaOperacion) {
+    public void setFechaOperacion(Date fechaOperacion) 
+    {
         this.fechaOperacion = fechaOperacion;
     }
-    //--------------------------------------------
+    
+    
 
 //------------------------------------------------------------------------------    
-    
-    
 }
