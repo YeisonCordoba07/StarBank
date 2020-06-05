@@ -34,7 +34,8 @@ public abstract class Cuenta {
 
 //---------------------------------------------------------------------------------------------------------------------
     public void consignar(double valorAConsignar) {
-
+        saldo += valorAConsignar;
+        //Añadir a operaciones
     }
 
     //Solo se pueden hacer retiros si el valor es mayor a 20000 y multiplo de 10000 

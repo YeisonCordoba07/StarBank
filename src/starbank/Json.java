@@ -237,27 +237,6 @@ public class Json {
 
     }
 
-//--------------------------------------------------------------------------------------------------------------------------------  
-//    public void agregarCuentasCorrientesACliente() {
-//        for (int i = 0; i < clientePersona.size(); i++) {
-//            for (int j = 0; j < cuentaCorriente.size(); j++) {
-//                if (cuentaCorriente.get(j).getIdCliente().equalsIgnoreCase(clientePersona.get(i).getId())) {
-//                    clientePersona.get(i).agregarCuentaCorriente(cuentaCorriente.get(j));
-//                }
-//            }
-//        }
-//    }
-//
-//    //--------------------------------------------------------------------------
-//    public void agregarCuentasDeAhorrosACliente() {
-//        for (int i = 0; i < clientePersona.size(); i++) {
-//            for (int j = 0; j < cuentaDeAhorros.size(); j++) {
-//                if (cuentaDeAhorros.get(j).getIdCliente().equalsIgnoreCase(clientePersona.get(i).getId())) {
-//                    clientePersona.get(i).agregarCuentaDeAhorros(cuentaDeAhorros.get(j));
-//                }
-//            }
-//        }
-//    }
 //-------------------------------------------------------------------------------------------------------------------------------- 
     //Busca en la lista de clientes al cliente con la id que se le pasa como parametro, y lo retorna y lo encuentra
     //También sirve para saber si el cliente existe
@@ -351,10 +330,11 @@ public class Json {
         } else {
             sobreescribirCuenta(stringCuenta);
         }
-        //----------------------------------------------
 
     }
 
+    
+    
     //--------------------------------------------------------------------------
     public void actulizarCuentaDeAhorros(CuentaDeAhorros cuenta) {
         if (cuenta != null) {

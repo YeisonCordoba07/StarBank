@@ -74,6 +74,16 @@ public class Cajero {
         Json.objetoJson.actulizarCuentaDeAhorros(deAhorros);
     }
 
+    public boolean verificar(Double valor, Double saldo, Double porcentajeCobro) {
+        if (valor % 10000 == 0) {
+            if (saldo - (valor * porcentajeCobro + valor) >= 10000) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     //Lee lo que está en la base de datos Json
     public void traerJson() {
         Json.objetoJson.leerJson();
