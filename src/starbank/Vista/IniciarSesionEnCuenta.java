@@ -29,7 +29,8 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
     public static String tipoCuenta;
     private ArrayList<CuentaCorriente> listaCuentaCorriente;
     private ArrayList<CuentaDeAhorros> listaCuentaDeAhorros;
-    public static Cuenta cuenta;
+    public static CuentaCorriente cuentaCorriente;
+    public static CuentaDeAhorros cuentaDeAhorros;
 
     DefaultTableModel modelo;
 
@@ -223,7 +224,7 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
                             //Abrir infoCuenta
                             this.idCuenta = ComboBoxCuentas.getSelectedItem().toString();
                             this.tipoCuenta = "Corriente";
-                            cuenta = listaCuentaCorriente.get(i);
+                            this.cuentaCorriente = listaCuentaCorriente.get(i);
                             InformacionCuenta informacionCuenta = new InformacionCuenta();
                             informacionCuenta.setVisible(true);
                             this.dispose();
@@ -251,7 +252,7 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
                                 //System.out.println("exito de ahorros :)");
                                 this.idCuenta = ComboBoxCuentas.getSelectedItem().toString();
                                 this.tipoCuenta = "DeAhorros";
-                                cuenta = listaCuentaDeAhorros.get(i);
+                                cuentaDeAhorros = listaCuentaDeAhorros.get(i);
                                 InformacionCuenta informacionCuenta = new InformacionCuenta();
                                 informacionCuenta.setVisible(true);
                                 this.dispose();

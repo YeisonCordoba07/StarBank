@@ -20,23 +20,42 @@ public class InformacionCuenta extends javax.swing.JFrame {
     /**
      * Creates new form InformacionCuenta
      */
-    private Cuenta cuenta;
     DefaultTableModel modelo;
+    public static String tipoCuenta;
+    public static CuentaCorriente cuentaCorriente;
+    public static CuentaDeAhorros cuentaDeAhorros;
 
     public InformacionCuenta() {
         initComponents();
-        cuenta = IniciarSesionEnCuenta.cuenta;
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.tipoCuenta = IniciarSesionEnCuenta.tipoCuenta;
+        this.setLayout(null);
         modelo = (DefaultTableModel) TablaInformacionCuenta.getModel();
-        modelo.setValueAt(cuenta.getIdCuenta(), 0, 0);
-        modelo.setValueAt(cuenta.getSaldo(), 0, 1);
-        modelo.setValueAt(cuenta.getContraseñaCuenta(), 0, 2);
-        modelo.setValueAt(cuenta.getEstaActiva(), 0, 3);
-        modelo.setValueAt(cuenta.getIdCliente(), 0, 4);
+//        if (IniciarSesionEnCuenta.tipoCuenta.equalsIgnoreCase("DeAhorros")) {
+//            modelo.addColumn("interes4");
+//            TablaInformacionCuenta.setModel(modelo);
+//        }
+        if (IniciarSesionEnCuenta.tipoCuenta.equalsIgnoreCase("Corriente")) {
+            this.cuentaCorriente = IniciarSesionEnCuenta.cuentaCorriente;
 
-    }
-    public Cuenta retornaCuenta(){
-        return cuenta;
+            modelo.setValueAt(cuentaCorriente.getIdCuenta(), 0, 0);
+            modelo.setValueAt(cuentaCorriente.getSaldo(), 0, 1);
+            modelo.setValueAt(cuentaCorriente.getContraseñaCuenta(), 0, 2);
+            modelo.setValueAt(cuentaCorriente.getEstaActiva(), 0, 3);
+            modelo.setValueAt(cuentaCorriente.getIdCliente(), 0, 4);
+
+        } else if (IniciarSesionEnCuenta.tipoCuenta.equalsIgnoreCase("DeAhorros")) {
+            this.cuentaDeAhorros = IniciarSesionEnCuenta.cuentaDeAhorros;
+
+            modelo.setValueAt(cuentaDeAhorros.getIdCuenta(), 0, 0);
+            modelo.setValueAt(cuentaDeAhorros.getSaldo(), 0, 1);
+            modelo.setValueAt(cuentaDeAhorros.getContraseñaCuenta(), 0, 2);
+            modelo.setValueAt(cuentaDeAhorros.getEstaActiva(), 0, 3);
+            modelo.setValueAt(cuentaDeAhorros.getIdCliente(), 0, 4);
+
+            modelo.setValueAt(cuentaDeAhorros.getINTERES(), 0, 5);
+        }
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
     }
 
     /**
@@ -66,17 +85,17 @@ public class InformacionCuenta extends javax.swing.JFrame {
         TablaInformacionCuenta.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         TablaInformacionCuenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Id Cuenta", "Saldo", "Contraseña", "Esta activa", "Id Cliente"
+                "Id Cuenta", "Saldo", "Contraseña", "Esta activa", "Id Cliente", "INTERES"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Boolean.class, java.lang.String.class
+                java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Boolean.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -88,6 +107,10 @@ public class InformacionCuenta extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(TablaInformacionCuenta);
+        if (TablaInformacionCuenta.getColumnModel().getColumnCount() > 0) {
+            TablaInformacionCuenta.getColumnModel().getColumn(5).setMinWidth(0);
+            TablaInformacionCuenta.getColumnModel().getColumn(5).setMaxWidth(0);
+        }
 
         jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jButton1.setText("Consignar");

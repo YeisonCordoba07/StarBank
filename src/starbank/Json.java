@@ -324,43 +324,67 @@ public class Json {
 
     //--------------------------------------------------------------------------
     public void actulizarCuentaCorriente(CuentaCorriente cuenta) {
-        String nuevoStringCuenta = "[";
+        if (cuenta != null) {
+            stringCuenta = "[";
+        }
         for (int i = 0; i < cuentaCorriente.size(); i++) {
-            if (cuentaCorriente.get(i).getIdCuenta().equalsIgnoreCase(cuenta.getIdCuenta())) {
-                nuevoStringCuenta += gson.toJson(cuenta);
+            try {
+                if (cuentaCorriente.get(i).getIdCuenta().equalsIgnoreCase(cuenta.getIdCuenta())) {
+                    stringCuenta += gson.toJson(cuenta);
 
-            } else {
-                nuevoStringCuenta += gson.toJson(cuentaCorriente.get(i));
+                } else {
+                    stringCuenta += gson.toJson(cuentaCorriente.get(i));
+                }
+            } catch (NullPointerException e) {
+                System.out.println("Nullo en actualizarCuentaCorriente");
             }
 
             if (i + 1 == cuentaCorriente.size()) {
-                nuevoStringCuenta += "]";
+                stringCuenta += "]";
             } else {
-                nuevoStringCuenta += ",";
+                stringCuenta += ",";
             }
         }
-        sobreescribirCuenta(nuevoStringCuenta);
+
+        if (cuenta != null) {
+            actulizarCuentaDeAhorros(null);
+        } else {
+            sobreescribirCuenta(stringCuenta);
+        }
+        //----------------------------------------------
+
     }
-    
-    
+
     //--------------------------------------------------------------------------
     public void actulizarCuentaDeAhorros(CuentaDeAhorros cuenta) {
-        String nuevoStringCuenta = "[";
-        for (int i = 0; i < cuentaDeAhorros.size(); i++) {
-            if (cuentaDeAhorros.get(i).getIdCuenta().equalsIgnoreCase(cuenta.getIdCuenta())) {
-                nuevoStringCuenta += gson.toJson(cuenta);
+        if (cuenta != null) {
+            stringCuenta = "[";
+        }
 
-            } else {
-                nuevoStringCuenta += gson.toJson(cuentaDeAhorros.get(i));
+        for (int i = 0; i < cuentaDeAhorros.size(); i++) {
+            try {
+                if (cuentaDeAhorros.get(i).getIdCuenta().equalsIgnoreCase(cuenta.getIdCuenta())) {
+                    stringCuenta += gson.toJson(cuenta);
+
+                } else {
+                    stringCuenta += gson.toJson(cuentaDeAhorros.get(i));
+                }
+            } catch (NullPointerException e) {
+                System.out.println("Nullo en actualizar cuenta de ahorros");
             }
 
             if (i + 1 == cuentaDeAhorros.size()) {
-                nuevoStringCuenta += "]";
+                stringCuenta += "]";
             } else {
-                nuevoStringCuenta += ",";
+                stringCuenta += ",";
             }
         }
-        sobreescribirCuenta(nuevoStringCuenta);
+        if (cuenta != null) {
+            actulizarCuentaCorriente(null);
+        } else {
+            sobreescribirCuenta(stringCuenta);
+        }
+
     }
 
 }
