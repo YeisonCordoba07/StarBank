@@ -155,8 +155,8 @@ public class Cajero {
     /*Lee lo que está en la base de datos Json*/
     public void traerJson() 
     {
-        Json.objetoJson.leerJson();
-        Json.objetoJson.leerCuenta();
+        Json.objetoJson.leerClientes();
+        Json.objetoJson.leerCuentas();
     }
 
 }

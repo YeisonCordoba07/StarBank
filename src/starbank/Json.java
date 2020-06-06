@@ -71,13 +71,13 @@ public class Json {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        leerJson();
+        leerClientes();
     }
 
     //--------------------------------------------------------------------------
     /*Trae lo que está en el archivo Json. Guarda todo en stringJson. Pero los 
     clientes los guarda en las listas clientePersona o clienteEmpresa*/
-    public void leerJson()
+    public void leerClientes()
     {
         String newStringJson = "";
 
@@ -200,11 +200,11 @@ public class Json {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        leerCuenta();
+        leerCuentas();
     }
 
     //--------------------------------------------------------------------------
-    public void leerCuenta() {
+    public void leerCuentas() {
         //Trae la lista de la base de datos
         String newStringCuenta = "";
 
