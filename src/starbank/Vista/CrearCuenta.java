@@ -6,6 +6,7 @@
 package starbank.Vista;
 
 import java.awt.Color;
+import javax.swing.JFrame;
 import starbank.Cajero;
 
 /**
@@ -19,6 +20,8 @@ public class CrearCuenta extends javax.swing.JFrame {
      */
     public CrearCuenta() {
         initComponents();
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         TextFieldIdCliente.setText(MenuCliente.idCliente);
         TextFieldIdCliente.setEnabled(false);
         ComboBoxTipoCliente.setSelectedItem(MenuCliente.tipoCliente);
@@ -190,6 +193,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         } else {
             if (ComboBoxTipoCuenta.getSelectedItem().toString().equalsIgnoreCase("Cuenta corriente")) 
             {
+                /*Verifica que no exista*/
                 if (Cajero.cajero.existeCuenta(TextFieldIdCuenta.getText(), "Corriente") == false) 
                 {
                     Cajero.cajero.crearCuentaCorriente(TextFieldIdCuenta.getText(), TextFieldIdCliente.getText(),

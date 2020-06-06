@@ -76,8 +76,6 @@ public class MenuStarBank extends javax.swing.JFrame {
         ComboBoxTipoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Persona", "Empresa" }));
         ComboBoxTipoCliente.setSelectedItem(null);
 
-        LabelError.setText("jLabel2");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -98,8 +96,8 @@ public class MenuStarBank extends javax.swing.JFrame {
                         .addGap(141, 141, 141)
                         .addComponent(ComboBoxTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(LabelError)))
+                        .addGap(140, 140, 140)
+                        .addComponent(LabelError, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,8 +118,8 @@ public class MenuStarBank extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(BotonIniciarSesionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LabelError)
-                .addGap(62, 135, Short.MAX_VALUE))
+                .addComponent(LabelError, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,56 +151,63 @@ public class MenuStarBank extends javax.swing.JFrame {
     private void BotonIniciarSesionClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIniciarSesionClienteActionPerformed
 
         //Mira el tipo de Cliente para buscarlo en la lista de Personas o Empresas
-        if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Persona"))
-        {
-            //Busca el id dentro de la lista de clientes
-            ClientePersona persona = Cajero.cajero.traerClientePersona(TextFieldId.getText());
-
-            //Si persona es nulo significa que el cliente no está registrado y manda un mensaje para que se registre
-            if (persona == null)
+        if (TextFieldId.getText().length() > 0 && TextFieldContraseña.getText().length() > 0) {
+            try 
             {
-                LabelError.setText("Cliente no registrado");
-                System.out.println("Cliente Nulo");
-            } else {
-                //Si el cliente si está registrado, entonces comprueba la contraseña
-                if (TextFieldContraseña.getText().equalsIgnoreCase(persona.getContraseña()))
+                if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Persona")) 
                 {
-                    this.idCliente = TextFieldId.getText();
-                    this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
-                    this.iniciarSesion = true;
-                    
-                    //Va a la clase MenuCliente, como traerInformacionCliente sesion en true, vendrá a está clase a tomar los valores de id y tipoCliente
-                    MenuCliente menuCliente = new MenuCliente();
-                    menuCliente.setVisible(true);
+                    //Busca el id dentro de la lista de clientes
+                    ClientePersona persona = Cajero.cajero.traerClientePersona(TextFieldId.getText());
 
-                } else {
-                    System.out.println("Contraseña persona incorreta");
+                    //Si persona es nulo significa que el cliente no está registrado y manda un mensaje para que se registre
+                    if (persona == null) 
+                    {
+                        LabelError.setText("Cliente no registrado");
+                    } else {
+                        //Si el cliente si está registrado, entonces comprueba la contraseña
+                        if (TextFieldContraseña.getText().equalsIgnoreCase(persona.getContraseña()))
+                        {
+                            this.idCliente = TextFieldId.getText();
+                            this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
+                            this.iniciarSesion = true;
+
+                            //Va a la clase MenuCliente. Como traerInformacionCliente es true, vendrá a está clase a tomar los valores de id y tipoCliente
+                            MenuCliente menuCliente = new MenuCliente();
+                            menuCliente.setVisible(true);
+
+                        } else {
+                            LabelError.setText("Contraseña incorrecta");
+                        }
+                    }
+
+                } else if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Empresa"))
+                {
+                    ClienteEmpresa empresa = Cajero.cajero.traerClienteEmpresa(TextFieldId.getText());
+
+                    if (empresa == null) {
+                        LabelError.setText("Cliente no registrado");
+                    } else {
+                        if (TextFieldContraseña.getText().equalsIgnoreCase(empresa.getContraseña())) {
+                            this.idCliente = TextFieldId.getText();
+                            this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
+                            this.iniciarSesion = true;
+
+                            MenuCliente menuCliente = new MenuCliente();
+                            menuCliente.setVisible(true);
+                        } else {
+                            LabelError.setText("Contraseña incorrecta");
+                        }
+                    }
                 }
+                
+            } catch (NullPointerException e) {
+                LabelError.setText("Seleccione tipo de cliente");
             }
 
-        } else if (ComboBoxTipoCliente.getSelectedItem().toString().equalsIgnoreCase("Empresa")){
-            ClienteEmpresa empresa = Cajero.cajero.traerClienteEmpresa(TextFieldId.getText());
-
-            if (empresa == null) 
-            {
-                LabelError.setText("Cliente no registrado");
-                System.out.println("Cliente Nulo");
-            } else {
-                if (TextFieldContraseña.getText().equalsIgnoreCase(empresa.getContraseña())) 
-                {
-                    this.idCliente = TextFieldId.getText();
-                    this.tipoCliente = ComboBoxTipoCliente.getSelectedItem().toString();
-                    this.iniciarSesion = true;
-
-                    MenuCliente menuCliente = new MenuCliente();
-                    menuCliente.setVisible(true);
-                } else {
-                    System.out.println("Contraseña empresa incorreta");
-                }
-            }
         } else {
-            System.out.println("Ninguno seleccionado");
+            LabelError.setText("Llene todos los campos");
         }
+
     }//GEN-LAST:event_BotonIniciarSesionClienteActionPerformed
 
     /**

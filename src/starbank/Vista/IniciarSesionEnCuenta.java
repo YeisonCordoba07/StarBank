@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import starbank.Cajero;
-import starbank.Cuenta;
 import starbank.CuentaCorriente;
 import starbank.CuentaDeAhorros;
 
@@ -36,6 +35,7 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
 
     public IniciarSesionEnCuenta() {
         initComponents();
+        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
         this.setBackground(Color.yellow);
@@ -49,6 +49,7 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
         ComboBoxCuentas.setSelectedIndex(0); //selecciona ese primer item nulo
         
         modelo = (DefaultTableModel) TablaCuentas.getModel();
+        /*Llena la informacion de la tabla con todos los tipos de cuenta que tenga el cliente*/
         for (int i = 0; i < listaCuentaCorriente.size(); i++) 
         {
             modelo.addRow(new Object[]{"", ""});//Agrega una nueva fila
@@ -210,7 +211,7 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        imprimirListaCorriente();
+        //imprimirListaCorriente();
         boolean esCuentaDeAhorros = false;
         if (ComboBoxCuentas.getSelectedIndex() == 0)
         {

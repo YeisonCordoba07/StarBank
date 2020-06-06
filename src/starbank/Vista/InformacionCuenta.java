@@ -27,14 +27,14 @@ public class InformacionCuenta extends javax.swing.JFrame {
 
     public InformacionCuenta() {
         initComponents();
+        this.setResizable(false);
         this.tipoCuenta = IniciarSesionEnCuenta.tipoCuenta;
         this.setLayout(null);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         modelo = (DefaultTableModel) TablaInformacionCuenta.getModel();
-//        if (IniciarSesionEnCuenta.tipoCuenta.equalsIgnoreCase("DeAhorros")) {
-//            modelo.addColumn("interes4");
-//            TablaInformacionCuenta.setModel(modelo);
-//        }
-        if (IniciarSesionEnCuenta.tipoCuenta.equalsIgnoreCase("Corriente")) {
+
+        if (IniciarSesionEnCuenta.tipoCuenta.equalsIgnoreCase("Corriente")) 
+        {
             this.cuentaCorriente = IniciarSesionEnCuenta.cuentaCorriente;
 
             modelo.setValueAt(cuentaCorriente.getIdCuenta(), 0, 0);
@@ -52,9 +52,8 @@ public class InformacionCuenta extends javax.swing.JFrame {
             modelo.setValueAt(cuentaDeAhorros.getEstaActiva(), 0, 3);
             modelo.setValueAt(cuentaDeAhorros.getIdCliente(), 0, 4);
 
-            modelo.setValueAt(cuentaDeAhorros.getINTERES(), 0, 5);
         }
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 
     }
 

@@ -5,6 +5,7 @@
  */
 package starbank.Vista;
 
+import javax.swing.JFrame;
 import starbank.Cajero;
 import starbank.Cuenta;
 import starbank.CuentaDeAhorros;
@@ -20,6 +21,8 @@ public class Consignar extends javax.swing.JFrame {
      */
     public Consignar() {
         initComponents();
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**

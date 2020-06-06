@@ -6,6 +6,7 @@
 package starbank.Vista;
 
 import java.awt.Color;
+import javax.swing.JFrame;
 import starbank.Cajero;
 
 /**
@@ -23,6 +24,10 @@ public class Retirar extends javax.swing.JFrame {
 
     public Retirar() {
         initComponents();
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        /*Al iniciar le da los valores a saldo y porcentajeCobro, con la informacion de la cuenta*/
         if (InformacionCuenta.tipoCuenta.equalsIgnoreCase("Corriente"))
         {
             TextFieldSaldo.setText("" + InformacionCuenta.cuentaCorriente.getSaldo());
@@ -245,7 +250,7 @@ public class Retirar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//Verificar valor
+/*Verifica que el valor a retirar que se ingresó sea valido para retirar*/
     private void BotonVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerificarActionPerformed
         LabelVerificar.setText("");
         LabelError.setText("");
@@ -274,8 +279,6 @@ public class Retirar extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonVerificarActionPerformed
 
     private void BotonRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRetirarActionPerformed
-        // TODO add your handling code here:
-        //LabelVerificar.setText("");
         LabelError.setText("");
         if (TextFieldValorARetirar.getText().length() > 0) 
         {

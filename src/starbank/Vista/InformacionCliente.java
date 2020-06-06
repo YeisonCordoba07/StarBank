@@ -29,13 +29,16 @@ public class InformacionCliente extends javax.swing.JFrame {
     
     public InformacionCliente() {
         initComponents();
+        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         modelo = (DefaultTableModel) TablaInformacion.getModel();
 
         this.idCliente = MenuCliente.idCliente;
         this.tipoCliente = MenuCliente.tipoCliente;
-        System.out.println("TipoCliente: "+this.tipoCliente + MenuCliente.tipoCliente);
-        if (this.tipoCliente.equalsIgnoreCase("Persona")) {
+
+        /*Le da el contenido a la table dependiendo de la informacion del cliente y de su tipo*/
+        if (this.tipoCliente.equalsIgnoreCase("Persona"))
+        {
             persona = Cajero.cajero.traerClientePersona(this.idCliente);
             modelo.setValueAt(persona.getId(), 0, 1);
             modelo.setValueAt(persona.getNombre(), 1, 1);
@@ -61,7 +64,6 @@ public class InformacionCliente extends javax.swing.JFrame {
             System.out.println("ClienteNoEncontrado en InformacionCliente");
         }
 
-        //TablaInformacion.setColumnModel("hola");
     }
 
     /**

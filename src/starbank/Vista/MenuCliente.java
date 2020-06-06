@@ -5,6 +5,7 @@
  */
 package starbank.Vista;
 
+import java.awt.ComponentOrientation;
 import starbank.Cajero;
 import starbank.ClienteEmpresa;
 import starbank.ClientePersona;
@@ -25,6 +26,8 @@ public class MenuCliente extends javax.swing.JFrame {
 
     public MenuCliente() {
         initComponents();
+        this.setResizable(false);
+        
 
         //Comprueba si tiene que ir a MenuStarBank o a CrearCliente por los datos de idCliente y tipoCliente
         if (MenuStarBank.iniciarSesion) 
@@ -39,6 +42,8 @@ public class MenuCliente extends javax.swing.JFrame {
 
     }
 
+    
+    
     public void traerInformacionCliente() 
     {
         try 
@@ -132,7 +137,7 @@ public class MenuCliente extends javax.swing.JFrame {
                                 .addGap(145, 145, 145))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(LabelNombreCliente)
-                        .addGap(202, 202, 202))))
+                        .addGap(210, 210, 210))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

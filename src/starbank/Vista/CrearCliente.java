@@ -25,6 +25,7 @@ public class CrearCliente extends javax.swing.JFrame {
 
     public CrearCliente() {
         initComponents();
+        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
@@ -242,18 +243,20 @@ public class CrearCliente extends javax.swing.JFrame {
     //Comprueba que los campos no estén vacios, si no lo están, entonces mira que el cliente que se va a registrar no esté registrado
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        switch ((String) ComboBoxTipoCliente.getSelectedItem()) {
+        switch ((String) ComboBoxTipoCliente.getSelectedItem()) 
+        {
             case "Persona":
                 //Comprueba que los campos no estén vacios
                 if (TextFieldId.getText().length() == 0 || TextFieldNombre.getText().length() == 0 || TextFieldTelefono.getText().length() == 0
-                        || TextFieldDireccion.getText().length() == 0 || TextFieldOcupacion.getText().length() == 0 || TextFieldContraseña.getText().length() == 0) {
+                        || TextFieldDireccion.getText().length() == 0 || TextFieldOcupacion.getText().length() == 0 || TextFieldContraseña.getText().length() == 0){
 
                     LabelError.setForeground(Color.red);
                     LabelError.setText("Llene todos los campos");
 
                 } else {
                     //Comprueba que el cliente no este registrado
-                    if (Cajero.cajero.traerClientePersona(TextFieldId.getText()) == null) {
+                    if (Cajero.cajero.traerClientePersona(TextFieldId.getText()) == null)
+                    {
                         Cajero.cajero.crearClientePersona(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
                                 TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem());
 
@@ -271,7 +274,6 @@ public class CrearCliente extends javax.swing.JFrame {
                         LabelError.setForeground(Color.red);
                         LabelError.setText("Usuario Persona ya registrado");
                     }
-
                 }
 
                 break;
@@ -285,7 +287,8 @@ public class CrearCliente extends javax.swing.JFrame {
                     LabelError.setText("Llene todos los campos");
                 } else {
                     //Comprueba que el cliente no este registrado
-                    if (Cajero.cajero.traerClienteEmpresa(TextFieldId.getText()) == null) {
+                    if (Cajero.cajero.traerClienteEmpresa(TextFieldId.getText()) == null)
+                    {
                         Cajero.cajero.crearClienteEmpresa(TextFieldId.getText(), TextFieldNombre.getText(), TextFieldTelefono.getText(), TextFieldDireccion.getText(),
                                 TextFieldOcupacion.getText(), false, TextFieldContraseña.getText(), (String) ComboBoxTipoCliente.getSelectedItem(),
                                 TextFieldNit.getText(), TextFieldNombreEmpresa.getText(), TextFieldSectorComercial.getText());
@@ -308,7 +311,8 @@ public class CrearCliente extends javax.swing.JFrame {
 
                 break;
             default:
-                System.out.println("Error digitando el tipo de cliente en Clase Crear Cliente");
+                LabelError.setForeground(Color.red);
+                LabelError.setText("Error digitando el tipo de cliente");
                 break;
         }
 
