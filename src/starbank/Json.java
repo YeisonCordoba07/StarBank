@@ -325,28 +325,38 @@ public class Json {
         return null;
     }
 
-    
-    
-//--------------------------------------------------------------------------------------------------------------------------------
-//    public CuentaCorriente retornaCuentaCorriente(String idCuenta) {
-//        for (CuentaCorriente corriente : this.cuentaCorriente) {
-//            if (corriente.getIdCuenta().equalsIgnoreCase(idCuenta)) {
-//                return corriente;
-//            }
-//        }
-//        return null;
-//    }
-//
-//    //--------------------------------------------------------------------------
-//    public CuentaDeAhorros retornaCuentaDeAhorros(String idCuenta) {
-//        for (CuentaDeAhorros deAhorros : this.cuentaDeAhorros) {
-//            if (deAhorros.getIdCuenta().equalsIgnoreCase(idCuenta)) {
-//                return deAhorros;
-//            }
-//        }
-//        return null;
-//    }
 
+
+//--------------------------------------------------------------------------------------------------------------------------------    
+    public boolean existeCuenta(String idCuenta, String tipoCuenta)
+    {
+        if(tipoCuenta.equalsIgnoreCase("Corriente"))
+        {
+            for(CuentaCorriente corriente : this.cuentaCorriente)
+            {
+                if(corriente.getIdCuenta().equals(idCuenta))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }else if(tipoCuenta.equalsIgnoreCase("DeAhorros"))
+        {
+            for(CuentaDeAhorros ahorros : this.cuentaDeAhorros)
+            {
+                if(ahorros.getIdCuenta().equals(idCuenta))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }else{
+            System.out.println("No se puede determinar si la cuenta existe, tipo incorrecto");
+        }
+        return false;
+    }
+    
+    
 //--------------------------------------------------------------------------------------------------------------------------------
     /*Devuelve todas las cuentas que tenga un cliente*/
     public ArrayList<CuentaCorriente> retornaCuentasCorrientesCliente(String idCliente) 

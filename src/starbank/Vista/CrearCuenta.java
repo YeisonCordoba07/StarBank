@@ -188,15 +188,28 @@ public class CrearCuenta extends javax.swing.JFrame {
             LabelError.setText("Llene todos los campos");
 
         } else {
-            if (ComboBoxTipoCuenta.getSelectedItem().toString().equalsIgnoreCase("Cuenta corriente")) {
+            if (ComboBoxTipoCuenta.getSelectedItem().toString().equalsIgnoreCase("Cuenta corriente")) 
+            {
+                if (Cajero.cajero.existeCuenta(TextFieldIdCuenta.getText(), "Corriente") == false) 
+                {
+                    Cajero.cajero.crearCuentaCorriente(TextFieldIdCuenta.getText(), TextFieldIdCliente.getText(),
+                            TextFieldContraseñaCuenta.getText(), "Corriente");
+                }else{
+                    LabelError.setForeground(Color.red);
+                    LabelError.setText("La cuenta ya existe");
+                }
 
-                Cajero.cajero.crearCuentaCorriente(TextFieldIdCuenta.getText(), TextFieldIdCliente.getText(),
-                        TextFieldContraseñaCuenta.getText(), "Corriente");
-                
-            } else if (ComboBoxTipoCuenta.getSelectedItem().toString().equalsIgnoreCase("cuenta de ahorros")) {
+            } else if (ComboBoxTipoCuenta.getSelectedItem().toString().equalsIgnoreCase("cuenta de ahorros"))
+            {
+                if (Cajero.cajero.existeCuenta(TextFieldIdCuenta.getText(), "DeAhorros") == false) 
+                {
+                    Cajero.cajero.crearCuentaDeAhorros(TextFieldIdCuenta.getText(), TextFieldIdCliente.getText(),
+                            TextFieldContraseñaCuenta.getText(), "DeAhorros");
+                }else{
+                    LabelError.setForeground(Color.red);
+                    LabelError.setText("La cuenta ya existe");
+                }
 
-                Cajero.cajero.crearCuentaDeAhorros(TextFieldIdCuenta.getText(), TextFieldIdCliente.getText(),
-                        TextFieldContraseñaCuenta.getText(), "DeAhorros");
             } else {
                 System.out.println("Tipo de cuenta incorrecta en CrearCuenta");
             }

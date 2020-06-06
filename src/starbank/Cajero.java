@@ -15,9 +15,14 @@ public class Cajero {
 
     public static Cajero cajero = new Cajero();
 
-//    private Cajero() {
-//
-//    }
+    
+    
+    private Cajero() {
+
+    }
+    
+    
+    
 //-------------------------------------------------------------------------------------------------------------------------
     public void crearClientePersona(String id, String nombre, String telefono, String direccion, String ocupacion, 
             boolean estaSuscrito, String contraseña, String tipoCliente) {
@@ -95,6 +100,14 @@ public class Cajero {
     }
     
     
+    
+  //-------------------------------------------------------------------------------------------------------------------------
+    public boolean existeCuenta(String idCuenta, String tipoCuenta)
+    {
+        return Json.objetoJson.existeCuenta(idCuenta, tipoCuenta);
+    }
+    
+       
     
 //-------------------------------------------------------------------------------------------------------------------------
     /*Para actulizar el dato de una cuenta, se busca la cuenta vieja y se reemplaza por la nueva*/
