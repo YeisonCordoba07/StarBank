@@ -33,7 +33,7 @@ public class OperacionRetirar extends Operacion {
         String operacionString = "";
         operacionString += "Operacion: " + nombreOperacion + "\n";
         operacionString += "Fecha: " + fechaOperacion + "\n";
-        operacionString += "Valor retiro: " + valorARetirar;
+        operacionString += "Valor: " + valorARetirar+"\n";
         return operacionString;
     }
 }

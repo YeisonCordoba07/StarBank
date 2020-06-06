@@ -191,32 +191,26 @@ public class CrearCuenta extends javax.swing.JFrame {
             LabelError.setText("Llene todos los campos");
 
         } else {
-            if (ComboBoxTipoCuenta.getSelectedItem().toString().equalsIgnoreCase("Cuenta corriente")) 
+            /*Verifica que no exista*/
+            if (Cajero.cajero.existeCuenta(TextFieldIdCuenta.getText()) == false) 
             {
-                /*Verifica que no exista*/
-                if (Cajero.cajero.existeCuenta(TextFieldIdCuenta.getText(), "Corriente") == false) 
+                if (ComboBoxTipoCuenta.getSelectedItem().toString().equalsIgnoreCase("Cuenta corriente")) 
                 {
                     Cajero.cajero.crearCuentaCorriente(TextFieldIdCuenta.getText(), TextFieldIdCliente.getText(),
                             TextFieldContraseñaCuenta.getText(), "Corriente");
-                }else{
-                    LabelError.setForeground(Color.red);
-                    LabelError.setText("La cuenta ya existe");
-                }
 
-            } else if (ComboBoxTipoCuenta.getSelectedItem().toString().equalsIgnoreCase("cuenta de ahorros"))
-            {
-                if (Cajero.cajero.existeCuenta(TextFieldIdCuenta.getText(), "DeAhorros") == false) 
+                } else if (ComboBoxTipoCuenta.getSelectedItem().toString().equalsIgnoreCase("cuenta de ahorros")) 
                 {
                     Cajero.cajero.crearCuentaDeAhorros(TextFieldIdCuenta.getText(), TextFieldIdCliente.getText(),
                             TextFieldContraseñaCuenta.getText(), "DeAhorros");
-                }else{
-                    LabelError.setForeground(Color.red);
-                    LabelError.setText("La cuenta ya existe");
+                } else {
+                    LabelError.setText("Tipo de cuenta incorrecta");
                 }
-
             } else {
-                System.out.println("Tipo de cuenta incorrecta en CrearCuenta");
+                LabelError.setForeground(Color.red);
+                LabelError.setText("La cuenta ya existe");
             }
+
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -38,7 +38,6 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
-        this.setBackground(Color.yellow);
 
         this.idCliente = MenuCliente.idCliente;
         this.tipoCliente = MenuCliente.tipoCliente;
@@ -211,7 +210,7 @@ public class IniciarSesionEnCuenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //imprimirListaCorriente();
+        imprimirListaCorriente();
         boolean esCuentaDeAhorros = false;
         if (ComboBoxCuentas.getSelectedIndex() == 0)
         {

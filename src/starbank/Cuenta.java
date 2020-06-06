@@ -45,7 +45,7 @@ public abstract class Cuenta {
     {
         saldo += valorAConsignar;
         Date fecha = new Date();
-        OperacionRetirar a = new OperacionRetirar("Consignar", fecha, valorAConsignar);
+        OperacionConsignar a = new OperacionConsignar("Consignar", fecha, valorAConsignar);
         agregarOperacion(a.retornaStringOperacion());
     }
     

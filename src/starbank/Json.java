@@ -328,20 +328,15 @@ public class Json {
 
 
 //--------------------------------------------------------------------------------------------------------------------------------    
-    public boolean existeCuenta(String idCuenta, String tipoCuenta)
+    public boolean existeCuenta(String idCuenta)
     {
-        if(tipoCuenta.equalsIgnoreCase("Corriente"))
-        {
             for(CuentaCorriente corriente : this.cuentaCorriente)
             {
                 if(corriente.getIdCuenta().equals(idCuenta))
                 {
                     return true;
                 }
-            }
-            return false;
-        }else if(tipoCuenta.equalsIgnoreCase("DeAhorros"))
-        {
+            }            
             for(CuentaDeAhorros ahorros : this.cuentaDeAhorros)
             {
                 if(ahorros.getIdCuenta().equals(idCuenta))
@@ -350,10 +345,6 @@ public class Json {
                 }
             }
             return false;
-        }else{
-            System.out.println("No se puede determinar si la cuenta existe, tipo incorrecto");
-        }
-        return false;
     }
     
     

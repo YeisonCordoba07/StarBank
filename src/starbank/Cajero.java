@@ -102,9 +102,9 @@ public class Cajero {
     
     
   //-------------------------------------------------------------------------------------------------------------------------
-    public boolean existeCuenta(String idCuenta, String tipoCuenta)
+    public boolean existeCuenta(String idCuenta)
     {
-        return Json.objetoJson.existeCuenta(idCuenta, tipoCuenta);
+        return Json.objetoJson.existeCuenta(idCuenta);
     }
     
        

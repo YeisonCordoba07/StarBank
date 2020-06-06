@@ -6,6 +6,7 @@
 package starbank.Vista;
 
 import java.awt.ComponentOrientation;
+import javax.swing.JFrame;
 import starbank.Cajero;
 import starbank.ClienteEmpresa;
 import starbank.ClientePersona;
@@ -26,6 +27,8 @@ public class MenuCliente extends javax.swing.JFrame {
 
     public MenuCliente() {
         initComponents();
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
         
 

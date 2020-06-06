@@ -33,7 +33,7 @@ public class OperacionConsignar extends Operacion {
         String operacionString = "";
         operacionString += "Operacion: " + nombreOperacion + "\n";
         operacionString += "Fecha: " + fechaOperacion + "\n";
-        operacionString += "Valor consignado: " + valorAConsignar;
+        operacionString += "Valor: " + valorAConsignar+"\n";
         return operacionString;
     }
 }
