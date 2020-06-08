@@ -47,6 +47,11 @@ public abstract class Cuenta {
         Date fecha = new Date();
         OperacionConsignar a = new OperacionConsignar("Consignar", fecha, valorAConsignar);
         agregarOperacion(a.retornaStringOperacion());
+        if(estaActiva == false){
+            if(saldo >= 20000){
+                estaActiva = true;
+            }
+        }
     }
     
     //--------------------------------------------------------------------------

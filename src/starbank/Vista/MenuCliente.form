@@ -49,25 +49,22 @@
               <Group type="102" attributes="0">
                   <EmptySpace pref="179" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="BotonCrearCuenta" min="-2" pref="408" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="LabelIdCliente" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
+                      <Component id="BotonCrearCuenta" min="-2" pref="408" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="LabelIdCliente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LabelNombreCliente" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="BotonVerInformacionCliente" min="-2" pref="408" max="-2" attributes="0"/>
                                       <Component id="BotonVerInformacionCuentas" min="-2" pref="408" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="LabelNombreCliente" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
